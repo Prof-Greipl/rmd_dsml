@@ -1,14 +1,18 @@
 bookdown::bs4_book:
   css: bs4_style.css
+  split_bib: yes
   theme:
     primary: "#096B72"
   repo: https://github.com/rstudio/bookdown-demo
 
 bookdown::pdf_book:
-  includes:
-    in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
+  template: null
+  pandoc_args: [--top-level-division=chapter, --wrap=none]
+  includes:
+    in_header: [preamble.tex]
+
 
 #bookdown::epub_book: default

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 Data Processing | Data Science &amp; Machine Learning</title>
+<meta name="author" content="Dieter Greipl">
+<meta name="description" content="9.1 Grundsätzliche Fehlerarten Bessere Datenqualität wird zu genaueren Ergebnissen führen. Mögliche Fehlerquellen: Messtechnisch nicht erfassbare Änderungen des zu messenden Gegenstandes, der...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 9 Data Processing | Data Science &amp; Machine Learning">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/assets/x.png">
+<meta property="og:description" content="9.1 Grundsätzliche Fehlerarten Bessere Datenqualität wird zu genaueren Ergebnissen führen. Mögliche Fehlerquellen: Messtechnisch nicht erfassbare Änderungen des zu messenden Gegenstandes, der...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 9 Data Processing | Data Science &amp; Machine Learning">
+<meta name="twitter:description" content="9.1 Grundsätzliche Fehlerarten Bessere Datenqualität wird zu genaueren Ergebnissen führen. Mögliche Fehlerquellen: Messtechnisch nicht erfassbare Änderungen des zu messenden Gegenstandes, der...">
+<meta name="twitter:image" content="/assets/x.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Data Science &amp; Machine Learning</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Willkommen</a></li>
+<li><a class="" href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></li>
+<li><a class="" href="daten.html"><span class="header-section-number">2</span> Daten</a></li>
+<li><a class="" href="matplotlib-und-seaborn.html"><span class="header-section-number">3</span> Matplotlib und Seaborn</a></li>
+<li><a class="" href="plots.html"><span class="header-section-number">4</span> Plots</a></li>
+<li><a class="" href="%C3%BCbungen.html"><span class="header-section-number">5</span> Übungen</a></li>
+<li><a class="" href="plots-f%C3%BCr-iris.html"><span class="header-section-number">6</span> Plots für Iris</a></li>
+<li><a class="" href="beispiele-bilder.html"><span class="header-section-number">7</span> Beispiele: Bilder</a></li>
+<li><a class="" href="sandbox.html"><span class="header-section-number">8</span> Sandbox</a></li>
+<li><a class="active" href="data-processing.html"><span class="header-section-number">9</span> Data Processing</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-processing" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> Data Processing<a class="anchor" aria-label="anchor" href="#data-processing"><i class="fas fa-link"></i></a>
+</h1>
+<div id="grundsätzliche-fehlerarten" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> Grundsätzliche Fehlerarten<a class="anchor" aria-label="anchor" href="#grunds%C3%A4tzliche-fehlerarten"><i class="fas fa-link"></i></a>
+</h2>
+<p>Bessere Datenqualität wird zu genaueren Ergebnissen führen.</p>
+<p>Mögliche Fehlerquellen:</p>
+<ul>
+<li><p>Messtechnisch nicht erfassbare Änderungen des zu messenden Gegenstandes, der Messgeräte, der Umwelt und der Beobachter</p></li>
+<li><p>Ablesefehler</p></li>
+<li><p>Tippfehler</p></li>
+<li><p>mangelnde Kalibrierung</p></li>
+<li><p>falsche Formeln</p></li>
+<li><p>falsches Vorzeichen (+ oder -)</p></li>
+</ul>
+<div id="outliers" class="section level3" number="9.1.1">
+<h3>
+<span class="header-section-number">9.1.1</span> Outliers<a class="anchor" aria-label="anchor" href="#outliers"><i class="fas fa-link"></i></a>
+</h3>
+<p><a href="http://rocketdatascience.org/?p=473">Outliers, Inliers, and Other Surprises that Fly from your Data | Rocket-Powered Data Science (rocketdatascience.org)</a></p>
+</div>
+<div id="inliers-und-drift" class="section level3" number="9.1.2">
+<h3>
+<span class="header-section-number">9.1.2</span> Inliers und Drift<a class="anchor" aria-label="anchor" href="#inliers-und-drift"><i class="fas fa-link"></i></a>
+</h3>
+<div class="figure">
+<img src="1-fehlerarten.assets/image-20211114183020487.png" alt=""><p class="caption">Original Data, Inliers and Drift (Quelle: Runkler)</p>
+</div>
+</div>
+<div id="missing-data-or-invalid-data" class="section level3" number="9.1.3">
+<h3>
+<span class="header-section-number">9.1.3</span> Missing Data or Invalid Data<a class="anchor" aria-label="anchor" href="#missing-data-or-invalid-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>Hier handelt es sich um fehlende Daten, z.B. leere oder ungültige Zellen in Excel-Files. Was tun?</p>
+<p>Möglichkeiten zum Umgang:</p>
+<ul>
+<li><em>invalidity list</em></li>
+<li><em>invalidity value</em></li>
+<li>
+<em>correction / estimation</em>; Examples:
+<ul>
+<li><em>mean, median, minimum, maximum</em></li>
+<li><em>nearest neighbor</em></li>
+<li><em>lineare interpolation</em></li>
+</ul>
+</li>
+<li><em>removal of feature vektor</em></li>
+<li><em>removal of feature</em></li>
+</ul>
+<p> </p>
+</div>
+</div>
+<div id="python-fehlerverdächtige-finden" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Python: Fehler/“Verdächtige” finden<a class="anchor" aria-label="anchor" href="#python-fehlerverd%C3%A4chtige-finden"><i class="fas fa-link"></i></a>
+</h2>
+<p>In diesem und den folgenden Abschnitte arbeiten wir mit folgendem dem Dataframe X. Dieser sollte immer erzeugt sein, sonst funktionieren die weiterten Beispiele nicht.</p>
+<pre><code>import pandas as pd
+import numpy as np
+
+X = pd.DataFrame({
+   "jahr": [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+    "dax": [6914.19, 5898.35, 7612.39, 9552.16, 9805.55, np.nan, 11481.06, 2917.64, 10558.96, 13249.01] 
+   })</code></pre>
+<div id="überblick-verschaffen-mit-dataframes-describe-und-info" class="section level3" number="9.2.1">
+<h3>
+<span class="header-section-number">9.2.1</span> Überblick verschaffen mit Dataframes: <code>describe</code> und <code>info</code><a class="anchor" aria-label="anchor" href="#%C3%BCberblick-verschaffen-mit-dataframes-describe-und-info"><i class="fas fa-link"></i></a>
+</h3>
+<p>Für unsere Feature-Matrix gibt es zwei Python Befehle, die wir zum Start grundsätzlich durchführen:</p>
+<pre><code>X.describe()
+X.info()</code></pre>
+</div>
+<div id="missing-values-null-values-na-values" class="section level3" number="9.2.2">
+<h3>
+<span class="header-section-number">9.2.2</span> Missing Values (<code>null</code>-Values, <code>na</code>-Values)<a class="anchor" aria-label="anchor" href="#missing-values-null-values-na-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>Link: <a href="https://www.bmc.com/blogs/pandas-nan-missing-data/" class="uri">https://www.bmc.com/blogs/pandas-nan-missing-data/</a></p>
+<p>Der Aufruf <code>X.info()</code> sagt uns, dass nicht zu jeder Spalte alle Daten gefüllt sind.</p>
+<div class="figure">
+<img src="1-fehlerarten.assets/image-20211114185903890.png" alt=""><p class="caption">Info zu einem Dataframe</p>
+</div>
+<p>Folgender Befehl löscht alle Zeilen mit na-Werten aus dem Dataframe:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="data-processing.html#cb32-1" aria-hidden="true" tabindex="-1"></a>XC <span class="op">=</span> X.dropna()</span></code></pre></div>
+</div>
+</div>
+<div id="umgang-mit-fehlern" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Umgang mit Fehlern<a class="anchor" aria-label="anchor" href="#umgang-mit-fehlern"><i class="fas fa-link"></i></a>
+</h2>
+<div id="grundsätzliche-möglichkeiten" class="section level3" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> Grundsätzliche Möglichkeiten<a class="anchor" aria-label="anchor" href="#grunds%C3%A4tzliche-m%C3%B6glichkeiten"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Removal of feature vector</li>
+<li>Removal of features</li>
+<li>Special handling: Invalidity lists</li>
+<li>Correction / estimation: replacement by
+<ul>
+<li>mean, median, minimum, maximum</li>
+<li>nearest neighbor</li>
+<li>linear interpolation</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="beispiel-dax" class="section level3" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> Beispiel DAX<a class="anchor" aria-label="anchor" href="#beispiel-dax"><i class="fas fa-link"></i></a>
+</h3>
+<div id="ersetzen-eines-nan-durch-mean-median-minimum-maximum-fillna" class="section level4" number="9.3.2.1">
+<h4>
+<span class="header-section-number">9.3.2.1</span> Ersetzen eines nan durch mean, median, minimum, maximum (<code>fillna()</code>)<a class="anchor" aria-label="anchor" href="#ersetzen-eines-nan-durch-mean-median-minimum-maximum-fillna"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="data-processing.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd<span class="op">;</span></span>
+<span id="cb33-2"><a href="data-processing.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np<span class="op">;</span></span>
+<span id="cb33-3"><a href="data-processing.html#cb33-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb33-4"><a href="data-processing.html#cb33-4" aria-hidden="true" tabindex="-1"></a>   <span class="st">"jahr"</span>: [<span class="dv">2010</span>, <span class="dv">2011</span>, <span class="dv">2012</span>, <span class="dv">2013</span>, <span class="dv">2014</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>, <span class="dv">2019</span>],</span>
+<span id="cb33-5"><a href="data-processing.html#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dax"</span>: [<span class="fl">6914.19</span>, <span class="fl">5898.35</span>, <span class="fl">7612.39</span>, <span class="fl">9552.16</span>, <span class="fl">9805.55</span>, np.nan, <span class="fl">11481.06</span>, <span class="fl">2917.64</span>, <span class="fl">10558.96</span>, <span class="fl">13249.01</span>] </span>
+<span id="cb33-6"><a href="data-processing.html#cb33-6" aria-hidden="true" tabindex="-1"></a>   })</span>
+<span id="cb33-7"><a href="data-processing.html#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="data-processing.html#cb33-8" aria-hidden="true" tabindex="-1"></a>ersatzwert <span class="op">=</span> X[<span class="st">"dax"</span>].mean() </span>
+<span id="cb33-9"><a href="data-processing.html#cb33-9" aria-hidden="true" tabindex="-1"></a>X[<span class="st">"dax"</span>].fillna(ersatzwert, inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb33-10"><a href="data-processing.html#cb33-10" aria-hidden="true" tabindex="-1"></a>X</span></code></pre></div>
+</div>
+</div>
+<div id="übung" class="section level3" number="9.3.3">
+<h3>
+<span class="header-section-number">9.3.3</span> Übung<a class="anchor" aria-label="anchor" href="#%C3%BCbung"><i class="fas fa-link"></i></a>
+</h3>
+<p>Versuchen sie ein Ersetzen mit dem Minimum, Maximum oder Median. Zeichen Sie ein Histogramm nach Ersetzung.</p>
+</div>
+<div id="removal-of-feature-vector-dropna" class="section level3" number="9.3.4">
+<h3>
+<span class="header-section-number">9.3.4</span> Removal of Feature-Vector (<code>dropna()</code>)<a class="anchor" aria-label="anchor" href="#removal-of-feature-vector-dropna"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>X = pd.DataFrame({
+   "jahr": [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+    "dax": [6914.19, 5898.35, 7612.39, 9552.16, 9805.55, np.nan, 11481.06, 2917.64, 10558.96, 13249.01] 
+   }
+  )
+XC = X.dropna()
+XC</code></pre>
+</div>
+</div>
+<div id="filterung" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> Filterung<a class="anchor" aria-label="anchor" href="#filterung"><i class="fas fa-link"></i></a>
+</h2>
+<p>Filterung modifiziert Werte aus unserem Datensatz. Wir betrachten untern den zahlreichen Filteransätzen lediglich die Glättung von Werte durch Moving Average Techniken.</p>
+<div id="moving-average" class="section level3" number="9.4.1">
+<h3>
+<span class="header-section-number">9.4.1</span> Moving Average<a class="anchor" aria-label="anchor" href="#moving-average"><i class="fas fa-link"></i></a>
+</h3>
+<div id="python-beispiel" class="section level4" number="9.4.1.1">
+<h4>
+<span class="header-section-number">9.4.1.1</span> Python: Beispiel<a class="anchor" aria-label="anchor" href="#python-beispiel"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = 400
+x = np.linspace(-1,1,N)
+e = np.random.normal(size=N)
+y = x*x + 0.2 * e
+fig = plt.figure(figsize=(8,8))
+plt.plot( x, x*x, color="black", linestyle='-')
+plt.plot( x, y, color="red", linestyle='-'</code></pre>
+<div class="figure">
+<img src="1-fehlerarten.assets/image-20211121190017569.png" alt=""><p class="caption">Daten mit Fehlern</p>
+</div>
+<p>Wir glätten nun die Daten mit einem Moving Average Verfahren.</p>
+<pre><code>y_filtered = pd.Series(y).rolling(window=50, center=True).mean()
+plt.plot( x, y_filtered, color="green", linestyle='-')</code></pre>
+<p>Ergebnis:</p>
+<div class="figure">
+<img src="1-fehlerarten.assets/image-20211121190100222.png" alt=""><p class="caption">Moving Average Filter</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="sandbox.html"><span class="header-section-number">8</span> Sandbox</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-processing"><span class="header-section-number">9</span> Data Processing</a></li>
+<li>
+<a class="nav-link" href="#grunds%C3%A4tzliche-fehlerarten"><span class="header-section-number">9.1</span> Grundsätzliche Fehlerarten</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#outliers"><span class="header-section-number">9.1.1</span> Outliers</a></li>
+<li><a class="nav-link" href="#inliers-und-drift"><span class="header-section-number">9.1.2</span> Inliers und Drift</a></li>
+<li><a class="nav-link" href="#missing-data-or-invalid-data"><span class="header-section-number">9.1.3</span> Missing Data or Invalid Data</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#python-fehlerverd%C3%A4chtige-finden"><span class="header-section-number">9.2</span> Python: Fehler/“Verdächtige” finden</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%C3%BCberblick-verschaffen-mit-dataframes-describe-und-info"><span class="header-section-number">9.2.1</span> Überblick verschaffen mit Dataframes: describe und info</a></li>
+<li><a class="nav-link" href="#missing-values-null-values-na-values"><span class="header-section-number">9.2.2</span> Missing Values (null-Values, na-Values)</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#umgang-mit-fehlern"><span class="header-section-number">9.3</span> Umgang mit Fehlern</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#grunds%C3%A4tzliche-m%C3%B6glichkeiten"><span class="header-section-number">9.3.1</span> Grundsätzliche Möglichkeiten</a></li>
+<li><a class="nav-link" href="#beispiel-dax"><span class="header-section-number">9.3.2</span> Beispiel DAX</a></li>
+<li><a class="nav-link" href="#%C3%BCbung"><span class="header-section-number">9.3.3</span> Übung</a></li>
+<li><a class="nav-link" href="#removal-of-feature-vector-dropna"><span class="header-section-number">9.3.4</span> Removal of Feature-Vector (dropna())</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#filterung"><span class="header-section-number">9.4</span> Filterung</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#moving-average"><span class="header-section-number">9.4.1</span> Moving Average</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/04-preprocessing.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/04-preprocessing.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-01-29.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

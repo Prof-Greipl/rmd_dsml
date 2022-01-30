@@ -6,20 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Willkommen | Data Science &amp; Machine Learning</title>
 <meta name="author" content="Dieter Greipl">
-<meta name="description" content="&lt;p&gt;This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::bs4_book,
-set in the _output.yml file.&lt;/p&gt;">
+<meta name="description" content="In diesem Abschnitt beschäftigen wir uns mit der Visualisierung von Daten mit den Bibliotheken matplotlib und seaborn.">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Willkommen | Data Science &amp; Machine Learning">
 <meta property="og:type" content="book">
-<meta property="og:description" content="&lt;p&gt;This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::bs4_book,
-set in the _output.yml file.&lt;/p&gt;">
+<meta property="og:image" content="/assets/x.png">
+<meta property="og:description" content="In diesem Abschnitt beschäftigen wir uns mit der Visualisierung von Daten mit den Bibliotheken matplotlib und seaborn.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Willkommen | Data Science &amp; Machine Learning">
-<meta name="twitter:description" content="&lt;p&gt;This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::bs4_book,
-set in the _output.yml file.&lt;/p&gt;">
+<meta name="twitter:description" content="In diesem Abschnitt beschäftigen wir uns mit der Visualisierung von Daten mit den Bibliotheken matplotlib und seaborn.">
+<meta name="twitter:image" content="/assets/x.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -44,7 +40,18 @@ set in the _output.yml file.&lt;/p&gt;">
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="active" href="index.html">Willkommen</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="active" href="index.html">Willkommen</a></li>
+<li><a class="" href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></li>
+<li><a class="" href="daten.html"><span class="header-section-number">2</span> Daten</a></li>
+<li><a class="" href="matplotlib-und-seaborn.html"><span class="header-section-number">3</span> Matplotlib und Seaborn</a></li>
+<li><a class="" href="plots.html"><span class="header-section-number">4</span> Plots</a></li>
+<li><a class="" href="%C3%BCbungen.html"><span class="header-section-number">5</span> Übungen</a></li>
+<li><a class="" href="plots-f%C3%BCr-iris.html"><span class="header-section-number">6</span> Plots für Iris</a></li>
+<li><a class="" href="beispiele-bilder.html"><span class="header-section-number">7</span> Beispiele: Bilder</a></li>
+<li><a class="" href="sandbox.html"><span class="header-section-number">8</span> Sandbox</a></li>
+<li><a class="" href="data-processing.html"><span class="header-section-number">9</span> Data Processing</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
@@ -75,172 +82,21 @@ set in the _output.yml file.&lt;/p&gt;">
 </li>
 </ul>
 </div>
-<div id="tests-später-löschen" class="section level2" number="0.2">
-<h2>
-<span class="header-section-number">0.2</span> Tests (später löschen!)<a class="anchor" aria-label="anchor" href="#tests-sp%C3%A4ter-l%C3%B6schen"><i class="fas fa-link"></i></a>
-</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Scatterplot</span></span>
-<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-4"><a href="index.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="index.html#cb1-5" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="dv">1950</span>, <span class="dv">1960</span>, <span class="dv">1970</span>, <span class="dv">1980</span>, <span class="dv">1990</span>, <span class="dv">2000</span>, <span class="dv">2010</span>]</span>
-<span id="cb1-6"><a href="index.html#cb1-6" aria-hidden="true" tabindex="-1"></a>gdp <span class="op">=</span> [<span class="fl">33.2</span>, <span class="fl">543.3</span>, <span class="fl">1075.9</span>, <span class="fl">2862.5</span>, <span class="fl">5979.6</span>, <span class="fl">10289.7</span>, <span class="fl">14958.3</span>]</span>
-<span id="cb1-7"><a href="index.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="index.html#cb1-8" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>()</span>
-<span id="cb1-9"><a href="index.html#cb1-9" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb1-10"><a href="index.html#cb1-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"GDP Development"</span>) </span>
-<span id="cb1-11"><a href="index.html#cb1-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Years"</span>)</span>
-<span id="cb1-12"><a href="index.html#cb1-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"GDP"</span>)</span>
-<span id="cb1-13"><a href="index.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.set_aspect('equal')</span></span>
-<span id="cb1-14"><a href="index.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.set_xlim(0, 50)</span></span>
-<span id="cb1-15"><a href="index.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.set_ylim(0, 35)</span></span>
-<span id="cb1-16"><a href="index.html#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="index.html#cb1-17" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span>years, y<span class="op">=</span>gdp, color<span class="op">=</span><span class="st">"red"</span>, label<span class="op">=</span><span class="st">"My Label"</span>)          </span>
-<span id="cb1-18"><a href="index.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.lineplot(x=years, y=gdp, color="red", label="My Label")            </span></span>
-<span id="cb1-19"><a href="index.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.barplot(x=years, y=gdp, color="red", label="My Label")  </span></span></code></pre></div>
-<div class="inline-figure"><img src="index_files/figure-html/unnamed-chunk-1-1.png" width="672"></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-2"><a href="index.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb2-3"><a href="index.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-4"><a href="index.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="index.html#cb2-5" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb2-6"><a href="index.html#cb2-6" aria-hidden="true" tabindex="-1"></a>x_werte <span class="op">=</span> np.random.normal(<span class="dv">0</span>,<span class="dv">1</span>,N)</span>
-<span id="cb2-7"><a href="index.html#cb2-7" aria-hidden="true" tabindex="-1"></a>y_werte <span class="op">=</span> np.random.normal(<span class="dv">0</span>,<span class="dv">2</span>,N)</span>
-<span id="cb2-8"><a href="index.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="index.html#cb2-9" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>()</span>
-<span id="cb2-10"><a href="index.html#cb2-10" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
-<span id="cb2-11"><a href="index.html#cb2-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>)</span>
-<span id="cb2-12"><a href="index.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (-4.0, 4.0)</span></span>
-<span id="cb2-13"><a href="index.html#cb2-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>)</span>
-<span id="cb2-14"><a href="index.html#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (-4.0, 4.0)</span></span>
-<span id="cb2-15"><a href="index.html#cb2-15" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
-<span id="cb2-16"><a href="index.html#cb2-16" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> x_werte, y<span class="op">=</span>y_werte)</span>
-<span id="cb2-17"><a href="index.html#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#print("Wert von N: ", N)</span></span></code></pre></div>
-<div class="inline-figure"><img src="index_files/figure-html/unnamed-chunk-2-3.png" width="576"></div>
-<p>Code mit Ausdruck (See <a href="https://yihui.org/knitr/options/#code-evaluation" class="uri">https://yihui.org/knitr/options/#code-evaluation</a>)</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb3-2"><a href="index.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span>
-<span id="cb3-3"><a href="index.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb3-4"><a href="index.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1</span></span>
-<span id="cb3-5"><a href="index.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2</span></span></code></pre></div>
-<p>Video</p>
-<p><a href="https://youtu.be/Gow7p-rl2HE" title="Everything Is AWESOME"><img src="assets/x.png" alt="Everything Is AWESOME"></a></p>
-<p>Alternativ</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Gow7p-rl2HE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-<div id="google-konto" class="section level2" number="0.3">
-<h2>
-<span class="header-section-number">0.3</span> Google Konto<a class="anchor" aria-label="anchor" href="#google-konto"><i class="fas fa-link"></i></a>
-</h2>
-<p>Sie brauchen ein Google-Konto für die Nutzung von Colab und ggf. für das Laden von Dateien von Google Drive.</p>
-</div>
-<div id="colab" class="section level2" number="0.4">
-<h2>
-<span class="header-section-number">0.4</span> Colab<a class="anchor" aria-label="anchor" href="#colab"><i class="fas fa-link"></i></a>
-</h2>
-<p>Für unsere praktischen Aktivitäten nutzen wir die <a href="https://colab.research.google.com/">Colab-Notebooks</a>.</p>
-</div>
-<div id="programmierkenntnisse" class="section level2" number="0.5">
-<h2>
-<span class="header-section-number">0.5</span> Programmierkenntnisse<a class="anchor" aria-label="anchor" href="#programmierkenntnisse"><i class="fas fa-link"></i></a>
-</h2>
-<p>Programmierkenntnisse sind nicht erforderlich. Sie werden das Nötige im Kurs lernen.</p>
-</div>
-<div id="mathematik" class="section level2" number="0.6">
-<h2>
-<span class="header-section-number">0.6</span> Mathematik<a class="anchor" aria-label="anchor" href="#mathematik"><i class="fas fa-link"></i></a>
-</h2>
-<p>Wir benötigen folgende Grundlagen, die ich aber kurz wiederholen werde:</p>
-<ul>
-<li>Verteilung, Gleichverteilung, Normalverteilung, Erwartungswert, Standardabweichung, Modus, Median</li>
-<li>Vektor, Matrix, Skalarprodukt</li>
-<li>Funktionen, speziell lineare Abbildungen</li>
-</ul>
-</div>
-<div id="teaching-flow-agenda" class="section level2" number="0.7">
-<h2>
-<span class="header-section-number">0.7</span> Teaching-Flow &amp; Agenda<a class="anchor" aria-label="anchor" href="#teaching-flow-agenda"><i class="fas fa-link"></i></a>
-</h2>
-<p>Wir springen etwas zwischen den Kapiteln, um die inhaltlichen Kapitel (A,B) nicht mit den Phython-Grundlagen (C) zu vermischen.</p>
-<p>Link zu den in der jeweiligen Terminen erzeugten <a href="https://github.com/Prof-Greipl/dsml-duf">Colab-Notebooks</a></p>
-<div id="max-2000-uhr-fragen-zur-prüfung" class="section level3" number="0.7.1">
-<h3>
-<span class="header-section-number">0.7.1</span> 10.01.2022, 18:30 - max 20:00 Uhr: Fragen zur Prüfung<a class="anchor" aria-label="anchor" href="#max-2000-uhr-fragen-zur-pr%C3%BCfung"><i class="fas fa-link"></i></a>
-</h3>
-<p>Link: <a href="https://haw-landshut-de.zoom.us/j/86239229907?pwd=eFNTUEdCeVhyMGJaaEg2YlhUdzhXdz09" class="uri">https://haw-landshut-de.zoom.us/j/86239229907?pwd=eFNTUEdCeVhyMGJaaEg2YlhUdzhXdz09</a></p>
-</div>
-<div id="uhr" class="section level3 unnumbered">
-<h3>18.12.2021, 08:30 - 16:00 Uhr<a class="anchor" aria-label="anchor" href="#uhr"><i class="fas fa-link"></i></a>
-</h3>
-<div class="figure">
-<img src="assets/README.assets/image-20211218081837145.png" alt=""><p class="caption">image-20211218081837145</p>
-</div>
-</div>
-<div id="uhr-1" class="section level3 unnumbered">
-<h3>17.12.2021, 16:00 - 20:15 Uhr<a class="anchor" aria-label="anchor" href="#uhr-1"><i class="fas fa-link"></i></a>
-</h3>
-<p><a href="https://the-technology-lab.gitbook.io/dsml-master-duf/S0aldZCOg4S1HudPOP87/ml/0c_decision_trees">B.2 Entscheidungsbäume - DSA Master DUF</a></p>
-<p><a href="https://the-technology-lab.gitbook.io/dsml-master-duf/S0aldZCOg4S1HudPOP87/ml/0c_train_test_val">B.3 Training, Test und Validation - DSA Master DUF</a></p>
-<p><a href="https://the-technology-lab.gitbook.io/dsml-master-duf/S0aldZCOg4S1HudPOP87/ml/0c_regression">B.4 Regression (und Grillen) - DSA Master DUF</a></p>
-<div class="figure">
-<img src="assets/README.assets/image-20211217083343363.png" alt=""><p class="caption">image-20211217083343363</p>
-</div>
-</div>
-<div id="uhr-2" class="section level3 unnumbered">
-<h3>11.12.2021, 13:00 - 17:30 Uhr<a class="anchor" aria-label="anchor" href="#uhr-2"><i class="fas fa-link"></i></a>
-</h3>
-<p><a href="https://the-technology-lab.gitbook.io/dsml-master-duf/S0aldZCOg4S1HudPOP87/py/numpy#elementweise-operationen">C2. Elementweise Operationen</a> und <a href="https://the-technology-lab.gitbook.io/dsml-master-duf/S0aldZCOg4S1HudPOP87/py/numpy#matrix">C.2 Numpy - Matrix</a></p>
-<p><a href="https://the-technology-lab.gitbook.io/dsml-master-duf/S0aldZCOg4S1HudPOP87/py/pandas-und-dataframes">C.3 Pandas und Dataframes</a></p>
-<p><a href="https://the-technology-lab.gitbook.io/dsml-master-duf/S0aldZCOg4S1HudPOP87/da/0a4_visualisierung#plots-fuer-iris">A.2 Plots für Iris abschließen</a></p>
-<p><a href="https://the-technology-lab.gitbook.io/dsml-master-duf/S0aldZCOg4S1HudPOP87/da/0a3_preprocessing/4-datentransformation">A.3 Preprocessing</a></p>
-<p><a href="https://the-technology-lab.gitbook.io/dsml-master-duf/S0aldZCOg4S1HudPOP87/ml/0c_ml_grundbegriffe">B1. Problemstellung und Grundbegriffe</a></p>
-<div class="figure">
-<img src="assets/README.assets/image-20211211090727800.png" alt=""><p class="caption">image-20211211090727800</p>
-</div>
-</div>
-<div id="uhr-3" class="section level3 unnumbered">
-<h3>10.12.2012, 14:00 - 20:15 Uhr<a class="anchor" aria-label="anchor" href="#uhr-3"><i class="fas fa-link"></i></a>
-</h3>
-<p><strong>A.1 Datensätze</strong></p>
-<p>C.1 Python - Variablen und Datentypen</p>
-<p>C.2 Python - Numpy (ohne Matrix)</p>
-<p><strong>A.2 Visualisierung</strong> (ohne “Bilder”, Plots für Iris noch abschließen)</p>
-<p><strong>A.3 Preprocessing</strong></p>
-<div class="figure">
-<img src="assets/README.assets/image-20211210130419842.png" alt=""><p class="caption">image-20211210130419842</p>
-</div>
-
-</div>
-</div>
 </div>
   <div class="chapter-nav">
 <div class="empty"></div>
-<div class="empty"></div>
+<div class="next"><a href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#willkommen">Willkommen</a></li>
 <li><a class="nav-link" href="#vorbereitungen"><span class="header-section-number">0.1</span> Vorbereitungen</a></li>
-<li><a class="nav-link" href="#tests-sp%C3%A4ter-l%C3%B6schen"><span class="header-section-number">0.2</span> Tests (später löschen!)</a></li>
-<li><a class="nav-link" href="#google-konto"><span class="header-section-number">0.3</span> Google Konto</a></li>
-<li><a class="nav-link" href="#colab"><span class="header-section-number">0.4</span> Colab</a></li>
-<li><a class="nav-link" href="#programmierkenntnisse"><span class="header-section-number">0.5</span> Programmierkenntnisse</a></li>
-<li><a class="nav-link" href="#mathematik"><span class="header-section-number">0.6</span> Mathematik</a></li>
-<li>
-<a class="nav-link" href="#teaching-flow-agenda"><span class="header-section-number">0.7</span> Teaching-Flow &amp; Agenda</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#max-2000-uhr-fragen-zur-pr%C3%BCfung"><span class="header-section-number">0.7.1</span> 10.01.2022, 18:30 - max 20:00 Uhr: Fragen zur Prüfung</a></li>
-<li><a class="nav-link" href="#uhr">18.12.2021, 08:30 - 16:00 Uhr</a></li>
-<li><a class="nav-link" href="#uhr-1">17.12.2021, 16:00 - 20:15 Uhr</a></li>
-<li><a class="nav-link" href="#uhr-2">11.12.2021, 13:00 - 17:30 Uhr</a></li>
-<li><a class="nav-link" href="#uhr-3">10.12.2012, 14:00 - 20:15 Uhr</a></li>
-</ul>
-</li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/index.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -252,7 +108,7 @@ set in the _output.yml file.&lt;/p&gt;">
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-01-07.</p>
+    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-01-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -260,6 +116,34 @@ set in the _output.yml file.&lt;/p&gt;">
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 Sandbox | Data Science &amp; Machine Learning</title>
+<meta name="author" content="Dieter Greipl">
+<meta name="description" content="8.1 Alle Farben Folgendes Programm gibt alle Farben mit Farbnamen aus: from matplotlib.patches import Rectangle import matplotlib.pyplot as plt import matplotlib.colors as mcolors  def...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 8 Sandbox | Data Science &amp; Machine Learning">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/assets/x.png">
+<meta property="og:description" content="8.1 Alle Farben Folgendes Programm gibt alle Farben mit Farbnamen aus: from matplotlib.patches import Rectangle import matplotlib.pyplot as plt import matplotlib.colors as mcolors  def...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 Sandbox | Data Science &amp; Machine Learning">
+<meta name="twitter:description" content="8.1 Alle Farben Folgendes Programm gibt alle Farben mit Farbnamen aus: from matplotlib.patches import Rectangle import matplotlib.pyplot as plt import matplotlib.colors as mcolors  def...">
+<meta name="twitter:image" content="/assets/x.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Data Science &amp; Machine Learning</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Willkommen</a></li>
+<li><a class="" href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></li>
+<li><a class="" href="daten.html"><span class="header-section-number">2</span> Daten</a></li>
+<li><a class="" href="matplotlib-und-seaborn.html"><span class="header-section-number">3</span> Matplotlib und Seaborn</a></li>
+<li><a class="" href="plots.html"><span class="header-section-number">4</span> Plots</a></li>
+<li><a class="" href="%C3%BCbungen.html"><span class="header-section-number">5</span> Übungen</a></li>
+<li><a class="" href="plots-f%C3%BCr-iris.html"><span class="header-section-number">6</span> Plots für Iris</a></li>
+<li><a class="" href="beispiele-bilder.html"><span class="header-section-number">7</span> Beispiele: Bilder</a></li>
+<li><a class="active" href="sandbox.html"><span class="header-section-number">8</span> Sandbox</a></li>
+<li><a class="" href="data-processing.html"><span class="header-section-number">9</span> Data Processing</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sandbox" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Sandbox<a class="anchor" aria-label="anchor" href="#sandbox"><i class="fas fa-link"></i></a>
+</h1>
+<div id="alle-farben" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Alle Farben<a class="anchor" aria-label="anchor" href="#alle-farben"><i class="fas fa-link"></i></a>
+</h2>
+<p>Folgendes Programm gibt alle Farben mit Farbnamen aus:</p>
+<pre><code>from matplotlib.patches import Rectangle
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+
+
+def plot_colortable(colors, title, sort_colors=True, emptycols=0):
+
+    cell_width = 212
+    cell_height = 22
+    swatch_width = 48
+    margin = 12
+    topmargin = 40
+
+    # Sort colors by hue, saturation, value and name.
+    if sort_colors is True:
+        by_hsv = sorted((tuple(mcolors.rgb_to_hsv(mcolors.to_rgb(color))),
+                         name)
+                        for name, color in colors.items())
+        names = [name for hsv, name in by_hsv]
+    else:
+        names = list(colors)
+
+    n = len(names)
+    ncols = 4 - emptycols
+    nrows = n // ncols + int(n % ncols &gt; 0)
+
+    width = cell_width * 4 + 2 * margin
+    height = cell_height * nrows + margin + topmargin
+    dpi = 72
+
+    fig, ax = plt.subplots(figsize=(width / dpi, height / dpi), dpi=dpi)
+    fig.subplots_adjust(margin/width, margin/height,
+                        (width-margin)/width, (height-topmargin)/height)
+    ax.set_xlim(0, cell_width * 4)
+    ax.set_ylim(cell_height * (nrows-0.5), -cell_height/2.)
+    ax.yaxis.set_visible(False)
+    ax.xaxis.set_visible(False)
+    ax.set_axis_off()
+    ax.set_title(title, fontsize=24, loc="left", pad=10)
+
+    for i, name in enumerate(names):
+        row = i % nrows
+        col = i // nrows
+        y = row * cell_height
+
+        swatch_start_x = cell_width * col
+        text_pos_x = cell_width * col + swatch_width + 7
+
+        ax.text(text_pos_x, y, name, fontsize=14,
+                horizontalalignment='left',
+                verticalalignment='center')
+
+        ax.add_patch(
+            Rectangle(xy=(swatch_start_x, y-9), width=swatch_width,
+                      height=18, facecolor=colors[name], edgecolor='0.7')
+        )
+
+    return fig
+
+plot_colortable(mcolors.BASE_COLORS, "Base Colors",
+                sort_colors=False, emptycols=1)
+plot_colortable(mcolors.TABLEAU_COLORS, "Tableau Palette",
+                sort_colors=False, emptycols=2)
+
+plot_colortable(mcolors.CSS4_COLORS, "CSS Colors")
+
+# Optionally plot the XKCD colors (Caution: will produce large figure)
+# xkcd_fig = plot_colortable(mcolors.XKCD_COLORS, "XKCD Colors")
+# xkcd_fig.savefig("XKCD_Colors.png")
+
+plt.show()</code></pre>
+</div>
+<div id="lösungen" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> Lösungen<a class="anchor" aria-label="anchor" href="#l%C3%B6sungen"><i class="fas fa-link"></i></a>
+</h2>
+<div id="visualisierung-1" class="section level3" number="8.2.1">
+<h3>
+<span class="header-section-number">8.2.1</span> Visualisierung 1<a class="anchor" aria-label="anchor" href="#visualisierung-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="sandbox.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb26-2"><a href="sandbox.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb26-3"><a href="sandbox.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb26-4"><a href="sandbox.html#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="sandbox.html#cb26-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi, <span class="dv">40</span>)</span>
+<span id="cb26-6"><a href="sandbox.html#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="sandbox.html#cb26-7" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">9</span>))</span>
+<span id="cb26-8"><a href="sandbox.html#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="sandbox.html#cb26-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Sinus"</span>) </span>
+<span id="cb26-10"><a href="sandbox.html#cb26-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x"</span>)</span>
+<span id="cb26-11"><a href="sandbox.html#cb26-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"sin(x)"</span>)</span>
+<span id="cb26-12"><a href="sandbox.html#cb26-12" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb26-13"><a href="sandbox.html#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="sandbox.html#cb26-14" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>()</span>
+<span id="cb26-15"><a href="sandbox.html#cb26-15" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span> np.sin(x), color<span class="op">=</span><span class="st">"blue"</span>, label<span class="op">=</span><span class="st">"sin(x)"</span>)</span></code></pre></div>
+</div>
+<div id="visualisierung-2" class="section level3" number="8.2.2">
+<h3>
+<span class="header-section-number">8.2.2</span> Visualisierung 2<a class="anchor" aria-label="anchor" href="#visualisierung-2"><i class="fas fa-link"></i></a>
+</h3>
+<div id="section" class="section level4" number="8.2.2.1">
+<h4>
+<span class="header-section-number">8.2.2.1</span> 2.1<a class="anchor" aria-label="anchor" href="#section"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="sandbox.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb27-2"><a href="sandbox.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb27-3"><a href="sandbox.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb27-4"><a href="sandbox.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="sandbox.html#cb27-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.random(<span class="dv">50</span>)</span>
+<span id="cb27-6"><a href="sandbox.html#cb27-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.random(<span class="dv">50</span>)</span>
+<span id="cb27-7"><a href="sandbox.html#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="sandbox.html#cb27-8" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">9</span>))</span>
+<span id="cb27-9"><a href="sandbox.html#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="sandbox.html#cb27-10" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>()</span>
+<span id="cb27-11"><a href="sandbox.html#cb27-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Random Points"</span>) </span>
+<span id="cb27-12"><a href="sandbox.html#cb27-12" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x"</span>)</span>
+<span id="cb27-13"><a href="sandbox.html#cb27-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"y"</span>)</span>
+<span id="cb27-14"><a href="sandbox.html#cb27-14" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">"equal"</span>)</span>
+<span id="cb27-15"><a href="sandbox.html#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="sandbox.html#cb27-16" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span>x, y<span class="op">=</span>y, label<span class="op">=</span><span class="st">"Random Points"</span>)</span></code></pre></div>
+</div>
+<div id="section-1" class="section level4" number="8.2.2.2">
+<h4>
+<span class="header-section-number">8.2.2.2</span> 2.3<a class="anchor" aria-label="anchor" href="#section-1"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
+x = np.random.normal(0,1,2000)
+y = np.random.normal(0,1,2000)
+
+fig,ax = plt.subplots(figsize=(9, 9))
+
+sns.set()
+ax.set_title("Random Points") 
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_aspect("equal")
+
+sns.scatterplot(x=x, y=y, label="Random Points")</code></pre>
+</div>
+<div id="section-2" class="section level4" number="8.2.2.3">
+<h4>
+<span class="header-section-number">8.2.2.3</span> 2.4<a class="anchor" aria-label="anchor" href="#section-2"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="sandbox.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb29-2"><a href="sandbox.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb29-3"><a href="sandbox.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb29-4"><a href="sandbox.html#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="sandbox.html#cb29-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">20000</span>)</span>
+<span id="cb29-6"><a href="sandbox.html#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="sandbox.html#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="sandbox.html#cb29-8" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb29-9"><a href="sandbox.html#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="sandbox.html#cb29-10" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>()</span>
+<span id="cb29-11"><a href="sandbox.html#cb29-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Histogramm der Normalverteilung"</span>) </span>
+<span id="cb29-12"><a href="sandbox.html#cb29-12" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x"</span>)</span>
+<span id="cb29-13"><a href="sandbox.html#cb29-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb29-14"><a href="sandbox.html#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="sandbox.html#cb29-15" aria-hidden="true" tabindex="-1"></a>sns.histplot(x<span class="op">=</span>x)</span></code></pre></div>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="beispiele-bilder.html"><span class="header-section-number">7</span> Beispiele: Bilder</a></div>
+<div class="next"><a href="data-processing.html"><span class="header-section-number">9</span> Data Processing</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sandbox"><span class="header-section-number">8</span> Sandbox</a></li>
+<li><a class="nav-link" href="#alle-farben"><span class="header-section-number">8.1</span> Alle Farben</a></li>
+<li>
+<a class="nav-link" href="#l%C3%B6sungen"><span class="header-section-number">8.2</span> Lösungen</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#visualisierung-1"><span class="header-section-number">8.2.1</span> Visualisierung 1</a></li>
+<li><a class="nav-link" href="#visualisierung-2"><span class="header-section-number">8.2.2</span> Visualisierung 2</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/03-visualisierung.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/03-visualisierung.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-01-29.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
