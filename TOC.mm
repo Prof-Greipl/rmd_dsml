@@ -2,6 +2,9 @@
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node CREATED="1642607629159" ID="ID_700832281" MODIFIED="1643477395654" TEXT="TOC">
 <node CREATED="1643477396592" ID="ID_882448634" MODIFIED="1643477401301" POSITION="right" TEXT="Part A">
+<node CREATED="1643554976791" ID="ID_1747645371" MODIFIED="1643554983914" TEXT="Einf&#xfc;hrungsthemen">
+<node CREATED="1643554988335" ID="ID_683807336" MODIFIED="1643554992225" TEXT="Umgang mit Phython"/>
+</node>
 <node CREATED="1643475935872" ID="ID_1926025879" MODIFIED="1643475945512" TEXT="Python -Quickstart">
 <node CREATED="1643476031436" ID="ID_1514852822" MODIFIED="1643476036096" TEXT="nur Intro"/>
 </node>
@@ -105,6 +108,14 @@
 <node CREATED="1643477994668" ID="ID_863127001" MODIFIED="1643478272420" TEXT="Case Study: Lineare Regression (Grillen)"/>
 <node CREATED="1643478119441" ID="ID_1623694534" MODIFIED="1643478124181" TEXT="Neuronale Netze"/>
 <node CREATED="1643478275000" ID="ID_1891643096" MODIFIED="1643478280044" TEXT="Case Study MNIST"/>
+</node>
+<node CREATED="1643554613131" ID="ID_544105818" MODIFIED="1643554804556" POSITION="left" TEXT="Links">
+<node CREATED="1643554619778" ID="ID_1870482083" LINK="https://www.w3schools.com/python/python_datetime.asp " MODIFIED="1643554662205" TEXT="https://www.w3schools.com/python/python_datetime.asp"/>
+</node>
+<node CREATED="1643557321712" ID="ID_706352883" MODIFIED="1643557335455" POSITION="left" TEXT="beim Schreiben">
+<node CREATED="1643558466417" ID="ID_961469740" MODIFIED="1643558469765" TEXT="Bildgr&#xf6;&#xdf;e">
+<node CREATED="1643558470818" ID="ID_1303789138" MODIFIED="1643558472381" TEXT="![Download](assets/daten.assets/Download.png){width=100%}"/>
+</node>
 </node>
 </node>
 </map>

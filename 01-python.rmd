@@ -103,7 +103,7 @@ Die Bildschirmabzüge dieses Kapitels sind der Webseite [https://www.w3schools.c
 
 ### Vergleichsoperatoren
 
-![](01-python.assets/image (187).png)
+![](assets/python.assets/image (187).png)
 
 
 

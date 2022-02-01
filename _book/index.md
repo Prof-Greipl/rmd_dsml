@@ -1,31 +1,25 @@
 ---
 title: "Data Science & Machine Learning"
 author: "Dieter Greipl"
-date: "2022-01-29"
+date: "2022-01-31"
 site: bookdown::bookdown_site 
 
 # See here for changing latex parameters:  https://bookdown.org/yihui/rmarkdown-cookbook/latex-variables.html 
 #documentclass: krantz
 documentclass: book 
-font-size: 11pt
+font-size: 12pt
 classoption: oneside
-
 
 bibliography: [book.bib, packages.bib]
 
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl 
 
-
-# url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
-description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::bs4_book,
-  set in the _output.yml file.
-
 cover-image: assets/x.png
 ---
+
+
+
 
 # Willkommen {-}
 
@@ -50,4 +44,3 @@ Noch einige Hinweise an Studierende meiner Module:
 - Dieses Skript 
   - befindet sich in Teilen im Aufbau, leichte Fehler sind also möglich (und wahrscheinlich  - für Hinweise bin ich dankbar)
   - geht nach der Prüfung off-line
-  

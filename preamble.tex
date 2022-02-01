@@ -9,6 +9,7 @@
 %\usepackage[a4paper, top=1cm, bottom=1cm ]{geometry}
 %\geometry{a4paper,hmargin={2cm,1.5cm},}
 \usepackage[a4paper,hmargin={2cm,1.5cm}, vmargin={1.5cm,1.5cm} ]{geometry}
+\usepackage[rigidchapters]{titlesec}
 
 %---------------------------------- Seitenlayout
 \textwidth 160mm
@@ -19,15 +20,24 @@
 \setlength\topmargin{(\paperheight-\textheight
 -\headheight-\headsep-\footskip)/2 - 1in}
 
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+
 % Kopfzeile unterstreichen
-\usepackage[%
+\usepackage[
 headsepline,
 %footsepline % no separation line for page number
 ]{scrlayer-scrpage}
 
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{4}
+\titlespacing{\subsection}{0pt}{3ex}{-0.5ex}
+\titlespacing{\subsubsection}{0pt}{2ex}{-0.5ex}
 
+\setlength{\parindent}{1em}
+
+
+\usepackage{graphicx}
+\usepackage{watermark}
 
 
 

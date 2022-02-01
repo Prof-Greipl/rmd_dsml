@@ -5,6 +5,7 @@ bookdown::bs4_book:
     primary: "#096B72"
   repo: https://github.com/rstudio/bookdown-demo
 
+
 bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
@@ -13,6 +14,7 @@ bookdown::pdf_book:
   pandoc_args: [--top-level-division=chapter, --wrap=none]
   includes:
     in_header: [preamble.tex]
+    before_body: frontpage.tex
 
 
 #bookdown::epub_book: default

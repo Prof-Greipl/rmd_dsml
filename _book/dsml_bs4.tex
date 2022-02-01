@@ -119,6 +119,7 @@
 %\usepackage[a4paper, top=1cm, bottom=1cm ]{geometry}
 %\geometry{a4paper,hmargin={2cm,1.5cm},}
 \usepackage[a4paper,hmargin={2cm,1.5cm}, vmargin={1.5cm,1.5cm} ]{geometry}
+\usepackage[rigidchapters]{titlesec}
 
 %---------------------------------- Seitenlayout
 \textwidth 160mm
@@ -129,15 +130,24 @@
 \setlength\topmargin{(\paperheight-\textheight
 -\headheight-\headsep-\footskip)/2 - 1in}
 
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+
 % Kopfzeile unterstreichen
-\usepackage[%
+\usepackage[
 headsepline,
 %footsepline % no separation line for page number
 ]{scrlayer-scrpage}
 
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{4}
+\titlespacing{\subsection}{0pt}{3ex}{-0.5ex}
+\titlespacing{\subsubsection}{0pt}{2ex}{-0.5ex}
 
+\setlength{\parindent}{1em}
+
+
+\usepackage{graphicx}
+\usepackage{watermark}
 
 
 
@@ -150,34 +160,284 @@ headsepline,
 
 \title{Data Science \& Machine Learning}
 \author{Dieter Greipl}
-\date{2022-01-21}
+\date{2022-01-31}
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}{Lemma}[chapter]
-\newtheorem{corollary}{Corollary}[chapter]
-\newtheorem{proposition}{Proposition}[chapter]
-\newtheorem{conjecture}{Conjecture}[chapter]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[chapter]
-\theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[chapter]
-\theoremstyle{definition}
-\newtheorem{hypothesis}{Hypothesis}[chapter]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
+
+
+\begin{titlepage}
+
+\begin{center}
+
+\Huge \textbf{Inteligencia Artificial aplicada a Negocios}
+
+\Large \textbf{Resuelve problemas de negocios reales con soluciones de IA}
+
+\large de Hadelin de Ponteves y Kirill Eremenko
+
+\large Traducido por Juan Gabriel Gomila
+
+
+\end{center}
+
+
+
+asdfasd
+
+
+		\makebox[\paperwidth]{\includegraphics[width=\paperwidth]{assets/x.png}}
+
+
+
+\end{titlepage}
 
 {
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\hypertarget{willkommen}{%
+\chapter*{Willkommen}\label{willkommen}}
+\addcontentsline{toc}{chapter}{Willkommen}
+
+Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das Thema \textbf{Data Science \& Machine Learning}. Die Inhalte richten sich an Studierende, die erste Schritte auf das KI -Spielfeld wagen und das Potential von datengetriebenen Lösungsverfahren verstehen wollen.
+
+Insofern richtet sich die Darstellung an Studierende mit vertieftem Interesse an KI, die einen für Studierende angemessenes Vorwissen im Bereich Mathematik mitbringen. Vorkenntnisse im Bereich der Programmierung sind nicht nötig, aber natürlich hilfreich.
+
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verloren gehen.
+
+\hypertarget{vorbereitungen}{%
+\section{Vorbereitungen}\label{vorbereitungen}}
+
+Dieses Skript ist als Unterlage für zahlreichen praktische Übungen mit Python angelegt. Ich werde hierzu \href{https://colab.research.google.com/}{\textbf{Colab-Notebooks}} verwenden. Sie brauchen hierzu ein \textbf{Google-Konto}.
+
+Noch einige Hinweise an Studierende meiner Module:
+
+\begin{itemize}
+\tightlist
+\item
+  Die folgende Youtube-Playlist kann zur Vertiefung einzelner Stoffteile nutzen: \href{https://youtube.com/playlist?list=PLfGN40VwjduJPvtP9QUjC0rjM6-ePT9bg}{Youtube Playlist}
+\item
+  Wenige Passagen in diesem Skript sind eventuell in englischer Sprache gehalten.
+\item
+  Dieses Skript
+
+  \begin{itemize}
+  \tightlist
+  \item
+    befindet sich in Teilen im Aufbau, leichte Fehler sind also möglich (und wahrscheinlich - für Hinweise bin ich dankbar)
+  \item
+    geht nach der Prüfung off-line
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{python---quickstart}{%
+\chapter{Python - Quickstart}\label{python---quickstart}}
+
+\hypertarget{colab-notebooks}{%
+\section{Colab-Notebooks}\label{colab-notebooks}}
+
+\hypertarget{hallo-welt}{%
+\section{Hallo Welt}\label{hallo-welt}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Hallo Welt"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Ausgabe:
+
+\begin{verbatim}
+#> Hallo Welt
+\end{verbatim}
+
+\hypertarget{variablen}{%
+\section{Variablen}\label{variablen}}
+
+Variablen sind Platzhalter für Werte, wir sprechen vom \emph{Wert einer Variable}. Im nachfolgendem Beispiel wird der Variable mit dem Namen \texttt{x}in Zeile 1 der Wert 1 zugewiesen. Variablen haben immer einen Namen. Einen Wert erhalten sie erst durch eine sog. Zuweisung (wie in Zeile 1). In Zeile 2 drucken wir den Wert aus. Führen Sie also folgende Phython-Befehle aus:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=} \DecValTok{1}
+\BuiltInTok{print}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+Die erstmalige Zuweisung eines Wertes an eine Variable heißt Initialisierung.
+\end{quote}
+
+\hypertarget{datentypen}{%
+\section{Datentypen}\label{datentypen}}
+
+\hypertarget{datentyp-zahlen}{%
+\subsection{Datentyp ``Zahlen''}\label{datentyp-zahlen}}
+
+\hypertarget{ganze-zahlen-und-rationale-zahlen}{%
+\subsubsection{Ganze Zahlen und rationale Zahlen}\label{ganze-zahlen-und-rationale-zahlen}}
+
+Zahlen sind recht einfach zu verstehen, wir haben ja oben schon einige Beispiele gesehen. Hier nochmal eine Zusammenfassung wichtiger Beispiele mit rationalen Zahlen: 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \DecValTok{2}
+\NormalTok{b }\OperatorTok{=} \DecValTok{1}\OperatorTok{/}\DecValTok{3}
+\NormalTok{c }\OperatorTok{=} \FloatTok{1.1}
+\CommentTok{\# Funktionen}
+\NormalTok{d }\OperatorTok{=}\NormalTok{ a }\OperatorTok{+}\NormalTok{ b}\OperatorTok{;} \BuiltInTok{print}\NormalTok{(d)}
+\NormalTok{d }\OperatorTok{=}\NormalTok{ a }\OperatorTok{{-}}\NormalTok{ b}\OperatorTok{;} \BuiltInTok{print}\NormalTok{(d)}
+\NormalTok{d }\OperatorTok{=}\NormalTok{ a }\OperatorTok{*}\NormalTok{ b}\OperatorTok{;} \BuiltInTok{print}\NormalTok{(d)}
+\NormalTok{d }\OperatorTok{=}\NormalTok{ a }\OperatorTok{/}\NormalTok{ b}\OperatorTok{;} \BuiltInTok{print}\NormalTok{(d)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{datentyp-strings}{%
+\subsection{Datentyp ``Strings''}\label{datentyp-strings}}
+
+Zeichenketten sind ebenfalls recht einfach zu verstehen. Führen Sie folgendes Beispiel aus:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vorname }\OperatorTok{=} \StringTok{"Hans"}
+\NormalTok{nachname }\OperatorTok{=} \StringTok{\textquotesingle{}Huber\textquotesingle{}}
+\NormalTok{name }\OperatorTok{=}\NormalTok{ vorname }\OperatorTok{+} \StringTok{", "} \OperatorTok{+}\NormalTok{ nachname}
+\BuiltInTok{print}\NormalTok{(name)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{f-strings}{%
+\subsubsection{f-Strings}\label{f-strings}}
+
+Statt eine zusammengesetzte Zeichenkette mit dem ``+'' - Operator auf zubauen, kann ein sogenannter f-String verwendet werden (siehe Zeile 3). f-Strings bringen für uns keine neue Funktion, machen aber die Verknüpfung von Strings einfacher.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vorname }\OperatorTok{=} \StringTok{"Hans"}
+\NormalTok{nachname }\OperatorTok{=} \StringTok{\textquotesingle{}Huber\textquotesingle{}}
+\NormalTok{name }\OperatorTok{=} \SpecialStringTok{f"}\SpecialCharTok{\{}\NormalTok{vorname}\SpecialCharTok{\}}\SpecialStringTok{, }\SpecialCharTok{\{}\NormalTok{nachname}\SpecialCharTok{\}}\SpecialStringTok{"}
+\BuiltInTok{print}\NormalTok{(name)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{datentyp-boolean}{%
+\subsection{Datentyp ``Boolean''}\label{datentyp-boolean}}
+
+Es gibt in der Theorie unendlich viele Zahlen und Zeichenketten, aber nur zwei Wahrheitswerte: wahr oder falsch. In Phython: \texttt{True}und \texttt{False}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z1 }\OperatorTok{=} \VariableTok{False}\OperatorTok{;}
+\BuiltInTok{print}\NormalTok{ (z1)}
+\BuiltInTok{print}\NormalTok{( }\BuiltInTok{type}\NormalTok{(z1) )}\OperatorTok{;}
+
+\NormalTok{z2 }\OperatorTok{=} \DecValTok{1} \OperatorTok{\textless{}} \DecValTok{4}\OperatorTok{;}
+\BuiltInTok{print}\NormalTok{( z2 )}\OperatorTok{;}
+\BuiltInTok{print}\NormalTok{( }\BuiltInTok{type}\NormalTok{(z2) )}\OperatorTok{;}
+
+\BuiltInTok{print}\NormalTok{ (}\StringTok{"z1 and z2:"}\NormalTok{, z1 }\KeywordTok{and}\NormalTok{ z2)}\OperatorTok{;}
+\BuiltInTok{print}\NormalTok{ (}\StringTok{"z1 or z2:"}\NormalTok{, z1 }\KeywordTok{or}\NormalTok{ z2)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{operatoren}{%
+\section{Operatoren}\label{operatoren}}
+
+Die Bildschirmabzüge dieses Kapitels sind der Webseite \url{https://www.w3schools.com/python/python_operators.asp} entnommen. Erarbeiten Sie sich die Operatoren selbst in kleinen Programmen, so wie wir das zu Zahlen bereits oben gemacht haben.
+
+\hypertarget{arithmetische-operatoren}{%
+\subsection{Arithmetische Operatoren}\label{arithmetische-operatoren}}
+
+\begin{figure}
+\centering
+\includegraphics{assets/python.assets/bild1.png}
+\caption{bild1}
+\end{figure}
+
+\hypertarget{vergleichsoperatoren}{%
+\subsection{Vergleichsoperatoren}\label{vergleichsoperatoren}}
+
+\includegraphics{assets/python.assets/image (187).png}
+
+\hypertarget{logische-operatoren}{%
+\subsection{Logische Operatoren}\label{logische-operatoren}}
+
+\includegraphics{assets/python.assets/image (188).png}
+
+\hypertarget{datentypen-in-der-uxfcbersicht}{%
+\section{Datentypen in der Übersicht}\label{datentypen-in-der-uxfcbersicht}}
+
+Nachfolgendes Programmstück beschreibt exemplarisch die nun bekannten Datentypen. Mit \texttt{type()} kann man sich den Datentyp einer Variable ausgeben lassen (oft hilfreich!)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=} \DecValTok{1}\OperatorTok{;} 
+\BuiltInTok{print}\NormalTok{( }\SpecialStringTok{f"1 : }\SpecialCharTok{\{}\BuiltInTok{type}\NormalTok{(x)}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+
+\NormalTok{x }\OperatorTok{=} \FloatTok{1.1}\OperatorTok{;} 
+\BuiltInTok{print}\NormalTok{( }\SpecialStringTok{f"1.1 : }\SpecialCharTok{\{}\BuiltInTok{type}\NormalTok{(x)}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+
+\NormalTok{x }\OperatorTok{=} \DecValTok{4}\OperatorTok{/}\DecValTok{2}\OperatorTok{;} 
+\BuiltInTok{print}\NormalTok{( }\SpecialStringTok{f"4/2 : }\SpecialCharTok{\{}\BuiltInTok{type}\NormalTok{(x)}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+
+\NormalTok{x }\OperatorTok{=} \StringTok{\textquotesingle{}String\textquotesingle{}}\OperatorTok{;} 
+\BuiltInTok{print}\NormalTok{( }\SpecialStringTok{f"\textquotesingle{}String\textquotesingle{} : }\SpecialCharTok{\{}\BuiltInTok{type}\NormalTok{(x)}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+
+\NormalTok{x }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{]}\OperatorTok{;} 
+\BuiltInTok{print}\NormalTok{( }\SpecialStringTok{f"[1,2,3] : }\SpecialCharTok{\{}\BuiltInTok{type}\NormalTok{(x)}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+
+\NormalTok{x }\OperatorTok{=}\NormalTok{ (}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)}\OperatorTok{;}
+\BuiltInTok{print}\NormalTok{( }\SpecialStringTok{f"(1,2) : }\SpecialCharTok{\{}\BuiltInTok{type}\NormalTok{(x)}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+
+\NormalTok{x }\OperatorTok{=} \DecValTok{1} \OperatorTok{\textless{}} \OperatorTok{{-}}\DecValTok{3}
+\BuiltInTok{print}\NormalTok{( }\SpecialStringTok{f"False : }\SpecialCharTok{\{}\BuiltInTok{type}\NormalTok{(x)}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{zusammenfassung}{%
+\subsection{Zusammenfassung}\label{zusammenfassung}}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Eingebauter Datentyp & Kürzel & Beispiele \\
+\midrule
+\endhead
+Text (Strings) & str & \texttt{x\ =\ "Haw-Landshut"} \\
+Zahlen (Numerisch) & int, float & \texttt{x\ =\ 1} oder \texttt{x\ =\ 1.1} \\
+Listen (Arrays) & list & \texttt{x\ =\ {[}1,2,3{]}} \\
+Tupel & tuple & \texttt{x\ =\ (1,2)} \\
+Wahrheitswerte & bool & \texttt{x\ =\ (1\ \textless{}\ 3)} \\
+\bottomrule
+\end{longtable}
+
 \hypertarget{daten}{%
 \chapter{Daten}\label{daten}}
+
+\hypertarget{elementare-datentypen}{%
+\section{Elementare Datentypen}\label{elementare-datentypen}}
+
+Daten\footnote{sing. Datum} sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, also aufgeschrieben sind. Häufig sprechen wir auch von \emph{Werten}, statt von Daten. Ein Werte kann zum Beispiel die Zahl \(27\) oder die Note ``\emph{sehr gut}'' sein. Offensichtlich gehören beide Werte zu verschiedene Typen von Werten, den sogenannten Datentypen. Wir beschäftigen uns mit den Datentypen \emph{Zahlen}, \emph{Text} und \emph{Boolean}
+
+\hypertarget{zahlen}{%
+\paragraph{Zahlen}\label{zahlen}}
+
+Werte dieses Datentyps sind z.B. \(1\), \(-1\), \(1.7\) oder \(1/3\). Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen (und noch ein paar mehr, die aber vorest nicht gebraucht werden. Wir verwenden die Symbole \(\mathbb{N}\) für die natürlichen Zahlen und \(\mathbb{R}\) für die reellen Zahlen.
+
+Wir notieren Zahlen wie üblich und verwenden in der Dezimalnotation den Punkt als Trennsymbol.
+
+\hypertarget{text}{%
+\paragraph{Text}\label{text}}
+
+Werte dieses Datentyps sind zum Beispiel ``Baum'', ``Hans Huber'' oder ``sehr gut''. Zeichenketten beginnen und enden mit einem Anführungszeichen. In der Regel macht uns diese Notationen keine Probleme - manchmal wird es trotzdem ungemütlich: Kann eine Zeichenkette ein Anführungszeichen enthalten? Gibt es einen Unterschied zwischen der Zahl 123 und der Zeichenkette ``123''? Wir vertiefen das hier nicht, sondern gehen die Fragen an, sobald sie uns begegnen.
+
+\hypertarget{logischer-datentyp-boolean}{%
+\paragraph{Logischer Datentyp (Boolean)}\label{logischer-datentyp-boolean}}
+
+Dieser Datentyp umfasst nur zwei Werte, die sogenannten Wahrheitswerte. Wir werden in diesem Text die Notation \emph{True} und \emph{False} verwenden.
+
+Wir nennen diese Datentypen ``elementar'', weil uns eine weitere Aufteilung nicht sinnvoll erscheint. Der Begriff ``elementar'' ist nicht ganz korrekt, weil z.B. die Zahl \(123\) ja eine Folge von Ziffern und die Zeichenkette ``Baum'' eine Folge von Buchstaben ist. Elementar wäre also eher der Datentyp \emph{Ziffer} oder \emph{Buchstabe}, als der Datentyp \emph{Zahl} oder \emph{Text}. Auch über diese begriffliche Ruppigkeit sehen wir zu Beginn hinweg. In der Programmierung werden sie aber eine Rolle spielen.
+
+Stellen sie sich jeden Datentyp als Menge vor. Die Elemente der Menge sind die zulässigen Werte des Datentyps. Offensichtlich ist besitzt die Menge der Zahlen oder Texte unendlich viele Elemente, während der Logische Datentyp nur zwei Werte kennt.
 
 \hypertarget{der-iris-datensatz}{%
 \section{Der Iris-Datensatz}\label{der-iris-datensatz}}
@@ -186,7 +446,7 @@ Der Iris-Datensatz enthält Messungen von jeweils 50 Blüten zu drei verschieden
 
 \begin{figure}
 \centering
-\includegraphics{assets/daten.assets/Download.png}
+\includegraphics[width=1\textwidth,height=\textheight]{assets/daten.assets/Download.png}
 \caption{Download}
 \end{figure}
 
@@ -217,14 +477,14 @@ Folgender - in der Community wohlbekannter - Datensatz liegt uns vor (Sie finden
 \caption{Iris-Datensatz}
 \end{figure}
 
-\hypertarget{datentypen}{%
-\section{Datentypen}\label{datentypen}}
+\hypertarget{datentypen-1}{%
+\section{Datentypen}\label{datentypen-1}}
 
-\hypertarget{elementare-datentypen}{%
-\subsection{Elementare Datentypen}\label{elementare-datentypen}}
+\hypertarget{elementare-datentypen-1}{%
+\subsection{Elementare Datentypen}\label{elementare-datentypen-1}}
 
-\hypertarget{zahlen}{%
-\subsubsection{Zahlen}\label{zahlen}}
+\hypertarget{zahlen-1}{%
+\subsubsection{Zahlen}\label{zahlen-1}}
 
 \hypertarget{strings}{%
 \subsubsection{Strings}\label{strings}}
@@ -290,7 +550,7 @@ Bemerkungen:
 \item
   Skalenniveaus sind nicht immer klar zuzuordnen.
 \item
-  Aus nominalen Datenskalen lassen sich stets \emph{künstliche Ordnungen} (und damit ordinale Datenskalen) definieren.
+  Auf nominalen Datenskalen lassen sich stets \emph{künstliche Ordnungen} (und damit ordinale Datenskalen) definieren.
 \item
   Bilden sie keine Mittelwerte auf Daten mit ordinalen Datenskalen!
 \item
@@ -326,354 +586,34 @@ virginica & 2 \\
 \bottomrule
 \end{longtable}
 
-\hypertarget{daten-1}{%
-\chapter{Daten}\label{daten-1}}
+\hypertarget{part-latex-part}{%
+\part*{Latex Part}\label{part-latex-part}}
+\addcontentsline{toc}{part}{Latex Part}
 
-\hypertarget{der-iris-datensatz-1}{%
-\section{Der Iris-Datensatz}\label{der-iris-datensatz-1}}
+\hypertarget{chapter}{%
+\chapter{Chapter}\label{chapter}}
 
-Der Iris-Datensatz enthält Messungen von jeweils 50 Blüten zu drei verschiedenen Lilien-Arten (setosa, versicolor, virginica)
+\hypertarget{latex-section-h2}{%
+\section{Latex Section (H2)}\label{latex-section-h2}}
 
-\begin{figure}
-\centering
-\includegraphics{assets/daten.assets/Download.png}
-\caption{Download}
-\end{figure}
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt,
 
-Gemessen werden pro \href{https://de.wikipedia.org/wiki/Bl\%C3\%BCte}{Blüte}in cm 
+Parskip!! die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verl
 
-\begin{itemize}
-\tightlist
-\item
-  die Länge und Breite des Kronblattes (Petalum, petal) sowie 
-\item
-  die Länge und Breite des Kelchblattes (Sepalum, sepal)
-\end{itemize}
+\hypertarget{latex-subsection-h3}{%
+\subsection{Latex Subsection (H3)}\label{latex-subsection-h3}}
 
-\begin{figure}
-\centering
-\includegraphics{assets/daten.assets/image_messung-16426070933692.png}
-\caption{image (190)}
-\end{figure}
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verl
 
-\hypertarget{datensatz-1}{%
-\subsection{Datensatz}\label{datensatz-1}}
+\hypertarget{latex-subsubsection-h4}{%
+\subsubsection{Latex SubSubSection (H4)}\label{latex-subsubsection-h4}}
 
-Folgender - in der Community wohlbekannter - Datensatz liegt uns vor (Sie finden die Daten \href{https://syncandshare.lrz.de/getlink/fi89kxTJ5yLRaW5mnpyrofVK/Iris_p.xlsx}{hier}).
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verl
 
-\begin{figure}
-\centering
-\includegraphics{assets/daten.assets/image-20211209101425856-16426070878651.png}
-\caption{Iris-Datensatz}
-\end{figure}
+\hypertarget{latex-paragraph-h5}{%
+\paragraph{Latex Paragraph (H5)}\label{latex-paragraph-h5}}
 
-\hypertarget{datentypen-1}{%
-\section{Datentypen}\label{datentypen-1}}
-
-\hypertarget{elementare-datentypen-1}{%
-\subsection{Elementare Datentypen}\label{elementare-datentypen-1}}
-
-\hypertarget{zahlen-1}{%
-\subsubsection{Zahlen}\label{zahlen-1}}
-
-\hypertarget{strings-1}{%
-\subsubsection{Strings}\label{strings-1}}
-
-\hypertarget{logische-werte-1}{%
-\subsubsection{Logische Werte}\label{logische-werte-1}}
-
-\hypertarget{elementare-datentypen-in-python-1}{%
-\subsubsection{Elementare Datentypen in Python}\label{elementare-datentypen-in-python-1}}
-
-\hypertarget{komplexe-datentypen-1}{%
-\subsection{Komplexe Datentypen}\label{komplexe-datentypen-1}}
-
-\hypertarget{datum-1}{%
-\subsubsection{Datum}\label{datum-1}}
-
-\hypertarget{uhrzeit-1}{%
-\subsubsection{Uhrzeit}\label{uhrzeit-1}}
-
-\hypertarget{bilder-1}{%
-\subsubsection{Bilder}\label{bilder-1}}
-
-\hypertarget{komplexe-datentypen-in-python-1}{%
-\subsubsection{Komplexe Datentypen in Python}\label{komplexe-datentypen-in-python-1}}
-
-\hypertarget{skalenniveaus-1}{%
-\section{Skalenniveaus}\label{skalenniveaus-1}}
-
-\hypertarget{uxfcberblick-1}{%
-\subsection{Überblick}\label{uxfcberblick-1}}
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0563}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0915}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4225}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1268}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3028}}@{}}
-\toprule
-\begin{minipage}[b]{\linewidth}\raggedright
-Scale
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Operations
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Description
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Statistics
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Example
-\end{minipage} \\
-\midrule
-\endhead
-Nominal & \(=, \neq\) & values have no natural order; they describe unordered categories & Mode (Modus) & München, Hamburg, Essen \\
-Ordinal & \(<, >\) & values have a defined order; difference of values is undefined or has no clear or meaningful definition & Median & Schulnoten, Tabellenplatz in der Bundesliga \\
-Interval & \(+,-\) & differences of values have the same meaning; adding provides useful results; zero point is not naturally/globally defined & Mean & Temperatur \\
-Ratio & \(\cdot , /\) & zero point is naturally defined & (Generalized) Mean & Alter \\
-\bottomrule
-\end{longtable}
-
-Bemerkungen:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Skalenniveaus sind nicht immer klar zuzuordnen.
-\item
-  Aus nominalen Datenskalen lassen sich stets \emph{künstliche Ordnungen} (und damit ordinale Datenskalen) definieren.
-\item
-  Bilden sie keine Mittelwerte auf Daten mit ordinalen Datenskalen!
-\item
-  Nominale und ordinale Datenskalen heißen auch \emph{kategorisch} oder \emph{qualitativ}.
-\item
-  Intervall und Ratio-Datenskalen heißen auch \emph{metrisch}.
-\end{enumerate}
-
-Ergänzend: \href{https://www.statistikpsychologie.de/skalenniveaus/}{Die fünf Skalenniveaus: Einfach und verständlich erklärt (statistikpsychologie.de)}
-
-\hypertarget{skalenniveaus-im-iris-datensatz-1}{%
-\subsection{Skalenniveaus im Iris-Datensatz}\label{skalenniveaus-im-iris-datensatz-1}}
-
-\begin{figure}
-\centering
-\includegraphics{assets/daten.assets/image-20211209145313372.png}
-\caption{Skalenniveaus bei Iris}
-\end{figure}
-
-\hypertarget{von-nominal-zu-ordinal-1}{%
-\paragraph{Von Nominal zu Ordinal}\label{von-nominal-zu-ordinal-1}}
-
-Wir werden später folgende eindeutige Zuordnung treffen:
-
-\begin{longtable}[]{@{}cc@{}}
-\toprule
-Nominaler Wert & Ordinaler Wert \\
-\midrule
-\endhead
-setosa & 0 \\
-versicolor & 1 \\
-virginica & 2 \\
-\bottomrule
-\end{longtable}
-
-\hypertarget{iris-datensatz}{%
-\chapter{Iris-Datensatz}\label{iris-datensatz}}
-
-\hypertarget{einfuxfchrung}{%
-\section{Einführung}\label{einfuxfchrung}}
-
-Der Iris-Datensatz enthält Messungen von jeweils 50 Blüten zu drei verschiedenen Lilien-Arten (setosa, versicolor, virginica)
-
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{assets/Download.png}
-\caption[Iris-Arten]{Iris-Arten\footnotemark{}}
-\end{figure}
-\footnotetext{Quelle: Wikipedia}
-
-Gemessen werden pro \href{https://de.wikipedia.org/wiki/Bl\%C3\%BCte}{Blüte} in cm 
-
-\begin{itemize}
-\tightlist
-\item
-  die Länge und Breite des Kronblattes (Petalum, petal) sowie 
-\item
-  die Länge und Breite des Kelchblattes (Sepalum, sepal)
-\end{itemize}
-
-\begin{figure}
-\centering
-\includegraphics{assets/image_messung.png}
-\caption[Petal und Sepal]{Petal und Sepal\footnotemark{}}
-\end{figure}
-\footnotetext{Quelle:xxx}
-
-\hypertarget{datensatz-2}{%
-\section{Datensatz}\label{datensatz-2}}
-
-Folgender - in der Community wohlbekannter - Datensatz liegt uns vor (Sie finden die Daten \href{https://syncandshare.lrz.de/getlink/fi89kxTJ5yLRaW5mnpyrofVK/Iris_p.xlsx}{hier}).
-
-\begin{figure}
-\centering
-\includegraphics[width=0.6\textwidth,height=\textheight]{assets/image-20211209101425856.png}
-\caption[Iris-Datensatz ]{Iris-Datensatz \footnotemark{}}
-\end{figure}
-\footnotetext{Fussnote}
-
-Lorem ipsum dolor sit amet consectetur adipiscing elit sollicitudin lacus, dictumst fames condimentum mus penatibus aliquet phasellus lobortis, eleifend quam ligula eros tempus turpis proin dui. Convallis ridiculus vehicula vivamus facilisis nec proin et nostra sociis, nascetur in mollis felis accumsan nibh posuere dictum ad, lacinia placerat amet sed elementum magnis aptent vel. Sit posuere vivamus ultricies rutrum proin magnis inceptos ante mollis justo gravida, taciti condimentum adipiscing turpis habitasse facilisi fermentum cras maecenas vitae, libero lectus faucibus aptent urna etiam eget enim duis parturient. Ridiculus nisl class pellentesque magna orci sapien libero, potenti condimentum fames ipsum etiam semper, habitant vehicula amet lacinia praesent consequat. Conubia vestibulum nascetur potenti pretium massa magna feugiat hac, mattis commodo justo interdum libero donec egestas sed netus, lacus ac at dignissim sit amet platea. In posuere risus ipsum rutrum porta diam, sollicitudin congue eleifend interdum convallis penatibus est, pretium aliquam donec magna dictumst. Ac neque iaculis scelerisque euismod nec augue, enim ultricies fames vitae diam tristique, accumsan dictum ultrices quis ipsum. Potenti curabitur aliquet orci facilisi mi nam primis, diam massa augue et sem viverra laoreet, lacinia rhoncus magnis praesent leo vulputate.
-
-Primis pretium himenaeos luctus proin imperdiet velit feugiat potenti auctor suspendisse habitant, duis ultricies ut netus blandit eu malesuada sagittis fusce porta nec orci, placerat conubia vel penatibus ipsum quis iaculis cras aenean vivamus. Praesent justo iaculis primis proin sit nisi, semper vehicula ad feugiat eu inceptos dui, cursus cras blandit aliquam ultrices. Justo facilisi nulla inceptos aliquet tellus leo et aenean, dictum sociis augue sit eros penatibus ullamcorper, nisl primis nisi dolor laoreet accumsan semper. Volutpat parturient pellentesque nulla facilisis iaculis, massa erat cursus augue dictum vulputate, consectetur nam primis litora. Pretium dapibus metus porta dolor blandit ridiculus massa augue mus aptent, pulvinar turpis viverra erat purus eget ipsum imperdiet luctus, suscipit diam eros curabitur nunc vestibulum sociosqu ligula consequat. Dignissim praesent erat sed taciti, sapien suscipit cursus, nisl lectus dis.
-
-Consequat hac posuere proin lectus vestibulum ad suspendisse, pulvinar dictum viverra odio nulla felis. Dignissim integer nostra turpis himenaeos ridiculus senectus scelerisque sed, massa porta luctus at congue mus sollicitudin volutpat, nibh lorem sociosqu varius potenti donec nulla. Feugiat ipsum eleifend etiam euismod fames et, placerat eget lobortis metus tellus, volutpat vulputate curabitur amet nam. Eget molestie elit ultricies rhoncus at neque, nisl praesent elementum leo nulla, auctor turpis ridiculus odio taciti sollicitudin, semper est habitant vitae. Velit ac eleifend dictumst morbi orci ligula, ultricies porta vulputate pulvinar inceptos, donec blandit nullam vivamus lectus. Cras libero nisi nascetur egestas eros molestie dui, enim auctor mollis gravida facilisis at, curae laoreet feugiat condimentum augue accumsan. Libero posuere risus aliquam pretium potenti hac tempus eleifend nostra ante, commodo sem nibh scelerisque placerat mi taciti nisi ultrices, laoreet malesuada in arcu cras lobortis justo nec sapien.
-
-Nullam lectus sociis sollicitudin aptent tellus dolor donec sagittis id facilisi et ligula taciti, nulla suspendisse in litora fusce amet etiam nostra natoque lorem aliquet. Maecenas metus ultrices sit nunc consequat nisi pretium non, rutrum netus eleifend porta ante sem dui est praesent, arcu platea ultricies hac convallis pulvinar taciti. Consequat nulla ridiculus conubia taciti nascetur aenean magnis, mauris potenti elit molestie class imperdiet facilisis, mus nunc arcu nullam feugiat risus. Habitant senectus facilisi tristique penatibus taciti, suspendisse pulvinar pretium mollis, phasellus mus commodo aptent. Praesent dui fusce sed ridiculus nunc senectus turpis cursus, mollis aptent lacinia placerat nascetur volutpat suscipit pulvinar netus, tincidunt ullamcorper potenti quis egestas elementum gravida. Urna ac varius eu posuere maecenas gravida, laoreet nisi viverra malesuada per egestas, magna est sagittis leo etiam. Ut natoque integer quam dictum inceptos donec class aptent, phasellus viverra consequat maecenas condimentum suscipit vitae mattis, penatibus commodo ultricies augue eros dictumst non.
-
-\hypertarget{skalenniveaus-2}{%
-\chapter{Skalenniveaus}\label{skalenniveaus-2}}
-
-You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file.
-
-Add a numbered part: \texttt{\#\ (PART)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
-
-Add an unnumbered part: \texttt{\#\ (PART\textbackslash{}*)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
-
-Add an appendix as a special kind of un-numbered part: \texttt{\#\ (APPENDIX)\ Other\ stuff\ \{-\}} (followed by \texttt{\#\ A\ chapter}). Chapters in an appendix are prepended with letters instead of numbers.
-
-Lorem ipsum dolor sit amet consectetur adipiscing elit sollicitudin lacus, dictumst fames condimentum mus penatibus aliquet phasellus lobortis, eleifend quam ligula eros tempus turpis proin dui. Convallis ridiculus vehicula vivamus facilisis nec proin et nostra sociis, nascetur in mollis felis accumsan nibh posuere dictum ad, lacinia placerat amet sed elementum magnis aptent vel. Sit posuere vivamus ultricies rutrum proin magnis inceptos ante mollis justo gravida, taciti condimentum adipiscing turpis habitasse facilisi fermentum cras maecenas vitae, libero lectus faucibus aptent urna etiam eget enim duis parturient. Ridiculus nisl class pellentesque magna orci sapien libero, potenti condimentum fames ipsum etiam semper, habitant vehicula amet lacinia praesent consequat. Conubia vestibulum nascetur potenti pretium massa magna feugiat hac, mattis commodo justo interdum libero donec egestas sed netus, lacus ac at dignissim sit amet platea. In posuere risus ipsum rutrum porta diam, sollicitudin congue eleifend interdum convallis penatibus est, pretium aliquam donec magna dictumst. Ac neque iaculis scelerisque euismod nec augue, enim ultricies fames vitae diam tristique, accumsan dictum ultrices quis ipsum. Potenti curabitur aliquet orci facilisi mi nam primis, diam massa augue et sem viverra laoreet, lacinia rhoncus magnis praesent leo vulputate.
-
-Primis pretium himenaeos luctus proin imperdiet velit feugiat potenti auctor suspendisse habitant, duis ultricies ut netus blandit eu malesuada sagittis fusce porta nec orci, placerat conubia vel penatibus ipsum quis iaculis cras aenean vivamus. Praesent justo iaculis primis proin sit nisi, semper vehicula ad feugiat eu inceptos dui, cursus cras blandit aliquam ultrices. Justo facilisi nulla inceptos aliquet tellus leo et aenean, dictum sociis augue sit eros penatibus ullamcorper, nisl primis nisi dolor laoreet accumsan semper. Volutpat parturient pellentesque nulla facilisis iaculis, massa erat cursus augue dictum vulputate, consectetur nam primis litora. Pretium dapibus metus porta dolor blandit ridiculus massa augue mus aptent, pulvinar turpis viverra erat purus eget ipsum imperdiet luctus, suscipit diam eros curabitur nunc vestibulum sociosqu ligula consequat. Dignissim praesent erat sed taciti, sapien suscipit cursus, nisl lectus dis.
-
-Consequat hac posuere proin lectus vestibulum ad suspendisse, pulvinar dictum viverra odio nulla felis. Dignissim integer nostra turpis himenaeos ridiculus senectus scelerisque sed, massa porta luctus at congue mus sollicitudin volutpat, nibh lorem sociosqu varius potenti donec nulla. Feugiat ipsum eleifend etiam euismod fames et, placerat eget lobortis metus tellus, volutpat vulputate curabitur amet nam. Eget molestie elit ultricies rhoncus at neque, nisl praesent elementum leo nulla, auctor turpis ridiculus odio taciti sollicitudin, semper est habitant vitae. Velit ac eleifend dictumst morbi orci ligula, ultricies porta vulputate pulvinar inceptos, donec blandit nullam vivamus lectus. Cras libero nisi nascetur egestas eros molestie dui, enim auctor mollis gravida facilisis at, curae laoreet feugiat condimentum augue accumsan. Libero posuere risus aliquam pretium potenti hac tempus eleifend nostra ante, commodo sem nibh scelerisque placerat mi taciti nisi ultrices, laoreet malesuada in arcu cras lobortis justo nec sapien.
-
-Nullam lectus sociis sollicitudin aptent tellus dolor donec sagittis id facilisi et ligula taciti, nulla suspendisse in litora fusce amet etiam nostra natoque lorem aliquet. Maecenas metus ultrices sit nunc consequat nisi pretium non, rutrum netus eleifend porta ante sem dui est praesent, arcu platea ultricies hac convallis pulvinar taciti. Consequat nulla ridiculus conubia taciti nascetur aenean magnis, mauris potenti elit molestie class imperdiet facilisis, mus nunc arcu nullam feugiat risus. Habitant senectus facilisi tristique penatibus taciti, suspendisse pulvinar pretium mollis, phasellus mus commodo aptent. Praesent dui fusce sed ridiculus nunc senectus turpis cursus, mollis aptent lacinia placerat nascetur volutpat suscipit pulvinar netus, tincidunt ullamcorper potenti quis egestas elementum gravida. Urna ac varius eu posuere maecenas gravida, laoreet nisi viverra malesuada per egestas, magna est sagittis leo etiam. Ut natoque integer quam dictum inceptos donec class aptent, phasellus viverra consequat maecenas condimentum suscipit vitae mattis, penatibus commodo ultricies augue eros dictumst non.
-
-\hypertarget{blocks}{%
-\chapter{Blocks}\label{blocks}}
-
-\hypertarget{equations}{%
-\section{Equations}\label{equations}}
-
-Here is an equation.
-
-\begin{equation} 
-  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-  \label{eq:binom}
-\end{equation}
-
-You may refer to using \texttt{\textbackslash{}@ref(eq:binom)}, like see Equation \eqref{eq:binom}.
-
-\hypertarget{theorems-and-proofs}{%
-\section{Theorems and proofs}\label{theorems-and-proofs}}
-
-Labeled theorems can be referenced in text using \texttt{\textbackslash{}@ref(thm:tri)}, for example, check out this smart theorem \ref{thm:tri}.
-
-\begin{theorem}
-\protect\hypertarget{thm:tri}{}\label{thm:tri}For a right triangle, if \(c\) denotes the \emph{length} of the hypotenuse and \(a\) and \(b\) denote the lengths of the \textbf{other} two sides, we have \[a^2 + b^2 = c^2\]
-\end{theorem}
-
-Read more here \url{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}.
-
-\hypertarget{callout-blocks}{%
-\section{Callout blocks}\label{callout-blocks}}
-
-The \texttt{bs4\_book} theme also includes special callout blocks, like this \texttt{.rmdnote}.
-
-You can use \textbf{markdown} inside a block.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{head}\NormalTok{(beaver1, }\AttributeTok{n =} \DecValTok{5}\NormalTok{)}
-\CommentTok{\#\textgreater{}   day time  temp activ}
-\CommentTok{\#\textgreater{} 1 346  840 36.33     0}
-\CommentTok{\#\textgreater{} 2 346  850 36.34     0}
-\CommentTok{\#\textgreater{} 3 346  900 36.35     0}
-\CommentTok{\#\textgreater{} 4 346  910 36.42     0}
-\CommentTok{\#\textgreater{} 5 346  920 36.55     0}
-\end{Highlighting}
-\end{Shaded}
-
-It is up to the user to define the appearance of these blocks for LaTeX output.
-
-You may also use: \texttt{.rmdcaution}, \texttt{.rmdimportant}, \texttt{.rmdtip}, or \texttt{.rmdwarning} as the block name.
-
-The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: \url{https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html}
-
-\hypertarget{part-teil-b}{%
-\part*{Teil B}\label{part-teil-b}}
-\addcontentsline{toc}{part}{Teil B}
-
-\hypertarget{sharing-your-book}{%
-\chapter{Sharing your book}\label{sharing-your-book}}
-
-\hypertarget{publishing}{%
-\section{Publishing}\label{publishing}}
-
-HTML books can be published online, see: \url{https://bookdown.org/yihui/bookdown/publishing.html}
-
-\hypertarget{pages}{%
-\section{404 pages}\label{pages}}
-
-By default, users will be directed to a 404 page if they try to access a webpage that cannot be found. If you'd like to customize your 404 page instead of using the default, you may add either a \texttt{\_404.Rmd} or \texttt{\_404.md} file to your project root and use code and/or Markdown syntax.
-
-\hypertarget{metadata-for-sharing}{%
-\section{Metadata for sharing}\label{metadata-for-sharing}}
-
-Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the \texttt{index.Rmd} YAML. To setup, set the \texttt{url} for your book and the path to your \texttt{cover-image} file. Your book's \texttt{title} and \texttt{description} are also used.
-
-This \texttt{bs4\_book} provides enhanced metadata for social sharing, so that each chapter shared will have a unique description, auto-generated based on the content.
-
-Specify your book's source repository on GitHub as the \texttt{repo} in the \texttt{\_output.yml} file, which allows users to view each chapter's source file or suggest an edit. Read more about the features of this output format here:
-
-\url{https://pkgs.rstudio.com/bookdown/reference/bs4_book.html}
-
-Or use:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{?bookdown}\SpecialCharTok{::}\NormalTok{bs4\_book}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{footnotes-and-citations}{%
-\chapter{Footnotes and citations}\label{footnotes-and-citations}}
-
-\hypertarget{footnotes}{%
-\section{Footnotes}\label{footnotes}}
-
-Footnotes are put inside the square brackets after a caret \texttt{\^{}{[}{]}}. Like this one \footnote{This is a footnote.}.
-
-\hypertarget{citations}{%
-\section{Citations}\label{citations}}
-
-Reference items in your bibliography file(s) using \texttt{@key}.
-
-For example, we are using the \textbf{bookdown} package \citep{R-bookdown} (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015} (this citation was added manually in an external file book.bib). Note that the \texttt{.bib} files need to be listed in the index.Rmd with the YAML \texttt{bibliography} key.
-
-The \texttt{bs4\_book} theme makes footnotes appear inline when you click on them. In this example book, we added \texttt{csl:\ chicago-fullnote-bibliography.csl} to the \texttt{index.Rmd} YAML, and include the \texttt{.csl} file. To download a new style, we recommend: \url{https://www.zotero.org/styles/}
-
-The RStudio Visual Markdown Editor can also make it easier to insert citations: \url{https://rstudio.github.io/visual-markdown-editing/\#/citations}
-
-\hypertarget{template}{%
-\chapter{Template}\label{template}}
-
-You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file.
-
-Add a numbered part: \texttt{\#\ (PART)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
-
-Add an unnumbered part: \texttt{\#\ (PART\textbackslash{}*)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
-
-Add an appendix as a special kind of un-numbered part: \texttt{\#\ (APPENDIX)\ Other\ stuff\ \{-\}} (followed by \texttt{\#\ A\ chapter}). Chapters in an appendix are prepended with letters instead of numbers.
-
-\hypertarget{template-1}{%
-\chapter{Template}\label{template-1}}
-
-You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file.
-
-Add a numbered part: \texttt{\#\ (PART)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
-
-Add an unnumbered part: \texttt{\#\ (PART\textbackslash{}*)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
-
-Add an appendix as a special kind of un-numbered part: \texttt{\#\ (APPENDIX)\ Other\ stuff\ \{-\}} (followed by \texttt{\#\ A\ chapter}). Chapters in an appendix are prepended with letters instead of numbers.
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verl
 
   \bibliography{book.bib,packages.bib}
 
