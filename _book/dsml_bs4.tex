@@ -144,11 +144,16 @@ headsepline,
 \titlespacing{\subsubsection}{0pt}{2ex}{-0.5ex}
 
 \setlength{\parindent}{1em}
-
-
 \usepackage{graphicx}
-\usepackage{watermark}
 
+% Turn off autmatic crearion of the coverpage
+\let\oldmaketitle\maketitle
+\AtBeginDocument{\let\maketitle\relax}
+
+%Zim Testen
+\usepackage{blindtext}
+
+\usepackage{color}
 
 
 
@@ -160,7 +165,7 @@ headsepline,
 
 \title{Data Science \& Machine Learning}
 \author{Dieter Greipl}
-\date{2022-01-31}
+\date{2022-02-01}
 
 \begin{document}
 \maketitle
@@ -170,27 +175,46 @@ headsepline,
 
 \begin{center}
 
-\Huge \textbf{Inteligencia Artificial aplicada a Negocios}
+\Huge \textbf{Data Science und Machine Learning}
 
-\Large \textbf{Resuelve problemas de negocios reales con soluciones de IA}
-
-\large de Hadelin de Ponteves y Kirill Eremenko
-
-\large Traducido por Juan Gabriel Gomila
+\Large \textbf{Einführung für Studierende der Betriebswirtschaftslehre und Wirtschaftsinformatik}
 
 
 \end{center}
 
+\noindent\makebox[\textwidth][c]{\includegraphics[width=\paperwidth]{assets/cover_1.jpg}}
 
-
-asdfasd
-
-
-		\makebox[\paperwidth]{\includegraphics[width=\paperwidth]{assets/x.png}}
-
-
+%textbox unten rechts
+\vspace{-3cm}
+\hfill
+\begin{minipage}[b][1cm][t]{10cm}
+  \color{white}
+  \begin{flushright}
+     \Huge\textbf{Dieter Greipl}\\
+     \Large\textbf{Hochschule Landshut}\\
+  \end{flushright}
+\end{minipage}
 
 \end{titlepage}
+
+% Zweite Seite ---------------------------------------
+\begin{titlepage}
+\hfill
+\begin{minipage}[r][10cm][t]{10cm}
+\large \textbf{Danke}\\
+	Dieses Buch entstand im Sommersemester 2022. Vielen Dank an meine Sudierenden für zahlreiche Hinweise.
+\end{minipage}
+
+\vfill
+%textbox unten rechts
+\begin{minipage}[b][10cm][b]{10cm}
+\large{Copyright}\\
+	...
+\end{minipage}
+
+\end{titlepage}
+
+
 
 {
 \setcounter{tocdepth}{1}

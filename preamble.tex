@@ -34,11 +34,16 @@ headsepline,
 \titlespacing{\subsubsection}{0pt}{2ex}{-0.5ex}
 
 \setlength{\parindent}{1em}
-
-
 \usepackage{graphicx}
-\usepackage{watermark}
 
+% Turn off autmatic crearion of the coverpage
+\let\oldmaketitle\maketitle
+\AtBeginDocument{\let\maketitle\relax}
+
+%Zim Testen
+\usepackage{blindtext}
+
+\usepackage{color}
 
 
 

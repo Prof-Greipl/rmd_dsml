@@ -124,3 +124,4 @@ Wir werden später folgende eindeutige Zuordnung  treffen:
 |     setosa     |       0        |
 |   versicolor   |       1        |
 |   virginica    |       2        |
+
