@@ -21,7 +21,7 @@ cover-image: assets/x.png
 
 
 
-# Willkommen {-}
+# Willkommen 123 {-}
 
 Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das Thema **Data Science & Machine Learning**. Die Inhalte richten sich an Studierende, die erste Schritte auf das KI -Spielfeld wagen und das Potential  von datengetriebenen Lösungsverfahren verstehen wollen.  
 
