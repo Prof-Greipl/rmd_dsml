@@ -1,7 +1,7 @@
 ---
 title: "Data Science & Machine Learning"
 author: "Dieter Greipl"
-date: "2022-02-01"
+date: "2022-02-02"
 site: bookdown::bookdown_site 
 
 # See here for changing latex parameters:  https://bookdown.org/yihui/rmarkdown-cookbook/latex-variables.html 
@@ -21,7 +21,7 @@ cover-image: assets/x.png
 
 
 
-# Willkommen {-}
+# Willkommen1 {-}
 
 Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das Thema **Data Science & Machine Learning**. Die Inhalte richten sich an Studierende, die erste Schritte auf das KI -Spielfeld wagen und das Potential  von datengetriebenen Lösungsverfahren verstehen wollen.  
 
