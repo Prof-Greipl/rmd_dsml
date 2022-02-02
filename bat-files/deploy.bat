@@ -2,4 +2,5 @@
 xcopy ..\_book \..\docs /s /e /y
 
 cd ..
-git add -A && git commit -m "Your Message"
+git add -A && git commit -m "from deploy.bat"
+git push
