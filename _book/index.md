@@ -1,7 +1,7 @@
 ---
 title: "Data Science & Machine Learning"
 author: "Dieter Greipl"
-date: "2022-02-02"
+date: "2022-02-20"
 site: bookdown::bookdown_site 
 
 # See here for changing latex parameters:  https://bookdown.org/yihui/rmarkdown-cookbook/latex-variables.html 
@@ -23,8 +23,6 @@ cover-image: assets/x.png
 
 # Willkommen {-}
 
-Working version: 2022-02-02
-
 Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das Thema **Data Science & Machine Learning**. Die Inhalte richten sich an Studierende, die erste Schritte auf das KI -Spielfeld wagen und das Potential  von datengetriebenen Lösungsverfahren verstehen wollen.  
 
 Insofern richtet sich die Darstellung an Studierende mit vertieftem Interesse an KI, die einen für Studierende angemessenes Vorwissen im Bereich Mathematik mitbringen.  Vorkenntnisse im Bereich der Programmierung sind nicht nötig, aber natürlich hilfreich.
@@ -33,7 +31,7 @@ Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen
 
   
 
-## Vorbereitungen	
+## Vorbereitungen	{-}
 
 Dieses Skript ist als Unterlage für zahlreichen praktische Übungen mit Python angelegt. Ich werde hierzu [**Colab-Notebooks**](https://colab.research.google.com/) verwenden. Sie brauchen hierzu ein **Google-Konto**.
 

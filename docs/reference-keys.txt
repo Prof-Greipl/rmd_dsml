@@ -1,7 +1,7 @@
-vorbereitungen
 python---quickstart
-colab-notebooks
 hallo-welt
+programme-und-fehler
+python-lernen
 variablen
 datentypen
 datentyp-zahlen
@@ -17,9 +17,6 @@ datentypen-in-der-übersicht
 zusammenfassung
 daten
 elementare-datentypen
-zahlen
-text
-logischer-datentyp-boolean
 der-iris-datensatz
 datensatz
 datentypen-1
@@ -37,6 +34,7 @@ skalenniveaus
 überblick
 skalenniveaus-im-iris-datensatz
 von-nominal-zu-ordinal
+datenstrukturen-mit-python
 chapter
 latex-section-h2
 latex-subsection-h3

@@ -4,6 +4,8 @@ bookdown::bs4_book:
   theme:
     primary: "#096B72"
   repo: https://github.com/rstudio/bookdown-demo
+  includes:
+    before_body: frontpage.html
 
 
 bookdown::pdf_book:

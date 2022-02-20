@@ -156,7 +156,6 @@ headsepline,
 \usepackage{color}
 
 
-
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -165,7 +164,7 @@ headsepline,
 
 \title{Data Science \& Machine Learning}
 \author{Dieter Greipl}
-\date{2022-02-02}
+\date{2022-02-20}
 
 \begin{document}
 \maketitle
@@ -215,7 +214,6 @@ headsepline,
 \end{titlepage}
 
 
-
 {
 \setcounter{tocdepth}{1}
 \tableofcontents
@@ -231,7 +229,8 @@ Insofern richtet sich die Darstellung an Studierende mit vertieftem Interesse an
 Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verloren gehen.
 
 \hypertarget{vorbereitungen}{%
-\section{Vorbereitungen}\label{vorbereitungen}}
+\section*{Vorbereitungen}\label{vorbereitungen}}
+\addcontentsline{toc}{section}{Vorbereitungen}
 
 Dieses Skript ist als Unterlage für zahlreichen praktische Übungen mit Python angelegt. Ich werde hierzu \href{https://colab.research.google.com/}{\textbf{Colab-Notebooks}} verwenden. Sie brauchen hierzu ein \textbf{Google-Konto}.
 
@@ -258,23 +257,42 @@ Noch einige Hinweise an Studierende meiner Module:
 \hypertarget{python---quickstart}{%
 \chapter{Python - Quickstart}\label{python---quickstart}}
 
-\hypertarget{colab-notebooks}{%
-\section{Colab-Notebooks}\label{colab-notebooks}}
+Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Algorithmen zielführend ist. Hierfür verwenden wir die Programmiersprache Python. Ich empfehle dringend ein der folgenden Varianten zur Nutzung von Python zu verwenden. Wir starten in beiden Varianten mit dem typischerweise ersten Programm für Anfänger, dem Hallo-Welt-Programm. Dieses Programm gibt lediglich den digitalen Gruß ``Hallo Welt'' in dem vorgesehen Ausgabe Bereich aus.
 
 \hypertarget{hallo-welt}{%
 \section{Hallo Welt}\label{hallo-welt}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(}\StringTok{"Hallo Welt"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+Unser kleines Begrüßungsprogramm besteht nur aus einer Zeile
 
-Ausgabe:
+\begin{verbatim}
+print("Hallo Welt")
+\end{verbatim}
+
+Die Ausgabe dieses Programms ist:
 
 \begin{verbatim}
 #> Hallo Welt
 \end{verbatim}
+
+\hypertarget{variante-1-colab-notebooks}{%
+\subsection*{Variante 1: Colab-Notebooks}\label{variante-1-colab-notebooks}}
+\addcontentsline{toc}{subsection}{Variante 1: Colab-Notebooks}
+
+Unter dem Link \url{https://colab.research.google.com/} können sie ein sogenanntes Colab-Notebook erstellen. In die Programmzelle können tragen sie die Befehle ein. Ein Klick auf \includegraphics{01-python.assets/image-20220220185350019.png} führt die Programmzeilen aus und schreibt eventuelle Ausgaben unter die Programmzelle.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{01-python.assets/image-20220220185808467.png}
+\caption{Colab-Notebook mit Programmzelle}
+\end{figure}
+
+Versuchen sie es! Mit \texttt{File-\textgreater{}Save} können sie das Notebook abspeichern. Weitere Hinweise zum Umgang mit Colab-Notebook finden sie unter \url{https://research.google.com/colaboratory/faq.html}. Besonders smart ist die Funktion von Textzellen. Sie erlauben das hinzufügen eigener Texte vor oder nach den Programmzellen; so können sie zu ein eigenes kleines Skript erstellen.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{01-python.assets/image-20220220190605212.png}
+\caption{Textzelle über der Programmzelle}
+\end{figure}
 
 \hypertarget{variablen}{%
 \section{Variablen}\label{variablen}}
@@ -443,19 +461,22 @@ Wahrheitswerte & bool & \texttt{x\ =\ (1\ \textless{}\ 3)} \\
 Daten\footnote{sing. Datum} sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, also aufgeschrieben sind. Häufig sprechen wir auch von \emph{Werten}, statt von Daten. Ein Werte kann zum Beispiel die Zahl \(27\) oder die Note ``\emph{sehr gut}'' sein. Offensichtlich gehören beide Werte zu verschiedene Typen von Werten, den sogenannten Datentypen. Wir beschäftigen uns mit den Datentypen \emph{Zahlen}, \emph{Text} und \emph{Boolean}
 
 \hypertarget{zahlen}{%
-\paragraph{Zahlen}\label{zahlen}}
+\subsubsection*{Zahlen}\label{zahlen}}
+\addcontentsline{toc}{subsubsection}{Zahlen}
 
-Werte dieses Datentyps sind z.B. \(1\), \(-1\), \(1.7\) oder \(1/3\). Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen (und noch ein paar mehr, die aber vorest nicht gebraucht werden. Wir verwenden die Symbole \(\mathbb{N}\) für die natürlichen Zahlen und \(\mathbb{R}\) für die reellen Zahlen.
+Werte dieses Datentyps sind z.B. \(1\), \(-1\), \(1.7\) oder \(1/3\). Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen (und noch ein paar mehr, die aber vorerst nicht gebraucht werden. Wir verwenden die üblichen Symbole \(\mathbb{N}\) für die natürlichen Zahlen und \(\mathbb{R}\) für die reellen Zahlen.
 
 Wir notieren Zahlen wie üblich und verwenden in der Dezimalnotation den Punkt als Trennsymbol.
 
 \hypertarget{text}{%
-\paragraph{Text}\label{text}}
+\subsubsection*{\texorpdfstring{\textbf{Text}}{Text}}\label{text}}
+\addcontentsline{toc}{subsubsection}{\textbf{Text}}
 
 Werte dieses Datentyps sind zum Beispiel ``Baum'', ``Hans Huber'' oder ``sehr gut''. Zeichenketten beginnen und enden mit einem Anführungszeichen. In der Regel macht uns diese Notationen keine Probleme - manchmal wird es trotzdem ungemütlich: Kann eine Zeichenkette ein Anführungszeichen enthalten? Gibt es einen Unterschied zwischen der Zahl 123 und der Zeichenkette ``123''? Wir vertiefen das hier nicht, sondern gehen die Fragen an, sobald sie uns begegnen.
 
 \hypertarget{logischer-datentyp-boolean}{%
-\paragraph{Logischer Datentyp (Boolean)}\label{logischer-datentyp-boolean}}
+\subsubsection*{Logischer Datentyp (Boolean)}\label{logischer-datentyp-boolean}}
+\addcontentsline{toc}{subsubsection}{Logischer Datentyp (Boolean)}
 
 Dieser Datentyp umfasst nur zwei Werte, die sogenannten Wahrheitswerte. Wir werden in diesem Text die Notation \emph{True} und \emph{False} verwenden.
 
@@ -609,6 +630,9 @@ versicolor & 1 \\
 virginica & 2 \\
 \bottomrule
 \end{longtable}
+
+\hypertarget{datenstrukturen-mit-python}{%
+\chapter{Datenstrukturen mit Python}\label{datenstrukturen-mit-python}}
 
 \hypertarget{part-latex-part}{%
 \part*{Latex Part}\label{part-latex-part}}

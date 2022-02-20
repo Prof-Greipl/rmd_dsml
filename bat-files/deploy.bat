@@ -3,7 +3,7 @@ REM rende the book
 cd ..
 "C:\Program Files\R\R-4.1.2\bin\R.exe" -e "rmarkdown::render_site(output_format = 'bookdown::bs4_book', encoding = 'UTF-8')"
 
-xcopy _book docs /s /e /y
+xcopy _book docs\ /s /e /y
 
 REM Delete all unused files
 cd docs
