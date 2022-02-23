@@ -4,7 +4,7 @@
 
 Daten^[sing. Datum] sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, also aufgeschrieben sind.  Häufig sprechen wir auch von *Werten*, statt von Daten. Ein Werte kann zum Beispiel die Zahl $27$ oder die Note "*sehr gut*" sein. Offensichtlich gehören beide Werte zu verschiedene Typen von Werten, den sogenannten Datentypen.  Wir beschäftigen uns mit den Datentypen *Zahlen*, *Text* und *Boolean*
 
-#### Zahlen {-}
+#### **Zahlen {-}**
 
 Werte dieses Datentyps sind z.B. $1$, $-1$, $1.7$  oder $1/3$. Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen (und noch ein paar mehr, die aber vorerst nicht gebraucht werden. Wir verwenden die üblichen Symbole $\mathbb{N}$ für die natürlichen Zahlen und  $\mathbb{R}$ für die reellen Zahlen.
 
@@ -14,7 +14,7 @@ Wir notieren Zahlen wie üblich und verwenden in der Dezimalnotation den Punkt a
 
 Werte dieses Datentyps sind zum Beispiel "Baum", "Hans Huber" oder "sehr gut". Zeichenketten beginnen und enden mit einem Anführungszeichen. In der Regel macht uns diese Notationen keine Probleme - manchmal wird es trotzdem ungemütlich: Kann eine Zeichenkette ein Anführungszeichen enthalten? Gibt es einen Unterschied zwischen der Zahl 123 und der Zeichenkette "123"? Wir  vertiefen das hier nicht, sondern gehen die Fragen an, sobald sie uns begegnen.
 
-#### Logischer Datentyp (Boolean) {-}
+#### **Logischer Datentyp (Boolean) {-}**
 
 Dieser Datentyp umfasst nur zwei Werte, die sogenannten Wahrheitswerte. Wir werden in diesem Text die Notation *True* und *False* verwenden. 
 

@@ -104,7 +104,7 @@ sdfgsdfg
 <h2>
 <span class="header-section-number">1.2</span> Programme und Fehler<a class="anchor" aria-label="anchor" href="#programme-und-fehler"><i class="fas fa-link"></i></a>
 </h2>
-<p>Sie werden eventuell Syntax-Fehler in ihren Programmen haben. Syntax-Fehler entstehen, wenn Python ihr Programm nicht versteht. Oft geht es dabei um “Rechtschreibfehler”. Schreiben sie also fälhsclicherweise <code>prin("Hallo Welt")</code>, so erhalten sie bei der Programmausführung ein Fehlermeldung:</p>
+<p>Sie werden eventuell Syntax-Fehler in ihren Programmen haben. Syntax-Fehler entstehen, wenn Python ihr Programm nicht versteht. Oft geht es dabei um “Rechtschreibfehler”. Schreiben sie also fälschlicherweise <code>prin("Hallo Welt")</code>, so erhalten sie bei der Programmausführung ein Fehlermeldung:</p>
 <pre><code>line 1, in &lt;module&gt;
     prin("Hallo Welt")
 NameError: name 'prin' is not defined </code></pre>
@@ -120,170 +120,7 @@ NameError: name 'prin' is not defined </code></pre>
 <p>Es geht uns nicht in erster Linie darum gute Python-Programmierer zu werden. Unsere Kenntnisse müssen aber für die Lösung oder Analyse unserer Problemstellungen ausreichen. Das legt auch den Umfang an Python Know-How fest. Es gibt hierfür zahlreiche gute Bücher und Internetquellen. Eine ausgewählter Link, auf den ich regelmäßig verweisen werden ist</p>
 <p><a href="https://www.w3schools.com/python/" class="uri">https://www.w3schools.com/python/</a></p>
 <p>Suchen sie doch unter <em>Python Intro</em> nach dem Hallo-Welt-Beispiel. Sie finden dort unter <em>Try it Yourself</em> eine weitere Möglichkeit Python-Programme auszuführen!</p>
-</div>
-<div id="variablen" class="section level2" number="1.4">
-<h2>
-<span class="header-section-number">1.4</span> Variablen<a class="anchor" aria-label="anchor" href="#variablen"><i class="fas fa-link"></i></a>
-</h2>
-<p>Variablen sind Platzhalter für Werte, wir sprechen vom <em>Wert einer Variable</em>. Im nachfolgendem Beispiel wird der Variable mit dem Namen <code>x</code>in Zeile 1 der Wert 1 zugewiesen. Variablen haben immer einen Namen. Einen Wert erhalten sie erst durch eine sog. Zuweisung (wie in Zeile 1). In Zeile 2 drucken wir den Wert aus. Führen Sie also folgende Phython-Befehle aus:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="python---quickstart.html#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb6-2"><a href="python---quickstart.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
-<blockquote>
-<p>Die erstmalige Zuweisung eines Wertes an eine Variable heißt Initialisierung.</p>
-</blockquote>
-</div>
-<div id="datentypen" class="section level2" number="1.5">
-<h2>
-<span class="header-section-number">1.5</span> Datentypen<a class="anchor" aria-label="anchor" href="#datentypen"><i class="fas fa-link"></i></a>
-</h2>
-<div id="datentyp-zahlen" class="section level3" number="1.5.1">
-<h3>
-<span class="header-section-number">1.5.1</span> Datentyp “Zahlen”<a class="anchor" aria-label="anchor" href="#datentyp-zahlen"><i class="fas fa-link"></i></a>
-</h3>
-<div id="ganze-zahlen-und-rationale-zahlen" class="section level4" number="1.5.1.1">
-<h4>
-<span class="header-section-number">1.5.1.1</span> Ganze Zahlen und rationale Zahlen<a class="anchor" aria-label="anchor" href="#ganze-zahlen-und-rationale-zahlen"><i class="fas fa-link"></i></a>
-</h4>
-<p>Zahlen sind recht einfach zu verstehen, wir haben ja oben schon einige Beispiele gesehen. Hier nochmal eine Zusammenfassung wichtiger Beispiele mit rationalen Zahlen: </p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="python---quickstart.html#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb7-2"><a href="python---quickstart.html#cb7-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">3</span></span>
-<span id="cb7-3"><a href="python---quickstart.html#cb7-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">1.1</span></span>
-<span id="cb7-4"><a href="python---quickstart.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Funktionen</span></span>
-<span id="cb7-5"><a href="python---quickstart.html#cb7-5" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a <span class="op">+</span> b<span class="op">;</span> <span class="bu">print</span>(d)</span>
-<span id="cb7-6"><a href="python---quickstart.html#cb7-6" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a <span class="op">-</span> b<span class="op">;</span> <span class="bu">print</span>(d)</span>
-<span id="cb7-7"><a href="python---quickstart.html#cb7-7" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a <span class="op">*</span> b<span class="op">;</span> <span class="bu">print</span>(d)</span>
-<span id="cb7-8"><a href="python---quickstart.html#cb7-8" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a <span class="op">/</span> b<span class="op">;</span> <span class="bu">print</span>(d)</span></code></pre></div>
-</div>
-</div>
-<div id="datentyp-strings" class="section level3" number="1.5.2">
-<h3>
-<span class="header-section-number">1.5.2</span> Datentyp “Strings”<a class="anchor" aria-label="anchor" href="#datentyp-strings"><i class="fas fa-link"></i></a>
-</h3>
-<p>Zeichenketten sind ebenfalls recht einfach zu verstehen. Führen Sie folgendes Beispiel aus:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="python---quickstart.html#cb8-1" aria-hidden="true" tabindex="-1"></a>vorname <span class="op">=</span> <span class="st">"Hans"</span></span>
-<span id="cb8-2"><a href="python---quickstart.html#cb8-2" aria-hidden="true" tabindex="-1"></a>nachname <span class="op">=</span> <span class="st">'Huber'</span></span>
-<span id="cb8-3"><a href="python---quickstart.html#cb8-3" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> vorname <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span> nachname</span>
-<span id="cb8-4"><a href="python---quickstart.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name)</span></code></pre></div>
-<div id="f-strings" class="section level4" number="1.5.2.1">
-<h4>
-<span class="header-section-number">1.5.2.1</span> f-Strings<a class="anchor" aria-label="anchor" href="#f-strings"><i class="fas fa-link"></i></a>
-</h4>
-<p>Statt eine zusammengesetzte Zeichenkette mit dem “+” - Operator auf zubauen, kann ein sogenannter f-String verwendet werden (siehe Zeile 3). f-Strings bringen für uns keine neue Funktion, machen aber die Verknüpfung von Strings einfacher.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="python---quickstart.html#cb9-1" aria-hidden="true" tabindex="-1"></a>vorname <span class="op">=</span> <span class="st">"Hans"</span></span>
-<span id="cb9-2"><a href="python---quickstart.html#cb9-2" aria-hidden="true" tabindex="-1"></a>nachname <span class="op">=</span> <span class="st">'Huber'</span></span>
-<span id="cb9-3"><a href="python---quickstart.html#cb9-3" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>vorname<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>nachname<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb9-4"><a href="python---quickstart.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name)</span></code></pre></div>
-</div>
-</div>
-<div id="datentyp-boolean" class="section level3" number="1.5.3">
-<h3>
-<span class="header-section-number">1.5.3</span> Datentyp “Boolean”<a class="anchor" aria-label="anchor" href="#datentyp-boolean"><i class="fas fa-link"></i></a>
-</h3>
-<p>Es gibt in der Theorie unendlich viele Zahlen und Zeichenketten, aber nur zwei Wahrheitswerte: wahr oder falsch. In Phython: <code>True</code>und <code>False</code></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="python---quickstart.html#cb10-1" aria-hidden="true" tabindex="-1"></a>z1 <span class="op">=</span> <span class="va">False</span><span class="op">;</span></span>
-<span id="cb10-2"><a href="python---quickstart.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (z1)</span>
-<span id="cb10-3"><a href="python---quickstart.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(z1) )<span class="op">;</span></span>
-<span id="cb10-4"><a href="python---quickstart.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="python---quickstart.html#cb10-5" aria-hidden="true" tabindex="-1"></a>z2 <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span></span>
-<span id="cb10-6"><a href="python---quickstart.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( z2 )<span class="op">;</span></span>
-<span id="cb10-7"><a href="python---quickstart.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(z2) )<span class="op">;</span></span>
-<span id="cb10-8"><a href="python---quickstart.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="python---quickstart.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"z1 and z2:"</span>, z1 <span class="kw">and</span> z2)<span class="op">;</span></span>
-<span id="cb10-10"><a href="python---quickstart.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"z1 or z2:"</span>, z1 <span class="kw">or</span> z2)<span class="op">;</span></span></code></pre></div>
-</div>
-</div>
-<div id="operatoren" class="section level2" number="1.6">
-<h2>
-<span class="header-section-number">1.6</span> Operatoren<a class="anchor" aria-label="anchor" href="#operatoren"><i class="fas fa-link"></i></a>
-</h2>
-<p>Die Bildschirmabzüge dieses Kapitels sind der Webseite <a href="https://www.w3schools.com/python/python_operators.asp">https://www.w3schools.com/python/python_operators.asp</a> entnommen. Erarbeiten Sie sich die Operatoren selbst in kleinen Programmen, so wie wir das zu Zahlen bereits oben gemacht haben.</p>
-<div id="arithmetische-operatoren" class="section level3" number="1.6.1">
-<h3>
-<span class="header-section-number">1.6.1</span> Arithmetische Operatoren<a class="anchor" aria-label="anchor" href="#arithmetische-operatoren"><i class="fas fa-link"></i></a>
-</h3>
-<div class="figure">
-<img src="assets/python.assets/bild1.png" alt=""><p class="caption">bild1</p>
-</div>
-</div>
-<div id="vergleichsoperatoren" class="section level3" number="1.6.2">
-<h3>
-<span class="header-section-number">1.6.2</span> Vergleichsoperatoren<a class="anchor" aria-label="anchor" href="#vergleichsoperatoren"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure"><img src="assets/python.assets/image%20(187).png"></div>
-</div>
-<div id="logische-operatoren" class="section level3" number="1.6.3">
-<h3>
-<span class="header-section-number">1.6.3</span> Logische Operatoren<a class="anchor" aria-label="anchor" href="#logische-operatoren"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure"><img src="assets/python.assets/image%20(188).png"></div>
-</div>
-</div>
-<div id="datentypen-in-der-übersicht" class="section level2" number="1.7">
-<h2>
-<span class="header-section-number">1.7</span> Datentypen in der Übersicht<a class="anchor" aria-label="anchor" href="#datentypen-in-der-%C3%BCbersicht"><i class="fas fa-link"></i></a>
-</h2>
-<p>Nachfolgendes Programmstück beschreibt exemplarisch die nun bekannten Datentypen. Mit <code><a href="https://rdrr.io/r/base/typeof.html">type()</a></code> kann man sich den Datentyp einer Variable ausgeben lassen (oft hilfreich!)</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="python---quickstart.html#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> </span>
-<span id="cb11-2"><a href="python---quickstart.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="ss">f"1 : </span><span class="sc">{</span><span class="bu">type</span>(x)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-3"><a href="python---quickstart.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="python---quickstart.html#cb11-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">1.1</span><span class="op">;</span> </span>
-<span id="cb11-5"><a href="python---quickstart.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="ss">f"1.1 : </span><span class="sc">{</span><span class="bu">type</span>(x)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-6"><a href="python---quickstart.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="python---quickstart.html#cb11-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">4</span><span class="op">/</span><span class="dv">2</span><span class="op">;</span> </span>
-<span id="cb11-8"><a href="python---quickstart.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="ss">f"4/2 : </span><span class="sc">{</span><span class="bu">type</span>(x)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-9"><a href="python---quickstart.html#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="python---quickstart.html#cb11-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">'String'</span><span class="op">;</span> </span>
-<span id="cb11-11"><a href="python---quickstart.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="ss">f"'String' : </span><span class="sc">{</span><span class="bu">type</span>(x)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-12"><a href="python---quickstart.html#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="python---quickstart.html#cb11-13" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>]<span class="op">;</span> </span>
-<span id="cb11-14"><a href="python---quickstart.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="ss">f"[1,2,3] : </span><span class="sc">{</span><span class="bu">type</span>(x)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-15"><a href="python---quickstart.html#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-16"><a href="python---quickstart.html#cb11-16" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>)<span class="op">;</span></span>
-<span id="cb11-17"><a href="python---quickstart.html#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="ss">f"(1,2) : </span><span class="sc">{</span><span class="bu">type</span>(x)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-18"><a href="python---quickstart.html#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-19"><a href="python---quickstart.html#cb11-19" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="op">-</span><span class="dv">3</span></span>
-<span id="cb11-20"><a href="python---quickstart.html#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="ss">f"False : </span><span class="sc">{</span><span class="bu">type</span>(x)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div>
-<div id="zusammenfassung" class="section level3" number="1.7.1">
-<h3>
-<span class="header-section-number">1.7.1</span> Zusammenfassung<a class="anchor" aria-label="anchor" href="#zusammenfassung"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th>Eingebauter Datentyp</th>
-<th>Kürzel</th>
-<th>Beispiele</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Text (Strings)</td>
-<td>str</td>
-<td><code>x = "Haw-Landshut"</code></td>
-</tr>
-<tr class="even">
-<td>Zahlen (Numerisch)</td>
-<td>int, float</td>
-<td>
-<code>x = 1</code> oder <code>x = 1.1</code>
-</td>
-</tr>
-<tr class="odd">
-<td>Listen (Arrays)</td>
-<td>list</td>
-<td><code>x = [1,2,3]</code></td>
-</tr>
-<tr class="even">
-<td>Tupel</td>
-<td>tuple</td>
-<td><code>x = (1,2)</code></td>
-</tr>
-<tr class="odd">
-<td>Wahrheitswerte</td>
-<td>bool</td>
-<td><code>x = (1 &lt; 3)</code></td>
-</tr>
-</tbody>
-</table></div>
-</div>
+
 </div>
 </div>
   <div class="chapter-nav">
@@ -301,24 +138,6 @@ NameError: name 'prin' is not defined </code></pre>
 </li>
 <li><a class="nav-link" href="#programme-und-fehler"><span class="header-section-number">1.2</span> Programme und Fehler</a></li>
 <li><a class="nav-link" href="#python-lernen"><span class="header-section-number">1.3</span> Python lernen</a></li>
-<li><a class="nav-link" href="#variablen"><span class="header-section-number">1.4</span> Variablen</a></li>
-<li>
-<a class="nav-link" href="#datentypen"><span class="header-section-number">1.5</span> Datentypen</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#datentyp-zahlen"><span class="header-section-number">1.5.1</span> Datentyp “Zahlen”</a></li>
-<li><a class="nav-link" href="#datentyp-strings"><span class="header-section-number">1.5.2</span> Datentyp “Strings”</a></li>
-<li><a class="nav-link" href="#datentyp-boolean"><span class="header-section-number">1.5.3</span> Datentyp “Boolean”</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#operatoren"><span class="header-section-number">1.6</span> Operatoren</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#arithmetische-operatoren"><span class="header-section-number">1.6.1</span> Arithmetische Operatoren</a></li>
-<li><a class="nav-link" href="#vergleichsoperatoren"><span class="header-section-number">1.6.2</span> Vergleichsoperatoren</a></li>
-<li><a class="nav-link" href="#logische-operatoren"><span class="header-section-number">1.6.3</span> Logische Operatoren</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#datentypen-in-der-%C3%BCbersicht"><span class="header-section-number">1.7</span> Datentypen in der Übersicht</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#zusammenfassung"><span class="header-section-number">1.7.1</span> Zusammenfassung</a></li></ul>
-</li>
 </ul>
 
       <div class="book-extra">
