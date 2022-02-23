@@ -6,11 +6,11 @@ Daten^[sing. Datum] sind Ergebnisse von Beobachtungen, Messungen oder Berechnung
 
 #### **Zahlen {-}**
 
-Werte dieses Datentyps sind z.B. $1$, $-1$, $1.7$  oder $1/3$. Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen (und noch ein paar mehr, die aber vorerst nicht gebraucht werden. Wir verwenden die üblichen Symbole $\mathbb{N}$ für die natürlichen Zahlen und  $\mathbb{R}$ für die reellen Zahlen.
+Werte dieses Datentyps sind z.B. $1$, $-1$, $1.7$  oder $1/3$. Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen (und noch ein paar mehr, die aber vorerst nicht gebraucht werden. Wir verwenden die üblichen Symbole $\mathbb{N}$ für die natürlichen Zahlen und $\mathbb{R}$ für die reellen Zahlen.
 
 Wir notieren Zahlen wie üblich und verwenden in der Dezimalnotation den Punkt als Trennsymbol.
 
-#### **Text** {-}
+#### **Text {-} **
 
 Werte dieses Datentyps sind zum Beispiel "Baum", "Hans Huber" oder "sehr gut". Zeichenketten beginnen und enden mit einem Anführungszeichen. In der Regel macht uns diese Notationen keine Probleme - manchmal wird es trotzdem ungemütlich: Kann eine Zeichenkette ein Anführungszeichen enthalten? Gibt es einen Unterschied zwischen der Zahl 123 und der Zeichenkette "123"? Wir  vertiefen das hier nicht, sondern gehen die Fragen an, sobald sie uns begegnen.
 

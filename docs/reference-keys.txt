@@ -5,6 +5,7 @@ python-lernen
 daten
 elementare-datentypen
 zahlen--
+text--
 logischer-datentyp-boolean--
 der-iris-datensatz
 datensatz
