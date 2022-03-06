@@ -19,7 +19,7 @@ print("Hallo Welt")
 
 Unter dem Link https://colab.research.google.com/ können sie ein sogenanntes Colab-Notebook erstellen. In die Programmzelle können tragen sie die Befehle ein. Ein Klick auf ![image-20220220185350019](01-python.assets/image-20220220185350019.png) führt die Programmzeilen aus und schreibt eventuelle Ausgaben unter die Programmzelle.
 
-![Colab-Notebook mit Programmzelle](01-python.assets/image-20220220185808467.png){width=100%}
+![Colab-Notebook mit Programmzelle](assets/01-python.assets/image-20220220185808467.png){width=100%}
 
 Versuchen sie es! Mit `File->Save ` können sie das Notebook abspeichern.  Weitere Hinweise zum Umgang mit Colab-Notebook finden sie unter https://research.google.com/colaboratory/faq.html. Besonders smart ist die Funktion von Textzellen. Sie erlauben das Hinzufügen eigener Texte vor oder nach den Programmzellen; so können sie ein eigenes Skript erstellen.
 

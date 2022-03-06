@@ -1,24 +1,175 @@
 # Daten
 
-## Elementare Datentypen
+Daten^[sing. Datum] sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, also aufgeschrieben sind.  Häufig sprechen sprechen wir auch von *Werten*, statt von Daten. Wir können zum Beispiel Lilienblüten untersuchen und pro [Blüte ](https://de.wikipedia.org/wiki/Bl%C3%BCte)in cm&#x20; messen:
 
-Daten^[sing. Datum] sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, also aufgeschrieben sind.  Häufig sprechen wir auch von *Werten*, statt von Daten. Ein Werte kann zum Beispiel die Zahl $27$ oder die Note "*sehr gut*" sein. Offensichtlich gehören beide Werte zu verschiedene Typen von Werten, den sogenannten Datentypen.  Wir beschäftigen uns mit den Datentypen *Zahlen*, *Text* und *Boolean*
+* die Länge und Breite des Kronblattes (Petalum, petal) sowie
+* die Länge und Breite des Kelchblattes (Sepalum, sepal)
 
-#### **Zahlen** {-}
+![Lilienblüte^[Quelle: https://medium.com/greyatom/using-clustering-for-feature-engineering-on-the-iris-dataset-f438366d0b4b] ](assets/02-daten.assets/image_messung-16426070933692.png)
+
+## **Variablen**
+
+Eine Beobachtung oder Messung eines einzelnen Wertes formulieren wir  in obigem Beispiel in der Form "*Sepal Länge: 5,1cm*".  Der Begriff Länge wird bei verschiedenen Messungen verschiedene Werte annehmen.   Zum Umgang mit diesen Werte, verwenden wie Variablen. Variablen sind Platzhalter oder Speicher für Werte, wir sprechen also vom _Wert einer Variable_.  Im nachfolgendem Beispiel wird der Variable mit dem Namen `sepal_laenge` der Wert $5.1$ zugewiesen. Variablen haben immer einen Namen. Einen Wert erhalten sie erst  durch eine sog. Zuweisung (wie in Zeile 1). In Zeile 2 drucken wir den Wert aus. Führen Sie also folgende Phython-Befehle aus:
+
+
+```python
+sepal_laenge = 5.1
+print(sepal_laenge)
+```
+Ausgabe:
+
+
+```
+#> 5.1
+```
+> Die erstmalige Zuweisung eines Wertes an eine Variable heißt Initialisierung.
+
+Wichtig:
+
+- Leerzeichen in Variablennamen sind nicht erlaubt! (Deshalb wurde der *Underscore* verwendet.)
+- Vermeiden sie Umlaute in Variablen
+
+## Datentypen 
+
+Ein Wert einer Messung kann neben einer Zahl $5.1$ auch ein Begriff (z.B. die Note "*sehr gut*").  Offensichtlich gehören beide Werte zu verschiedene Typen von Werten, den sogenannten Datentypen.  Wir beschäftigen uns mit den Datentypen 
+
+- *Zahlen*, 
+- *Strings* (Text, Worte) und
+- *Boolean* (logische Werte).
+
+### **Zahlen**
 
 Werte dieses Datentyps sind z.B. $1$, $-1$, $1.7$  oder $1/3$. Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen (und noch ein paar mehr, die aber vorerst nicht gebraucht werden. Wir verwenden die üblichen Symbole $\mathbb{N}$ für die natürlichen Zahlen und $\mathbb{R}$ für die reellen Zahlen.
 
 Wir notieren Zahlen wie üblich und verwenden in der Dezimalnotation den Punkt als Trennsymbol.
 
-#### **Text** {-}
+Nachfolgendes Beispiel zeigt anhand einfacher Programmzeilen die Darstellung von Zahlen und zugleich schon die Verwendung der üblichen Operatoren für Addition und Multiplikation.
 
-Werte dieses Datentyps sind zum Beispiel "Baum", "Hans Huber" oder "sehr gut". Zeichenketten beginnen und enden mit einem Anführungszeichen. In der Regel macht uns diese Notationen keine Probleme - manchmal wird es trotzdem ungemütlich: Kann eine Zeichenkette ein Anführungszeichen enthalten? Gibt es einen Unterschied zwischen der Zahl 123 und der Zeichenkette "123"? Wir  vertiefen das hier nicht, sondern gehen die Fragen an, sobald sie uns begegnen.
 
-#### **Logischer Datentyp (Boolean)** {-}
+```python
+x = 1
+print(x)
+x = 1+1.1
+print(x)
+x = 1/2+3/4
+print(x)
+x = 1.2*2
+print(x)
+```
 
-Dieser Datentyp umfasst nur zwei Werte, die sogenannten Wahrheitswerte. Wir werden in diesem Text die Notation *True* und *False* verwenden. 
+Die Ausgabe dieses Programms ist:
 
-Wir nennen diese Datentypen "elementar", weil uns eine weitere Aufteilung nicht sinnvoll erscheint. Der Begriff "elementar" ist nicht ganz korrekt, weil z.B. die Zahl $123$ ja eine Folge von Ziffern und die Zeichenkette "Baum" eine Folge von Buchstaben ist. Elementar wäre also eher der Datentyp *Ziffer* oder *Buchstabe*, als der Datentyp *Zahl* oder *Text*. Auch über diese begriffliche Ruppigkeit sehen wir zu Beginn hinweg. In der Programmierung werden sie aber eine Rolle spielen.
+```
+#> 1
+#> 2.1
+#> 1.25
+#> 2.4
+```
+Mit der Funktion `type` kann lässt sich der Datentyp eines Wertes ausgeben. Es wird an einigen Stellen hilfreich sein, den Datentyp eines Wertes anzuzeigen. 
+
+
+```python
+x = 1; 
+print(type(x))
+x = 1.2; 
+print(type(x))
+x = 4/3; 
+print(type(x))
+```
+
+Die Ausgabe dieses Programms ist:
+
+```
+#> <class 'int'>
+#> <class 'float'>
+#> <class 'float'>
+```
+Die erste Ausgabezeile bedeutet, dass `int` der Datentyp  des Wertes  $1$ ist. Analog ist `float` der Datentyp des Wertes $1.2$. Beachten Sie, dass der Ausdruck $4/2$ den Datentyp `float` besitzt, obwohl auch `int` plausibel wäre.   
+
+#### **Operationen** {-}
+Zahlen lassen sich verknüpfen mit den üblichen Symbolen verknüpfen.
+
+
+```python
+x = 9; 
+y = -4
+
+e = x+y
+print(e)
+e = x-y
+print(e)
+e = x*y
+print(e)
+e = x/y
+print(e)
+```
+
+Die Ausgabe dieses Programms ist:
+
+```
+#> 5
+#> 13
+#> -36
+#> -2.25
+```
+Wir werden mit diesen Operationen zurechtkommen. Mehr finden Sie unter https://www.w3schools.com/python/python_operators.asp
+
+
+
+### **Strings**
+Strings sind Zeichenkette. Werte dieses Datentyps sind zum Beispiel "Baum", "Hans Huber" oder "sehr gut". Zeichenketten beginnen und enden mit einem Anführungszeichen. In der Regel macht uns diese Notationen keine Probleme - manchmal wird es trotzdem ungemütlich: Kann eine Zeichenkette ein Anführungszeichen enthalten? Gibt es einen Unterschied zwischen der Zahl 123 und der Zeichenkette "123"? Wir  vertiefen das hier nicht, sondern gehen auf die Fragen an, sobald sie uns begegnen.
+
+Wir können einer Variable einen String zuweisen, wenn wir den Wert in Hochkommata setzen:
+
+
+```python
+s = "Aus"
+print( type(s) )
+```
+Ausgabe:
+
+```
+#> <class 'str'>
+```
+Die einzige benötigte Operation ist die sogenannte Konkatenation, also das "Aneinanderhängen" von Strings. Dazu wird der $+$ Operator verwendet:
+
+
+```python
+s = "Aus"
+t = "gabe"
+print( s+t )
+```
+Ausgabe:
+
+```
+#> Ausgabe
+```
+
+Frage: Was erwarten sie für die Berechnung $s-t$  oder $s*t$ ?
+
+Mehr lesen: https://www.w3schools.com/python/gloss_python_string_concatenation.asp
+
+
+### **Boolean**
+
+Der Datentyp Boolean (logischer Datentyp) umfasst nur zwei Werte, die sogenannten Wahrheitswerte. Wir werden in diesem Text die Notation *True* und *False* verwenden. 
+
+
+```python
+b = True;
+print(b)
+print( type(b) )
+```
+Ausgabe:
+
+```
+#> True
+#> <class 'bool'>
+```
+
+### Zusammenfassung
+
+Wir nennen diese Datentypen "elementar", weil wir andere Datentypen, z.B. das Kalenderdatum ("03.07.2022") oder mathematische Vektoren aus diesen Datentypen zusammenstellen können. Der Begriff "elementar" ist nicht ganz korrekt, weil z.B. die Zahl $123$ ja eine Folge von Ziffern und die Zeichenkette "Baum" eine Folge von Buchstaben ist. Elementar wäre also eher der Datentyp *Ziffer* oder *Buchstabe*, als der Datentyp *Zahl* oder *String*. Auch über diese begriffliche Ruppigkeit sehen wir zu Beginn hinweg. 
 
 ::: {.rmdnote}
 
@@ -26,69 +177,34 @@ Stellen sie sich jeden Datentyp als Menge vor. Die Elemente der Menge sind die z
 
 :::
 
-## Der Iris-Datensatz
+### **Übungen** 
+
+1. Geben sie die Ergebnisse der Rechnungen $3-1.1$ und $12 / 5$ aus.
+
+2.  Erklären Sie die Ausgabe für folgenden Programmzeile
+    
+    ```python
+    print(1e2+1e-1)
+    ```
+    Ausgabe:
+    
+    ```
+    #> 100.1
+    ```
 
 
 
-Der Iris-Datensatz enthält Messungen von jeweils 50 Blüten zu drei verschiedenen Lilien-Arten (setosa, versicolor, virginica)
-
-![Download](assets/daten.assets/Download.png){width=100%}
-
-Gemessen werden  pro [Blüte ](https://de.wikipedia.org/wiki/Bl%C3%BCte)in cm&#x20;
-
-* die Länge und Breite des Kronblattes (Petalum, petal) sowie&#x20;
-* die Länge und Breite des Kelchblattes (Sepalum, sepal)
-
-
-
-![image (190)](assets/daten.assets/image_messung-16426070933692.png)
-
-### Datensatz
-
-Folgender - in der Community wohlbekannter - Datensatz liegt uns vor (Sie finden die Daten [hier](https://syncandshare.lrz.de/getlink/fi89kxTJ5yLRaW5mnpyrofVK/Iris_p.xlsx)).
-
-![Iris-Datensatz](assets/daten.assets/image-20211209101425856-16426070878651.png)
-
-
-
-
-
-## Datentypen
-
-### Elementare Datentypen
-
-#### Zahlen
-
-#### Strings
-
-#### Logische Werte
-
-#### Elementare Datentypen in Python
-
-
-
-### Komplexe Datentypen
-
-#### Datum
-
-#### Uhrzeit
-
-#### Bilder
-
-#### Komplexe Datentypen in Python
 
 
 
 ## Skalenniveaus
 
-### Überblick
-
-| Scale    | Operations    | Description                                                  | Statistics         | Example                                     |
-| -------- | ------------- | ------------------------------------------------------------ | ------------------ | ------------------------------------------- |
-| Nominal  | $$=, \neq$$   | values have no natural order; they describe unordered categories | Mode (Modus)       | München, Hamburg, Essen                     |
-| Ordinal  | $$<, >$$      | values have a defined order; difference of values is undefined or has no clear or meaningful  definition | Median             | Schulnoten, Tabellenplatz in der Bundesliga |
-| Interval | $$+,-$$       | differences of values have the same meaning; adding provides useful results; zero point is not naturally/globally defined | Mean               | Temperatur                                  |
-| Ratio    | $$\cdot , /$$ | zero point is naturally defined                              | (Generalized) Mean | Alter                                       |
+| Scale    | Operations    | Description                                                  | Statistics                     | Example                                     |
+| -------- | ------------- | ------------------------------------------------------------ | ------------------------------ | ------------------------------------------- |
+| Nominal  | $$=, \neq$$   | Werte haben keine natürliche Ordnung; sie beschreiben Kategorien oder Klassen | Modus (Mode)                   | München, Hamburg, Essen                     |
+| Ordinal  | $$<, >$$      | Werte haben eine definierte Ordnung; arithmetische Operation (z.B. Summe, Differenz, Multiplikation, Division) sind nicht definiert Definition. | Median                         | Schulnoten, Tabellenplatz in der Bundesliga |
+| Interval | $$+,-$$       | Differenzen von Werten haben identische Bedeutung, die Addition ist sinnvoll definierbar. Es gibt keinen global oder eindeutig definierten Nullpunkt | Mittelwert                     | Temperatur                                  |
+| Ratio    | $$\cdot , /$$ | Der Nullpunkt ist eindeutig definiert.                       | (Verallgemeinerter) Mittelwert | Alter                                       |
 
 Bemerkungen:
 
@@ -105,17 +221,64 @@ Bemerkungen:
 
 Ergänzend: [Die fünf Skalenniveaus: Einfach und verständlich erklärt (statistikpsychologie.de)](https://www.statistikpsychologie.de/skalenniveaus/) 
 
+## Iris-Datensatz
+
+
+
+Der Iris-Datensatz enthält Messungen von jeweils 50 Blüten zu drei verschiedenen Lilien-Arten (setosa, versicolor, virginica)
+
+![Download](assets/02-daten.assets/Download.png){width=100%}
+
+
+
+### Datensatz
+
+Folgender - in der Community wohlbekannter - Datensatz liegt uns vor (Sie finden die Daten [hier](https://syncandshare.lrz.de/getlink/fi89kxTJ5yLRaW5mnpyrofVK/Iris_p.xlsx)).
+
+
+xx Die ersten 5..
+
+
+
+
+```
+#>    sepal_len  sepal_wid  petal_len  petal_wid   class
+#> 0        5.1        3.5        1.4        0.2  setosa
+#> 1        4.9        3.0        1.4        0.2  setosa
+#> 2        4.7        3.2        1.3        0.2  setosa
+#> 3        4.6        3.1        1.5        0.2  setosa
+#> 4        5.0        3.6        1.4        0.2  setosa
+```
+
+xxx Hier die letzten 5   
+
+
+```
+#>      sepal_len  sepal_wid  petal_len  petal_wid      class
+#> 145        6.7        3.0        5.2        2.3  virginica
+#> 146        6.3        2.5        5.0        1.9  virginica
+#> 147        6.5        3.0        5.2        2.0  virginica
+#> 148        6.2        3.4        5.4        2.3  virginica
+#> 149        5.9        3.0        5.1        1.8  virginica
+```
+
+Wir greifen zwar etwas vor, aber an diesem Beispiel lässt sich eine typische Aufgabenstellung von Machine Learning recht einfach erklären: Ein Bobachter erhebt für eine Lilie die Messwerte `sepal_len, sepal_wid, petal_len, petal_wid` einer Blüte und will daraus die Art der Lilie, für die diese Messwerte erhoben wurden bestimmen.
+
+Nehmen wir nun an, dass der Beobachter die Messwerte $(5.1, 3.5, 1.4, 0.2)$ liefert. Wir erkennen, dass diese Werte als Datenzeile $0$ in unserem Datensatz vorliegen und vor einer Setosa erhoben wurden (Spalte `class`). Wir werden natürlich "Setosa" als  Art dieser Blüte angeben. 
+
+Etwas schwieriger ist die Antwort für die Messwerte  $(6.1, 3.2, 5.3, 2.1)$, die nicht als Zeile in unserem Datensatz auftreten. Mit etwas Recherche finden wir heraus, dass Datensatz 148 für die recht ähnlichen Werte $(6.2, 3.4, 5.4, 2.3)$ für eine Virginica enthält.  Wir könnten also mit der Art "Virginica" antworten.^[Dabei ist noch zu konkretisieren, wie wir die Ähnlichkeit der Werte messen]
+
+Um Datensätze für *Machine Learning* zu verwenden, müssen wir wir sie vorher auf Tauglichkeit untersuchen, eventuell korrigieren, filtern und so weiter.  
+
    
 
-### Skalenniveaus im Iris-Datensatz
+### Übung
+
+Welches Skalenniveau haben die einzelnen Spalten im Iris-Datensatz?
 
 
 
-![Skalenniveaus bei Iris](assets/daten.assets/image-20211209145313372.png)
-
-
-
-##### Von Nominal zu Ordinal
+##### Von Nominal zu Ordinal [xx verschieben]
 
 Wir werden später folgende eindeutige Zuordnung  treffen:
 

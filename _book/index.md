@@ -1,7 +1,7 @@
 ---
 title: "Data Science & Machine Learning"
 author: "Dieter Greipl"
-date: "2022-02-24"
+date: "2022-03-06"
 site: bookdown::bookdown_site 
 
 # See here for changing latex parameters:  https://bookdown.org/yihui/rmarkdown-cookbook/latex-variables.html 
@@ -14,7 +14,6 @@ bibliography: [book.bib, packages.bib]
 
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl 
-
 cover-image: assets/x.png
 ---
 

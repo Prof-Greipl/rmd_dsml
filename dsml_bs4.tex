@@ -1,0 +1,536 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  oneside]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Data Science \& Machine Learning},
+  pdfauthor={Dieter Greipl},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+%\usepackage{booktabs}
+%\usepackage{longtable}
+%\usepackage[bf,singlelinecheck=off]{caption}
+
+%\usepackage{Alegreya}
+%\usepackage[scale=.8]{sourcecodepro}
+
+%\usepackage[a4paper, top=1cm, bottom=1cm ]{geometry}
+%\geometry{a4paper,hmargin={2cm,1.5cm},}
+\usepackage[a4paper,hmargin={2cm,1.5cm}, vmargin={1.5cm,1.5cm} ]{geometry}
+\usepackage[rigidchapters]{titlesec}
+
+%---------------------------------- Seitenlayout
+\textwidth 160mm
+\textheight 240mm
+\topmargin=-15mm
+
+\setlength\oddsidemargin{(\paperwidth-\textwidth)/2 - 1in}
+\setlength\topmargin{(\paperheight-\textheight
+-\headheight-\headsep-\footskip)/2 - 1in}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+
+% Kopfzeile unterstreichen
+\usepackage[
+headsepline,
+%footsepline % no separation line for page number
+]{scrlayer-scrpage}
+
+\titlespacing{\subsection}{0pt}{3ex}{-0.5ex}
+\titlespacing{\subsubsection}{0pt}{2ex}{-0.5ex}
+
+\setlength{\parindent}{1em}
+\usepackage{graphicx}
+
+% Turn off autmatic crearion of the coverpage
+\let\oldmaketitle\maketitle
+\AtBeginDocument{\let\maketitle\relax}
+
+%Zim Testen
+\usepackage{blindtext}
+
+\usepackage{color}
+
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Data Science \& Machine Learning}
+\author{Dieter Greipl}
+\date{2022-02-24}
+
+\begin{document}
+\maketitle
+
+
+\begin{titlepage}
+
+\begin{center}
+
+\Huge \textbf{Data Science und Machine Learning}
+
+\Large \textbf{Einführung für Studierende der Betriebswirtschaftslehre und Wirtschaftsinformatik}
+
+
+\end{center}
+
+\noindent\makebox[\textwidth][c]{\includegraphics[width=\paperwidth]{assets/cover_1.jpg}}
+
+%textbox unten rechts
+\vspace{-3cm}
+\hfill
+\begin{minipage}[b][1cm][t]{10cm}
+  \color{white}
+  \begin{flushright}
+     \Huge\textbf{Dieter Greipl}\\
+     \Large\textbf{Hochschule Landshut}\\
+  \end{flushright}
+\end{minipage}
+
+\end{titlepage}
+
+% Zweite Seite ---------------------------------------
+\begin{titlepage}
+\hfill
+\begin{minipage}[r][10cm][t]{10cm}
+\large \textbf{Danke}\\
+	Dieses Buch entstand im Sommersemester 2022. Vielen Dank an meine Sudierenden für zahlreiche Hinweise.
+\end{minipage}
+
+\vfill
+%textbox unten rechts
+\begin{minipage}[b][10cm][b]{10cm}
+\large{Copyright}\\
+	...
+\end{minipage}
+
+\end{titlepage}
+
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{willkommen}{%
+\chapter*{Willkommen}\label{willkommen}}
+\addcontentsline{toc}{chapter}{Willkommen}
+
+Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das Thema \textbf{Data Science \& Machine Learning}. Die Inhalte richten sich an Studierende, die erste Schritte auf das KI -Spielfeld wagen und das Potential von datengetriebenen Lösungsverfahren verstehen wollen.
+
+Insofern richtet sich die Darstellung an Studierende mit vertieftem Interesse an KI, die einen für Studierende angemessenes Vorwissen im Bereich Mathematik mitbringen. Vorkenntnisse im Bereich der Programmierung sind nicht nötig, aber natürlich hilfreich.
+
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen
+
+\hypertarget{python---quickstart}{%
+\chapter{Python - Quickstart}\label{python---quickstart}}
+
+Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Algorithmen zielführend ist. Hierfür verwenden wir die Programmiersprache Python. Ich empfehle dringend ein der folgenden Varianten zur Nutzung von Python zu verwenden. Wir starten in beiden Varianten mit dem typischerweise ersten Programm für Anfänger, dem Hallo-Welt-Programm. Dieses Programm gibt lediglich den digitalen Gruß ``Hallo Welt'' in dem vorgesehen Ausgabe Bereich aus.
+
+\hypertarget{hallo-welt}{%
+\section{Hallo Welt}\label{hallo-welt}}
+
+Unser kleines Begrüßungsprogramm besteht nur aus einer Zeile
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Hallo Welt"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Die Ausgabe dieses Programms ist:
+
+\begin{verbatim}
+#> Hallo Welt
+\end{verbatim}
+
+\hypertarget{variante-1-colab-notebooks}{%
+\subsection*{Variante 1: Colab-Notebooks}\label{variante-1-colab-notebooks}}
+\addcontentsline{toc}{subsection}{Variante 1: Colab-Notebooks}
+
+Unter dem Link \url{https://colab.research.google.com/} können sie ein sogenanntes Colab-Notebook erstellen. In die Programmzelle können tragen sie die Befehle ein. Ein Klick auf \includegraphics{01-python.assets/image-20220220185350019.png} führt die Programmzeilen aus und schreibt eventuelle Ausgaben unter die Programmzelle.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{01-python.assets/image-20220220185808467.png}
+\caption{Colab-Notebook mit Programmzelle}
+\end{figure}
+
+Versuchen sie es! Mit \texttt{File-\textgreater{}Save} können sie das Notebook abspeichern. Weitere Hinweise zum Umgang mit Colab-Notebook finden sie unter \url{https://research.google.com/colaboratory/faq.html}. Besonders smart ist die Funktion von Textzellen. Sie erlauben das Hinzufügen eigener Texte vor oder nach den Programmzellen; so können sie ein eigenes Skript erstellen.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{01-python.assets/image-20220220190605212.png}
+\caption{Textzelle über der Programmzelle}
+\end{figure}
+
+\hypertarget{variante-2-installation-von-python}{%
+\subsection*{Variante 2: Installation von Python}\label{variante-2-installation-von-python}}
+\addcontentsline{toc}{subsection}{Variante 2: Installation von Python}
+
+Alternativ können sie Python auch auf ihrem Rechner installieren. Die Installationsanleitung finden sie auf \url{https://www.python.org/}. Um die Installation zu prüfen verwenden sie den Befehl
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{python} \AttributeTok{{-}{-}version}    
+\end{Highlighting}
+\end{Shaded}
+
+Als Ausgabe erhalten sie die installierte Version von Python, zum Beispiel \texttt{Python\ 3.9.6}. Sie können nun mit einem einfache Texteditor. z.B. Notepad++, die Programmbefehle in eine Datei schreiben. Wenn sie die Zeile \texttt{print("Hallo\ Welt")} in die Datei \emph{HalloWelt.py} schreiben, so können sie das Programm mit folgendem Befehl ausführen.
+
+\begin{verbatim}
+python HalloWelt.py
+\end{verbatim}
+
+Sie sollten nun die Ausgabe \texttt{Hallo\ Welt} sehen.
+
+\begin{quote}
+Verwenden sie die für Python-Programme übliche Dateiendung \emph{.py}. Keine Leerzeichen im Dateinamen!
+\end{quote}
+
+\hypertarget{programme-und-fehler}{%
+\section{Programme und Fehler}\label{programme-und-fehler}}
+
+Sie werden eventuell Syntax-Fehler in ihren Programmen haben. Syntax-Fehler entstehen, wenn Python ihr Programm nicht versteht. Oft geht es dabei um ``Rechtschreibfehler''. Schreiben sie also fälschlicherweise \texttt{prin("Hallo\ Welt")}, so erhalten sie bei der Programmausführung ein Fehlermeldung:
+
+\begin{verbatim}
+line 1, in <module>
+    prin("Hallo Welt")
+NameError: name 'prin' is not defined 
+\end{verbatim}
+
+Häufig lässt sich diese Meldung leicht verstehen, und sie können den Fehler korrigieren.
+
+\begin{quote}
+Läuft ein Programm ohne Fehlermeldung ab, so kann man daraus natürlich nicht auf die Korrektheit des Programms schließen! Ihr Programm kann also auch noch logisch falsch sein.
+\end{quote}
+
+\hypertarget{python-lernen}{%
+\section{Python lernen}\label{python-lernen}}
+
+Es geht uns nicht in erster Linie darum gute Python-Programmierer zu werden. Unsere Kenntnisse müssen aber für die Lösung oder Analyse unserer Problemstellungen ausreichen. Das legt auch den Umfang an Python Know-How fest. Es gibt hierfür zahlreiche gute Bücher und Internetquellen. Eine ausgewählter Link, auf den ich regelmäßig verweisen werden ist
+
+\url{https://www.w3schools.com/python/}
+
+Suchen sie doch unter \emph{Python Intro} nach dem Hallo-Welt-Beispiel. Sie finden dort unter \emph{Try it Yourself} eine weitere Möglichkeit Python-Programme auszuführen!
+
+\hypertarget{daten}{%
+\chapter{Daten}\label{daten}}
+
+\hypertarget{elementare-datentypen}{%
+\section{Elementare Datentypen}\label{elementare-datentypen}}
+
+Daten\footnote{sing. Datum} sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, also aufgeschrieben sind. Häufig sprechen wir auch von \emph{Werten}, statt von Daten. Ein Werte kann zum Beispiel die Zahl \(27\) oder die Note ``\emph{sehr gut}'' sein. Offensichtlich gehören beide Werte zu verschiedene Typen von Werten, den sogenannten Datentypen. Wir beschäftigen uns mit den Datentypen \emph{Zahlen}, \emph{Text} und \emph{Boolean}
+
+\hypertarget{zahlen}{%
+\subsubsection*{\texorpdfstring{\textbf{Zahlen}}{Zahlen}}\label{zahlen}}
+\addcontentsline{toc}{subsubsection}{\textbf{Zahlen}}
+
+Werte dieses Datentyps sind z.B. \(1\), \(-1\), \(1.7\) oder \(1/3\). Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen (und noch ein paar mehr, die aber vorerst nicht gebraucht werden. Wir verwenden die üblichen Symbole \(\mathbb{N}\) für die natürlichen Zahlen und \(\mathbb{R}\) für die reellen Zahlen.
+
+Wir notieren Zahlen wie üblich und verwenden in der Dezimalnotation den Punkt als Trennsymbol.
+
+\hypertarget{text}{%
+\subsubsection*{\texorpdfstring{\textbf{Text}}{Text}}\label{text}}
+\addcontentsline{toc}{subsubsection}{\textbf{Text}}
+
+Werte dieses Datentyps sind zum Beispiel ``Baum'', ``Hans Huber'' oder ``sehr gut''. Zeichenketten beginnen und enden mit einem Anführungszeichen. In der Regel macht uns diese Notationen keine Probleme - manchmal wird es trotzdem ungemütlich: Kann eine Zeichenkette ein Anführungszeichen enthalten? Gibt es einen Unterschied zwischen der Zahl 123 und der Zeichenkette ``123''? Wir vertiefen das hier nicht, sondern gehen die Fragen an, sobald sie uns begegnen.
+
+\hypertarget{logischer-datentyp-boolean}{%
+\subsubsection*{\texorpdfstring{\textbf{Logischer Datentyp (Boolean)}}{Logischer Datentyp (Boolean)}}\label{logischer-datentyp-boolean}}
+\addcontentsline{toc}{subsubsection}{\textbf{Logischer Datentyp (Boolean)}}
+
+Dieser Datentyp umfasst nur zwei Werte, die sogenannten Wahrheitswerte. Wir werden in diesem Text die Notation \emph{True} und \emph{False} verwenden.
+
+Wir nennen diese Datentypen ``elementar'', weil uns eine weitere Aufteilung nicht sinnvoll erscheint. Der Begriff ``elementar'' ist nicht ganz korrekt, weil z.B. die Zahl \(123\) ja eine Folge von Ziffern und die Zeichenkette ``Baum'' eine Folge von Buchstaben ist. Elementar wäre also eher der Datentyp \emph{Ziffer} oder \emph{Buchstabe}, als der Datentyp \emph{Zahl} oder \emph{Text}. Auch über diese begriffliche Ruppigkeit sehen wir zu Beginn hinweg. In der Programmierung werden sie aber eine Rolle spielen.
+
+Stellen sie sich jeden Datentyp als Menge vor. Die Elemente der Menge sind die zulässigen Werte des Datentyps. Offensichtlich ist besitzt die Menge der Zahlen oder Texte unendlich viele Elemente, während der Logische Datentyp nur zwei Werte kennt.
+
+\hypertarget{der-iris-datensatz}{%
+\section{Der Iris-Datensatz}\label{der-iris-datensatz}}
+
+Der Iris-Datensatz enthält Messungen von jeweils 50 Blüten zu drei verschiedenen Lilien-Arten (setosa, versicolor, virginica)
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{assets/daten.assets/Download.png}
+\caption{Download}
+\end{figure}
+
+Gemessen werden pro \href{https://de.wikipedia.org/wiki/Bl\%C3\%BCte}{Blüte}in cm 
+
+\begin{itemize}
+\tightlist
+\item
+  die Länge und Breite des Kronblattes (Petalum, petal) sowie 
+\item
+  die Länge und Breite des Kelchblattes (Sepalum, sepal)
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{assets/daten.assets/image_messung-16426070933692.png}
+\caption{image (190)}
+\end{figure}
+
+\hypertarget{datensatz}{%
+\subsection{Datensatz}\label{datensatz}}
+
+Folgender - in der Community wohlbekannter - Datensatz liegt uns vor (Sie finden die Daten \href{https://syncandshare.lrz.de/getlink/fi89kxTJ5yLRaW5mnpyrofVK/Iris_p.xlsx}{hier}).
+
+\begin{figure}
+\centering
+\includegraphics{assets/daten.assets/image-20211209101425856-16426070878651.png}
+\caption{Iris-Datensatz}
+\end{figure}
+
+\hypertarget{datentypen}{%
+\section{Datentypen}\label{datentypen}}
+
+\hypertarget{elementare-datentypen-1}{%
+\subsection{Elementare Datentypen}\label{elementare-datentypen-1}}
+
+\hypertarget{zahlen-1}{%
+\subsubsection{Zahlen}\label{zahlen-1}}
+
+\hypertarget{strings}{%
+\subsubsection{Strings}\label{strings}}
+
+\hypertarget{logische-werte}{%
+\subsubsection{Logische Werte}\label{logische-werte}}
+
+\hypertarget{elementare-datentypen-in-python}{%
+\subsubsection{Elementare Datentypen in Python}\label{elementare-datentypen-in-python}}
+
+\hypertarget{komplexe-datentypen}{%
+\subsection{Komplexe Datentypen}\label{komplexe-datentypen}}
+
+\hypertarget{datum}{%
+\subsubsection{Datum}\label{datum}}
+
+\hypertarget{uhrzeit}{%
+\subsubsection{Uhrzeit}\label{uhrzeit}}
+
+\hypertarget{bilder}{%
+\subsubsection{Bilder}\label{bilder}}
+
+\hypertarget{komplexe-datentypen-in-python}{%
+\subsubsection{Komplexe Datentypen in Python}\label{komplexe-datentypen-in-python}}
+
+\hypertarget{skalenniveaus}{%
+\section{Skalenniveaus}\label{skalenniveaus}}
+
+\hypertarget{uxfcberblick}{%
+\subsection{Überblick}\label{uxfcberblick}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0563}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0915}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4225}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1268}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3028}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Scale
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Operations
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Statistics
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule
+\endhead
+Nominal & \(=, \neq\) & values have no natural order; they describe unordered categories & Mode (Modus) & München, Hamburg, Essen \\
+Ordinal & \(<, >\) & values have a defined order; difference of values is undefined or has no clear or meaningful definition & Median & Schulnoten, Tabellenplatz in der Bundesliga \\
+Interval & \(+,-\) & differences of values have the same meaning; adding provides useful results; zero point is not naturally/globally defined & Mean & Temperatur \\
+Ratio & \(\cdot , /\) & zero point is naturally defined & (Generalized) Mean & Alter \\
+\bottomrule
+\end{longtable}
+
+Bemerkungen:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Skalenniveaus sind nicht immer klar zuzuordnen.
+\item
+  Auf nominalen Datenskalen lassen sich stets \emph{künstliche Ordnungen} (und damit ordinale Datenskalen) definieren.
+\item
+  Bilden sie keine Mittelwerte auf Daten mit ordinalen Datenskalen!
+\item
+  Nominale und ordinale Datenskalen heißen auch \emph{kategorisch} oder \emph{qualitativ}.
+\item
+  Intervall und Ratio-Datenskalen heißen auch \emph{metrisch}.
+\end{enumerate}
+
+Ergänzend: \href{https://www.statistikpsychologie.de/skalenniveaus/}{Die fünf Skalenniveaus: Einfach und verständlich erklärt (statistikpsychologie.de)}
+
+\hypertarget{skalenniveaus-im-iris-datensatz}{%
+\subsection{Skalenniveaus im Iris-Datensatz}\label{skalenniveaus-im-iris-datensatz}}
+
+\begin{figure}
+\centering
+\includegraphics{assets/daten.assets/image-20211209145313372.png}
+\caption{Skalenniveaus bei Iris}
+\end{figure}
+
+\hypertarget{von-nominal-zu-ordinal}{%
+\paragraph{Von Nominal zu Ordinal}\label{von-nominal-zu-ordinal}}
+
+Wir werden später folgende eindeutige Zuordnung treffen:
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule
+Nominaler Wert & Ordinaler Wert \\
+\midrule
+\endhead
+setosa & 0 \\
+versicolor & 1 \\
+virginica & 2 \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{datenstrukturen-mit-python}{%
+\chapter{Datenstrukturen mit Python}\label{datenstrukturen-mit-python}}
+
+\hypertarget{part-latex-part}{%
+\part*{Latex Part}\label{part-latex-part}}
+\addcontentsline{toc}{part}{Latex Part}
+
+\hypertarget{chapter}{%
+\chapter{Chapter}\label{chapter}}
+
+\hypertarget{latex-section-h2}{%
+\section{Latex Section (H2)}\label{latex-section-h2}}
+
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt,
+
+Parskip!! die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verl
+
+\hypertarget{latex-subsection-h3}{%
+\subsection{Latex Subsection (H3)}\label{latex-subsection-h3}}
+
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verl
+
+\hypertarget{latex-subsubsection-h4}{%
+\subsubsection{Latex SubSubSection (H4)}\label{latex-subsubsection-h4}}
+
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verl
+
+\hypertarget{latex-paragraph-h5}{%
+\paragraph{Latex Paragraph (H5)}\label{latex-paragraph-h5}}
+
+Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verl
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

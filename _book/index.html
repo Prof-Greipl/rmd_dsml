@@ -46,18 +46,23 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="active" href="index.html">Willkommen</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="active" href="index.html">Willkommen</a></li>
+<li><a class="" href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></li>
+<li><a class="" href="daten.html"><span class="header-section-number">2</span> Daten</a></li>
+<li><a class="" href="feature-matrix-und-label.html"><span class="header-section-number">3</span> Feature-Matrix und Label</a></li>
+<li><a class="" href="lineare-algebra.html"><span class="header-section-number">4</span> Lineare Algebra</a></li>
+<li><a class="" href="numpy.html"><span class="header-section-number">5</span> Numpy</a></li>
+<li class="book-part">Latex Part</li>
+<li><a class="" href="chapter.html"><span class="header-section-number">6</span> Chapter</a></li>
+</ul>
 
         <div class="book-extra">
           
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content">
-sdfgsdfg
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<div id="willkommen" class="section level1 unnumbered">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="willkommen" class="section level1 unnumbered">
 <h1>Willkommen<a class="anchor" aria-label="anchor" href="#willkommen"><i class="fas fa-link"></i></a>
 </h1>
 <p>Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das Thema <strong>Data Science &amp; Machine Learning</strong>. Die Inhalte richten sich an Studierende, die erste Schritte auf das KI -Spielfeld wagen und das Potential von datengetriebenen Lösungsverfahren verstehen wollen.</p>
@@ -67,7 +72,7 @@ sdfgsdfg
 </div>
   <div class="chapter-nav">
 <div class="empty"></div>
-<div class="empty"></div>
+<div class="next"><a href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav"><li><a class="nav-link" href="#willkommen">Willkommen</a></li></ul>
@@ -86,7 +91,7 @@ sdfgsdfg
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-02-24.</p>
+    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-03-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -94,6 +99,34 @@ sdfgsdfg
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>

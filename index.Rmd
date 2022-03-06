@@ -14,7 +14,6 @@ bibliography: [book.bib, packages.bib]
 
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl 
-
 cover-image: assets/x.png
 ---
 
