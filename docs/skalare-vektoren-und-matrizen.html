@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 4 Skalare, Vektoren und Matrizen | Data Science &amp; Machine Learning</title>
+<meta name="author" content="Dieter Greipl">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 4 Skalare, Vektoren und Matrizen | Data Science &amp; Machine Learning">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/assets/x.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 4 Skalare, Vektoren und Matrizen | Data Science &amp; Machine Learning">
+<meta name="twitter:image" content="/assets/x.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Sen-0.4.0/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><style>
+    #content {
+        font-size: 0.95rem;
+    }
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<meta name="description" content="In diesem Abschnitt wiederholen wir ein paar Begriffe aus der Linearen Algebra, die bekannt sein sollten. Die Notationen wählen wir so, dass sie zur Anwendung in NumPypassen.  4.1 Skalar Die...">
+<meta property="og:description" content="In diesem Abschnitt wiederholen wir ein paar Begriffe aus der Linearen Algebra, die bekannt sein sollten. Die Notationen wählen wir so, dass sie zur Anwendung in NumPypassen.  4.1 Skalar Die...">
+<meta name="twitter:description" content="In diesem Abschnitt wiederholen wir ein paar Begriffe aus der Linearen Algebra, die bekannt sein sollten. Die Notationen wählen wir so, dass sie zur Anwendung in NumPypassen.  4.1 Skalar Die...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Data Science &amp; Machine Learning</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Willkommen</a></li>
+<li><a class="" href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></li>
+<li><a class="" href="daten.html"><span class="header-section-number">2</span> Daten</a></li>
+<li><a class="" href="feature-matrix-und-label.html"><span class="header-section-number">3</span> Feature-Matrix und Label</a></li>
+<li><a class="active" href="skalare-vektoren-und-matrizen.html"><span class="header-section-number">4</span> Skalare, Vektoren und Matrizen</a></li>
+<li><a class="" href="numpy.html"><span class="header-section-number">5</span> Numpy</a></li>
+<li class="book-part">Latex Part</li>
+<li><a class="" href="chapter.html"><span class="header-section-number">6</span> Chapter</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="skalare-vektoren-und-matrizen" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> Skalare, Vektoren und Matrizen<a class="anchor" aria-label="anchor" href="#skalare-vektoren-und-matrizen"><i class="fas fa-link"></i></a>
+</h1>
+<p>In diesem Abschnitt wiederholen wir ein paar Begriffe aus der Linearen Algebra, die bekannt sein sollten. Die Notationen wählen wir so, dass sie zur <a href="numpy.md">Anwendung in NumPy</a>passen.</p>
+<div id="skalar" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Skalar<a class="anchor" aria-label="anchor" href="#skalar"><i class="fas fa-link"></i></a>
+</h2>
+<p>Die meisten Objekte der Linearen Algebra sind Strukturen von Zahlen, zum Beispiel Vektoren oder Matrizen. Skalare dagegen sind ganz einfach nur Zahlen, in unserem Fall reelle Zahlen. Wir bezeichnen Skalare mit kleinen kursiven Buchstaben. Wir schreiben zum Beispiel <span class="math display">\[s \in \mathbb{R}.\]</span></p>
+</div>
+<div id="vektor" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Vektor<a class="anchor" aria-label="anchor" href="#vektor"><i class="fas fa-link"></i></a>
+</h2>
+<p>Ein Vektor ist ein Tupel reeller Zahlen, die in einer bestimmten Weise angeordnet sind. Jede Zahl aus dem Tupel ist über einen Index genau bestimmt. Wir notieren einen Vektor mit einem kleinen und fett gedruckten Buchstaben, also z.B. <span class="math display">\[\bold{x}\]</span> . Die einzelnen Zahlen des Vektors werden kursiv gedruckt und mit ihrem Index notiert, also die erste Zahl mit <span class="math display">\[x_1\]</span>, die zweite Zahl mit <span class="math display">\[x_2\]</span> und so weiter. Enthält der Vektor <span class="math inline">\(n\)</span> reelle Zahlen so ist der Vektor ein Element des n-fachen kartesischen Produktes der reellen Zahlen <span class="math display">\[\mathbb{R}\]</span>, kurz <span class="math display">\[\mathbb{R}^{n}\]</span>. Um die Elemente eines Vektors explizit anzugeben, notieren wir sie als <strong>Spalte</strong></p>
+<p><span class="math display">\[
+\bold{x} = \begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n \\
+\end{bmatrix}
+\in \mathbb{R}^n
+\]</span></p>
+<p>Die Zahl n heißt <strong>Dimension des Vektors.</strong></p>
+</div>
+<div id="matrix" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Matrix<a class="anchor" aria-label="anchor" href="#matrix"><i class="fas fa-link"></i></a>
+</h2>
+<p>Eine (reell-wertige) Matrix ist eine zweidimensionale, in Zeilen und Spalten angeordnete Struktur von reellen Zahlen. Jedes Element einer Matrix <span class="math display">\[\bold{A}\]</span> wird über zwei Indizes bestimmt. Wir notieren eine Matrix mit einem fett gedruckten Großbuchstaben und die Elemente der Matrix mit dem Buchstaben der Matrix, aber nun nicht-fett und kursiv gedruckt und mit zwei Indizes versehen. Besteht eine Matrix aus n Zeilen und m Spalten, so notieren wir das durch <span class="math display">\[\bold{A}\in\mathbb{R}^{n\times m }\]</span> und nennen<span class="math display">\[\bold{A}\]</span>eine Matrix mit der “<em>Dimension n kreuz m</em>”</p>
+<p><span class="math display">\[
+\bold{A}= 
+\begin{bmatrix}
+A_{1,1} &amp; A_{1,2} &amp; \cdots &amp; A_{1,m}  \\
+A_{2,1} &amp; A_{2,2} &amp; \cdots &amp; A_{2,m}  \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+A_{n,1} &amp; A_{n,2} &amp; \cdots &amp; A_{n,m}  \\
+\end{bmatrix}
+\]</span></p>
+<div id="elementweise-addition" class="section level3" number="4.3.1">
+<h3>
+<span class="header-section-number">4.3.1</span> Elementweise Addition<a class="anchor" aria-label="anchor" href="#elementweise-addition"><i class="fas fa-link"></i></a>
+</h3>
+<p>Ist <span class="math display">\[\bold{B} \in\mathbb{R}^{n\times m }\]</span>, also eine Matrix der gleichen Dimension, wie <span class="math display">\[\bold{A}\]</span>, so lässt sich die Summe <span class="math display">\[\bold{A+B}\]</span> bilden durch:</p>
+<p><span class="math display">\[
+(A+B)_{i,j} = A_{i,j} + B_{i,j}
+\]</span></p>
+<p>wir addieren also einfach die Elemente auf jeweiligen Positionen.</p>
+</div>
+<div id="multiplikation-mit-skalar" class="section level3" number="4.3.2">
+<h3>
+<span class="header-section-number">4.3.2</span> Multiplikation mit Skalar<a class="anchor" aria-label="anchor" href="#multiplikation-mit-skalar"><i class="fas fa-link"></i></a>
+</h3>
+<p>Die Matrix <span class="math display">\[\bold{A}\]</span> lässt sich mit einer reellen Zahl <span class="math display">\[s\]</span> (also einem <em>Skalar</em>) multiplizieren und die entstehende Matrix <span class="math display">\[\bold{sA}\]</span> ist wie erwartet definiert durch</p>
+<p><span class="math display">\[
+(sA)_{i,j} = s \cdot A_{i,j}
+\]</span></p>
+<p>wir multiplizieren also jedes Element der Matrix mit dem Skalar <span class="math display">\[s\]</span>.</p>
+</div>
+<div id="transponieren" class="section level3" number="4.3.3">
+<h3>
+<span class="header-section-number">4.3.3</span> Transponieren<a class="anchor" aria-label="anchor" href="#transponieren"><i class="fas fa-link"></i></a>
+</h3>
+<p>Durch <strong>Transponieren</strong> wird aus einer Matrix <span class="math display">\[\bold{A}\in\mathbb{R}^{n\times m }\]</span> eine neue Matrix <span class="math display">\[\bold{A^T} \in\mathbb{R}^{m\times n }\]</span> erzeugt. Dabei gilt</p>
+<p><span class="math display">\[
+(A^T)_{j,i} = A_{i,j}  \quad \text{für } \quad i \in {1,...,n}  
+\quad \text{und} \quad 
+j \in {1,...,m}
+\]</span></p>
+<p>Transponieren lässt sich durch eine Art <em>spiegeln von</em> <span class="math display">\[\bold{A}\]</span> an deren Hauptdiagonale verstehen. Die Hauptdiagonale ist die gedachte Linie, die vom Element <span class="math display">\[A_{0,0}\]</span> im Winkel von 45 Grad nach rechts unten verläuft. Zum Beispiel:</p>
+<p><span class="math display">\[
+\bold{A} = \begin{bmatrix}
+1 &amp; 2  \\
+3 &amp; 4  \\
+5 &amp; 6  \\
+\end{bmatrix}  \in \mathbb{R}^{3\times 2 }
+\quad\Rightarrow\quad
+\bold{A^T} = \begin{bmatrix} 
+1 &amp; 3 &amp; 5  \\
+2 &amp; 4  &amp; 6 \\
+\end{bmatrix}
+\in \mathbb{R}^{2\times 3 }
+\]</span></p>
+</div>
+<div id="matrixprodukt" class="section level3" number="4.3.4">
+<h3>
+<span class="header-section-number">4.3.4</span> Matrixprodukt<a class="anchor" aria-label="anchor" href="#matrixprodukt"><i class="fas fa-link"></i></a>
+</h3>
+<p>Wir können zwei Matrizen <span class="math display">\[\bold{A}\]</span> und <span class="math display">\[\bold{B}\]</span> multiplizieren, wenn die Anzahl der Zeilen in B der Anzahl der Spaten in A entspricht. Für <span class="math display">\[\bold A \in\mathbb{R}^{n\times m }\]</span> und <span class="math display">\[\bold B \in\mathbb{R}^{m\times p }\]</span> gilt für das Produkt <span class="math display">\[\bold{C}= \bold{ A} \bold B \in\mathbb{R}^{n\times p }\]</span></p>
+<p><span class="math display">\[
+C_{i,j} = \sum_{l=1}^m  A_{i,l} B_{l,j}
+\]</span></p>
+</div>
+</div>
+<div id="zurück-zu-vektoren-spalten--und-zeilenvektoren" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Zurück zu Vektoren: Spalten- und Zeilenvektoren<a class="anchor" aria-label="anchor" href="#zur%C3%BCck-zu-vektoren-spalten--und-zeilenvektoren"><i class="fas fa-link"></i></a>
+</h2>
+<p>Da wir Vektoren grafisch in einer Spalte notiert haben, nennen wir sie auch <em>Spaltenvektoren</em>. Ein Vektor lässt sich offensichtlich als eine Matrix interpretieren, die nur aus einer Spalte besteht. Wenn wir diese Matrix, wie oben dargestellt, transponieren, entsteht eine Matrix entspricht, die nur aus einer Zeile besteht. Diese Matrix bezeichnen wir als Zeilenvektor. Diese Analogie führt uns zum Konzept eines transponierten Vektors:</p>
+<p><span class="math display">\[
+\bold{x} = 
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n \\
+\end{bmatrix}
+\in \mathbb{R}^{n \times 1}
+\quad\Rightarrow\quad
+\bold{x^T} =  
+\begin{bmatrix}
+x_1,  x_2 , \dots, x_n \\
+\end{bmatrix}
+\in\mathbb{R}^{1 \times n}
+\]</span></p>
+<p>In der Regel identifizieren wir <span class="math display">\[\mathbb{R}^{n \times 1}\]</span> und <span class="math display">\[\mathbb{R}^{1 \times n}\]</span>, aber grundsätzlich besteht doch ein Unterschied.</p>
+<p>Zusammenfassend:</p>
+<ul>
+<li>Vektoren sind für uns <em>immer</em> Spaltenvektoren (deshalb können wir den Begriff <em>Spaltenvektor</em> in der Regel weglassen)</li>
+<li>Zeilenvektoren sind für uns stets transponierte Spaltenvektoren.</li>
+</ul>
+<p>Die die Notation eines Vektors als Spalte immer etwas Platz benötigt, notiert man z.B. nur <span class="math display">\[\bold{x^T} = \begin{bmatrix} 1, 2 ,3 \\ \end{bmatrix}\]</span>. Zeilenvektoren lassen sich ja in einer Zeile schön notieren. Damit ist aber zwingend klar, dass</p>
+<p><span class="math display">\[
+\bold{x} = 
+\begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix}
+\]</span></p>
+<p>Die Unterscheidung von Zeilenvektoren und Spaltenvektoren mag zunächst etwas künstlich erscheinen, sie wird aber später die Arbeit mit unseren Software-Tools deutlich erleichtern.</p>
+<div id="multiplikation-mit-skalar-und-elementweise-addition" class="section level3" number="4.4.1">
+<h3>
+<span class="header-section-number">4.4.1</span> Multiplikation mit Skalar und elementweise Addition<a class="anchor" aria-label="anchor" href="#multiplikation-mit-skalar-und-elementweise-addition"><i class="fas fa-link"></i></a>
+</h3>
+<p>Betrachtet man einen Vektor als <span class="math display">\[x, y \in \mathbb{R}^{n}\]</span> jeweils als Matrix, so ergeben folgende Definitionen sofort Sinn:</p>
+<p><span class="math display">\[
+s \cdot\bold{ x} = 
+\begin{bmatrix}
+s\cdot x_1 \\
+s\cdot x_2 \\
+\vdots \\
+s\cdot x_n \\
+\end{bmatrix}
+\quad \text{und}\quad
+\bold{x} + \bold{y}= 
+\begin{bmatrix}
+x_1 + y_1 \\
+x_2 + y_2 \\
+\vdots \\
+x_n + y_n \\
+\end{bmatrix}
+\]</span></p>
+<p>Sie sind im Grunde lediglich Konsequenzen aus der Identifikation von Spaltenvektoren und Matrizen. Gleiches gilt für die Gleichungen <span class="math display">\[s \cdot\bold{ x^T} = (s \cdot\bold{ x^T})\]</span> und <span class="math display">\[\bold{ x^T} + \bold{ y^T} = (\bold{ x} + \bold{ y})^T\]</span></p>
+</div>
+<div id="skalarprodukt" class="section level3" number="4.4.2">
+<h3>
+<span class="header-section-number">4.4.2</span> Skalarprodukt<a class="anchor" aria-label="anchor" href="#skalarprodukt"><i class="fas fa-link"></i></a>
+</h3>
+<p>Man kann aus zwei Vektoren <span class="math display">\[x, y \in \mathbb{R}^{n}\]</span> gleicher Dimension ein spezielles <em>Produkt</em> bilden, das wir mit <span class="math display">\[\bold{x}^T\bold{y}\]</span> notieren.(Zur Unterscheidung haben wir oben die Bezeichnung <em>Multiplikation mit einem Skalar</em> gewählt). Es ist definiert als das Produkt aus den jeweils zugeordneten Matrizen und es folgt:</p>
+<p><span class="math display">\[
+\bold{x}^T\bold{y} =  \sum_{i=1}^{n} x_i \cdot y_i
+\]</span></p>
+<p>Bitte überlegen Sie kurz, dass obige Gleichheit keine Definition ist, sondern aus der Definition des <a href="skalare-vektoren-und-matrizen.md#matrixprodukt-und-skalarprodukt">Matrixproduktes</a>folgt!</p>
+</div>
+</div>
+<div id="übungen-1" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Übungen<a class="anchor" aria-label="anchor" href="#%C3%BCbungen-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="skalarprodukt-1" class="section level3" number="4.5.1">
+<h3>
+<span class="header-section-number">4.5.1</span> Skalarprodukt<a class="anchor" aria-label="anchor" href="#skalarprodukt-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Berechnen Sie <span class="math display">\[v^T w\]</span>, <span class="math display">\[v+w\]</span> und <span class="math display">\[2 \cdot v\]</span> für</p>
+<p><span class="math display">\[
+v    =   \begin{bmatrix}
+1 \\
+-3 \\
+2\\
+\end{bmatrix}
+\quad \text{and} \quad 
+w    =   \begin{bmatrix}
+1 \\
+0 \\
+13\\
+\end{bmatrix}
+\]</span></p>
+</div>
+<div id="matrixprodukt-1" class="section level3" number="4.5.2">
+<h3>
+<span class="header-section-number">4.5.2</span> Matrixprodukt 1<a class="anchor" aria-label="anchor" href="#matrixprodukt-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Berechnen sie <span class="math display">\[A \cdot v\]</span> für</p>
+<p><span class="math display">\[
+A = \begin{bmatrix} 
+1 &amp; 2 &amp; 3 \\ 
+7 &amp; -1 &amp; 2 \\ 
+0 &amp; 4 &amp; -1
+\end{bmatrix} 
+\quad \text{and} \quad 
+v = \begin{bmatrix}
+ 1 \\-3 \\ 2 
+\end{bmatrix}
+\]</span></p>
+</div>
+<div id="matrixprodukt-2" class="section level3" number="4.5.3">
+<h3>
+<span class="header-section-number">4.5.3</span> Matrixprodukt 2<a class="anchor" aria-label="anchor" href="#matrixprodukt-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Berechnen Sie <span class="math display">\[vw^T\]</span> für die beiden oben angegebenen Vektoren (Vorsicht!).</p>
+</div>
+<div id="matrixprodukt-3" class="section level3" number="4.5.4">
+<h3>
+<span class="header-section-number">4.5.4</span> Matrixprodukt 3<a class="anchor" aria-label="anchor" href="#matrixprodukt-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Berechnen sie <span class="math display">\[A  \times C\]</span> für</p>
+<p><span class="math display">\[
+A = \begin{bmatrix} 
+2 &amp; -1 \\ 
+4 &amp; 0 \\ 
+9 &amp; 3
+\end{bmatrix}
+\quad\text{und} \quad
+C = \begin{bmatrix} 
+1 &amp; 0 \\ 
+4 &amp; -1 
+\end{bmatrix}
+\]</span></p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="feature-matrix-und-label.html"><span class="header-section-number">3</span> Feature-Matrix und Label</a></div>
+<div class="next"><a href="numpy.html"><span class="header-section-number">5</span> Numpy</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#skalare-vektoren-und-matrizen"><span class="header-section-number">4</span> Skalare, Vektoren und Matrizen</a></li>
+<li><a class="nav-link" href="#skalar"><span class="header-section-number">4.1</span> Skalar</a></li>
+<li><a class="nav-link" href="#vektor"><span class="header-section-number">4.2</span> Vektor</a></li>
+<li>
+<a class="nav-link" href="#matrix"><span class="header-section-number">4.3</span> Matrix</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#elementweise-addition"><span class="header-section-number">4.3.1</span> Elementweise Addition</a></li>
+<li><a class="nav-link" href="#multiplikation-mit-skalar"><span class="header-section-number">4.3.2</span> Multiplikation mit Skalar</a></li>
+<li><a class="nav-link" href="#transponieren"><span class="header-section-number">4.3.3</span> Transponieren</a></li>
+<li><a class="nav-link" href="#matrixprodukt"><span class="header-section-number">4.3.4</span> Matrixprodukt</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#zur%C3%BCck-zu-vektoren-spalten--und-zeilenvektoren"><span class="header-section-number">4.4</span> Zurück zu Vektoren: Spalten- und Zeilenvektoren</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#multiplikation-mit-skalar-und-elementweise-addition"><span class="header-section-number">4.4.1</span> Multiplikation mit Skalar und elementweise Addition</a></li>
+<li><a class="nav-link" href="#skalarprodukt"><span class="header-section-number">4.4.2</span> Skalarprodukt</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%C3%BCbungen-1"><span class="header-section-number">4.5</span> Übungen</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#skalarprodukt-1"><span class="header-section-number">4.5.1</span> Skalarprodukt</a></li>
+<li><a class="nav-link" href="#matrixprodukt-1"><span class="header-section-number">4.5.2</span> Matrixprodukt 1</a></li>
+<li><a class="nav-link" href="#matrixprodukt-2"><span class="header-section-number">4.5.3</span> Matrixprodukt 2</a></li>
+<li><a class="nav-link" href="#matrixprodukt-3"><span class="header-section-number">4.5.4</span> Matrixprodukt 3</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-03-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -6,13 +6,15 @@ Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines C
 
 Unser kleines Begrüßungsprogramm besteht nur aus einer Zeile
 
-```{python, results="hide"}
+
+```python
 print("Hallo Welt")
 ```
 
 Die Ausgabe dieses Programms ist:
-```{python, echo=FALSE}
-print("Hallo Welt")
+
+```
+#> Hallo Welt
 ```
 
 ### Variante 1: Colab-Notebooks {-}

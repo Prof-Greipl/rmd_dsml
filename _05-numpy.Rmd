@@ -1,5 +1,5 @@
-# Numpy
-##  Wofür brauchen wir Numpy?
+# Numpy (Arrays)
+## Wofür brauchen wir Numpy?
 
 Numpy ist eine Sammlung von Funktionen für effiziente Erzeugung, Berechnung und Bearbeitung von Zahlenstrukturen, zum Beispiel Vektoren oder Matrizen. &#x20;Wir werden Numpy-Arrays nutzen, um die Datensätze für maschinelles Lernen zu bearbeiten.
 
@@ -15,9 +15,119 @@ Numpy ist eine Sammlung von Funktionen für effiziente Erzeugung, Berechnung und
 
 `import numpy as np`
 
+## Numpy-Vektor
+
+Folgende Code zeigt, wie der ersten Feature-Vektor aus Iris 
+$$
+\bold{x} = (5.1, 3.5, 1.4, 0.2) \in \mathbb{R}^4
+$$
+
+in einer Variable mit dem Namen `x` erzeugt wird. Wir werden sehen, dass wir aus der Mathematik gewohnten Umgang  mit Vektoren (und Matrizen) einfach in  Numpy übertragen können.
+
+### Beispiel (Vektor)
+```{python, results="hide"}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x)
+print( type(x) )
+```
+Ausgabe: Wir sehen die Darstellung des Vektors, strukturiert über eckige Klammern und den neuen Datentyp `numpy.ndarray`.
+```{python, echo=FALSE}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x)
+print( type(x))
+```
+
+### Shape (Dimension)
+
+Eine Matrix hat eine Anzahl von Zeilen und Spalten, die wir üblicherweise mit n und m bezeichnet haben. Folgender Befehl liefert die Anzahl der Zeilen und Spalten einer Matrix:
+
+```{python, results="hide"}
+import numpy as np
+x0 = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x0.shape )
+```
+Die Ausgabe `(4,)` bedeutet, dass die Struktur aus 4 Zahlen besteht.
+```{python, echo=FALSE}
+import numpy as np
+f0 = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( f0.shape )
+```
+### Zugriff auf Elemente
+Für einen Vektor $\bf{x} \in \mathbb{R}^n$ nehmen wir auf die einzelnen Werte  mittels $x = (x_1, ..., x_n)$ durch Verwendung eines tiefgestellten Index  Bezug. Für  $\bf{x} = (5.1, 3.5, 1.4, 0.2) \in \mathbb{R}^4$ ist also $x_1 = 5.1$. In Numpy machen wir das analog, **starten die Nummerierung jedoch bei Null**, wie folgendes Beispiel zeigt. Beachten sie, dass der Index nicht tiefgestellt wird (das geht auf der Tastatur nicht so gut), sondern in eckigen Klammern nach dem Variablennamen steht.
+
+```{python, results="hide"}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x[0] )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x[0] )
+```
+
+Auf den letzten Eintrag von $x$ greifen wir mit `x[3]` zu, obwohl es der vierte  Werte ist. Probieren sie es aus!
+
+### Werte verändern
+
+Mit der Verwendung des Index können wir einzelne Einträge auch verändern. Wir sehen behandeln dazu den Ausdruck x[0] einfach als Variable und verwenden eine Wertzuweisung.
+
+```{python, results="hide"}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+x[0] = -3
+print(x)
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+x[0] = -3
+print(x)
+```
+### Einfache Vektorrechnung
+
+```{python, results="hide"}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+print(x*0.5)
+print(x+y)
+print(x-y)
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+print(x*0.5)
+print(x+y)
+print(x-y)
+```
+### Neue Rechenarten
+```{python, results="hide"}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+
+print(x+1)
+print(x*y)
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+
+print(x+1)
+print(x*y)
+```
 
 
-## Einfache Funktionen
+## XXX > Einfache Funktionen
 
 ```python
 import numpy as np

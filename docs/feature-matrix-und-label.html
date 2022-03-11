@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 5 Feature-Matrix und Label | Data Science &amp; Machine Learning</title>
+<meta name="author" content="Dieter Greipl">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 5 Feature-Matrix und Label | Data Science &amp; Machine Learning">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/assets/x.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 5 Feature-Matrix und Label | Data Science &amp; Machine Learning">
+<meta name="twitter:image" content="/assets/x.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Sen-0.4.0/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><style>
+    #content {
+        font-size: 0.95rem;
+    }
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<meta name="description" content="In diesem kurzen Abschnitt definieren vorbereitend für den Abschnitt zu Machine-Learning wesentliche Begriffe und stellen einen Bezug zu den aus der linearen Algebra bekannten Konzepten von Vektor...">
+<meta property="og:description" content="In diesem kurzen Abschnitt definieren vorbereitend für den Abschnitt zu Machine-Learning wesentliche Begriffe und stellen einen Bezug zu den aus der linearen Algebra bekannten Konzepten von Vektor...">
+<meta name="twitter:description" content="In diesem kurzen Abschnitt definieren vorbereitend für den Abschnitt zu Machine-Learning wesentliche Begriffe und stellen einen Bezug zu den aus der linearen Algebra bekannten Konzepten von Vektor...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Data Science &amp; Machine Learning</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Willkommen</a></li>
+<li><a class="" href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></li>
+<li><a class="" href="daten.html"><span class="header-section-number">2</span> Daten</a></li>
+<li><a class="" href="lineare-algebra.html"><span class="header-section-number">3</span> Lineare Algebra</a></li>
+<li><a class="" href="numpy-arrays.html"><span class="header-section-number">4</span> Numpy (Arrays)</a></li>
+<li><a class="active" href="feature-matrix-und-label.html"><span class="header-section-number">5</span> Feature-Matrix und Label</a></li>
+<li class="book-part">Latex Part</li>
+<li><a class="" href="chapter.html"><span class="header-section-number">6</span> Chapter</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="feature-matrix-und-label" class="section level1" number="5">
+<h1>
+<span class="header-section-number">5</span> Feature-Matrix und Label<a class="anchor" aria-label="anchor" href="#feature-matrix-und-label"><i class="fas fa-link"></i></a>
+</h1>
+<p>In diesem kurzen Abschnitt definieren vorbereitend für den Abschnitt zu Machine-Learning wesentliche Begriffe und stellen einen Bezug zu den aus der linearen Algebra bekannten Konzepten von Vektor und Matrix her.</p>
+<div id="numerische-features-merkmal" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Numerische Features (Merkmal)<a class="anchor" aria-label="anchor" href="#numerische-features-merkmal"><i class="fas fa-link"></i></a>
+</h2>
+<p>Ein numerisches Feature ist ein <strong>Einzelaspekt </strong>einer Beobachtung oder Messung unserer Objekte, der sich als Zahl ausdrücken lässt. Ein Beispiel aus dem Iris-Datensatz ist “Länge der Petalums”. Die Anzahl der Features einer Problemstellung nennen notieren wir mit dem Buchstaben <span class="math inline">\(m\)</span>. Bei Iris: <span class="math inline">\(m = 4\)</span>.</p>
+</div>
+<div id="feature-vektor-merkmals-vektor" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Feature-Vektor (Merkmals-Vektor)<a class="anchor" aria-label="anchor" href="#feature-vektor-merkmals-vektor"><i class="fas fa-link"></i></a>
+</h2>
+<p>Feature-Vektor ist eine Gruppierung der konkreten gemessenen Werte der Features als Vektor. Diese Gruppierung notiert man in der Regel als Zeilenvektor <span class="math inline">\(\bf{x} \in \mathbb{R}^{m}\)</span>. Ein Beispiel aus dem Iris-Datensatz ist der (erste) Feature-Vektor</p>
+<p><span class="math display">\[
+\textbf{x}= (5.1, 3.5, 1.4, 0.2 ) \in \mathbb{R}^4
+\]</span></p>
+<p>In nachfolgender Abbildung ist dieser Feature-Vektor gelb markiert.</p>
+<div class="figure">
+<img src="assets/03-feature-matrix.assets/image-20220306170714853.png" alt=""><p class="caption">Feature-Vektor</p>
+</div>
+<p>Alternative Namen für einen Feature-Vektor sind</p>
+<ul>
+<li>Merkmals-Vektor</li>
+<li>Example</li>
+<li>Sample</li>
+</ul>
+</div>
+<div id="feature-matrix" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Feature-Matrix<a class="anchor" aria-label="anchor" href="#feature-matrix"><i class="fas fa-link"></i></a>
+</h2>
+<p>Eine Feature-Matrix besteht aus n Feature-Vektoren als Zeilen. Wir notieren die Feature-Matrix stets ebenfalls mit dem Symbol <span class="math inline">\(X\)</span>. Es ist:</p>
+<p><span class="math display">\[
+X \in \mathbb{R}^{n \times m}
+\]</span></p>
+<p><strong>Beispiel</strong> <strong>(Iris)</strong>: Die 150 Feature-Vektoren aus Iris bilde die Feature-Matrix <span class="math inline">\(X \in \mathbb{R}^{150 \times 4}\)</span>.</p>
+</div>
+<div id="label" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Label<a class="anchor" aria-label="anchor" href="#label"><i class="fas fa-link"></i></a>
+</h2>
+<p>Zu jedem Feature-Vektor interessiert uns eine “Antwort” oder ein “Ergebnis”. Zum Beispiel fragen wir danach, zu welcher Gattung die Lilie mit dem Feature-Vektor <span class="math inline">\(\textbf{x}= (5.1, 3.5, 1.4, 0.2 )\)</span> gehört. Diese Information nennen wir <strong>Label</strong> zum Feature-Vektor <span class="math inline">\(\bf{x}\)</span>. Wir bezeichnen den Label stets mit <span class="math inline">\(\bf{y}\)</span>. Der Label kann ebenfalls ein Vektor oder auch nur ein einzelner Wert sein. Letzteres ist in unseren Beispielen stets der Fall.</p>
+</div>
+<div id="labelled-example" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> Labelled Example<a class="anchor" aria-label="anchor" href="#labelled-example"><i class="fas fa-link"></i></a>
+</h2>
+<p>Das Paar <span class="math inline">\((\textbf{x},\bf{y})\)</span> bestehend aus dem Feature-Vektor und dem Label <span class="math inline">\(\bf{y}\)</span>. heißt auch <strong>Labelled Example</strong>.</p>
+<p>Schreibweise: Notieren wir den Feature-Vektor im Kontext mit <span class="math inline">\(\bf{x_i}\)</span>, so schreiben wir <span class="math inline">\(\bf{y_i}\)</span> für den zugehörigen Label.</p>
+</div>
+<div id="bemerkungen" class="section level2" number="5.6">
+<h2>
+<span class="header-section-number">5.6</span> Bemerkungen<a class="anchor" aria-label="anchor" href="#bemerkungen"><i class="fas fa-link"></i></a>
+</h2>
+<p>Wir haben Feature-Vektoren in Analogie zur lineare Algebra definiert. Sie bestehen damit nur aus Zahlen. Alle bekannten Operationen sind definiert und grundsätzlich erlaubt. In der Praxis kann das zu Problemen führen, sofern Messungen nominal Skalen vorliegen, oder Werte fehlen.</p>
+
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="numpy-arrays.html"><span class="header-section-number">4</span> Numpy (Arrays)</a></div>
+<div class="next"><a href="chapter.html"><span class="header-section-number">6</span> Chapter</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#feature-matrix-und-label"><span class="header-section-number">5</span> Feature-Matrix und Label</a></li>
+<li><a class="nav-link" href="#numerische-features-merkmal"><span class="header-section-number">5.1</span> Numerische Features (Merkmal)</a></li>
+<li><a class="nav-link" href="#feature-vektor-merkmals-vektor"><span class="header-section-number">5.2</span> Feature-Vektor (Merkmals-Vektor)</a></li>
+<li><a class="nav-link" href="#feature-matrix"><span class="header-section-number">5.3</span> Feature-Matrix</a></li>
+<li><a class="nav-link" href="#label"><span class="header-section-number">5.4</span> Label</a></li>
+<li><a class="nav-link" href="#labelled-example"><span class="header-section-number">5.5</span> Labelled Example</a></li>
+<li><a class="nav-link" href="#bemerkungen"><span class="header-section-number">5.6</span> Bemerkungen</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-03-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

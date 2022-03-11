@@ -50,9 +50,11 @@
 <li><a class="active" href="index.html">Willkommen</a></li>
 <li><a class="" href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></li>
 <li><a class="" href="daten.html"><span class="header-section-number">2</span> Daten</a></li>
-<li><a class="" href="datenstrukturen-mit-python.html"><span class="header-section-number">3</span> Datenstrukturen mit Python</a></li>
+<li><a class="" href="lineare-algebra.html"><span class="header-section-number">3</span> Lineare Algebra</a></li>
+<li><a class="" href="numpy-arrays.html"><span class="header-section-number">4</span> Numpy (Arrays)</a></li>
+<li><a class="" href="feature-matrix-und-label.html"><span class="header-section-number">5</span> Feature-Matrix und Label</a></li>
 <li class="book-part">Latex Part</li>
-<li><a class="" href="chapter.html"><span class="header-section-number">4</span> Chapter</a></li>
+<li><a class="" href="chapter.html"><span class="header-section-number">6</span> Chapter</a></li>
 </ul>
 
         <div class="book-extra">
@@ -60,43 +62,20 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content">
-sdfgsdfg
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<div id="willkommen" class="section level1 unnumbered">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="willkommen" class="section level1 unnumbered">
 <h1>Willkommen<a class="anchor" aria-label="anchor" href="#willkommen"><i class="fas fa-link"></i></a>
 </h1>
 <p>Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das Thema <strong>Data Science &amp; Machine Learning</strong>. Die Inhalte richten sich an Studierende, die erste Schritte auf das KI -Spielfeld wagen und das Potential von datengetriebenen Lösungsverfahren verstehen wollen.</p>
 <p>Insofern richtet sich die Darstellung an Studierende mit vertieftem Interesse an KI, die einen für Studierende angemessenes Vorwissen im Bereich Mathematik mitbringen. Vorkenntnisse im Bereich der Programmierung sind nicht nötig, aber natürlich hilfreich.</p>
-<p>Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen. Der Autor muss ja nicht der Meinung sein, alles besser zu können. Gleichwohl darf dadurch der rote Faden nicht verloren gehen.</p>
-<div id="vorbereitungen" class="section level2 unnumbered">
-<h2>Vorbereitungen<a class="anchor" aria-label="anchor" href="#vorbereitungen"><i class="fas fa-link"></i></a>
-</h2>
-<p>Dieses Skript ist als Unterlage für zahlreichen praktische Übungen mit Python angelegt. Ich werde hierzu <a href="https://colab.research.google.com/"><strong>Colab-Notebooks</strong></a> verwenden. Sie brauchen hierzu ein <strong>Google-Konto</strong>.</p>
-<p>Noch einige Hinweise an Studierende meiner Module:</p>
-<ul>
-<li>Die folgende Youtube-Playlist kann zur Vertiefung einzelner Stoffteile nutzen: <a href="https://youtube.com/playlist?list=PLfGN40VwjduJPvtP9QUjC0rjM6-ePT9bg">Youtube Playlist</a>
-</li>
-<li>Wenige Passagen in diesem Skript sind eventuell in englischer Sprache gehalten.</li>
-<li>Dieses Skript
-<ul>
-<li>befindet sich in Teilen im Aufbau, leichte Fehler sind also möglich (und wahrscheinlich - für Hinweise bin ich dankbar)</li>
-<li>geht nach der Prüfung off-line</li>
-</ul>
-</li>
-</ul>
-</div>
+<p>Ich habe mich bemüht, zahlreiche Übungsbeispiele und Youtube-Videos einzubauen. Viele Themen lassen sich so besser darstellen. Sofern es Medien im Netz gibt, die die Sachverhalte gut darstellen, werde ich entsprechenden Links einbauen</p>
+
 </div>
   <div class="chapter-nav">
 <div class="empty"></div>
 <div class="next"><a href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#willkommen">Willkommen</a></li>
-<li><a class="nav-link" href="#vorbereitungen">Vorbereitungen</a></li>
-</ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#willkommen">Willkommen</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -112,7 +91,7 @@ sdfgsdfg
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-02-23.</p>
+    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-03-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
