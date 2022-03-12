@@ -23,9 +23,9 @@
     }
     </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
-<meta name="description" content="Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Algorithmen zielführend ist. Hierfür verwenden wir die Programmiersprache Python. Ich empfehle...">
-<meta property="og:description" content="Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Algorithmen zielführend ist. Hierfür verwenden wir die Programmiersprache Python. Ich empfehle...">
-<meta name="twitter:description" content="Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Algorithmen zielführend ist. Hierfür verwenden wir die Programmiersprache Python. Ich empfehle...">
+<meta name="description" content="Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Programmiersprachen zielführend ist. Wir verwenden hierfür die Programmiersprache Python. Ich...">
+<meta property="og:description" content="Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Programmiersprachen zielführend ist. Wir verwenden hierfür die Programmiersprache Python. Ich...">
+<meta name="twitter:description" content="Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Programmiersprachen zielführend ist. Wir verwenden hierfür die Programmiersprache Python. Ich...">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -47,7 +47,8 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Willkommen</a></li>
+<li><a class="" href="index.html">Einführung</a></li>
+<li class="book-part">Grundlagen</li>
 <li><a class="active" href="python---quickstart.html"><span class="header-section-number">1</span> Python - Quickstart</a></li>
 <li><a class="" href="daten.html"><span class="header-section-number">2</span> Daten</a></li>
 <li><a class="" href="lineare-algebra.html"><span class="header-section-number">3</span> Lineare Algebra</a></li>
@@ -66,7 +67,7 @@
 <h1>
 <span class="header-section-number">1</span> Python - Quickstart<a class="anchor" aria-label="anchor" href="#python---quickstart"><i class="fas fa-link"></i></a>
 </h1>
-<p>Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Algorithmen zielführend ist. Hierfür verwenden wir die Programmiersprache Python. Ich empfehle dringend ein der folgenden Varianten zur Nutzung von Python zu verwenden. Wir starten in beiden Varianten mit dem typischerweise ersten Programm für Anfänger, dem Hallo-Welt-Programm. Dieses Programm gibt lediglich den digitalen Gruß “Hallo Welt” in dem vorgesehen Ausgabe Bereich aus.</p>
+<p>Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Programmiersprachen zielführend ist. Wir verwenden hierfür die Programmiersprache Python. Ich empfehle dringend, eine der folgenden Varianten für praktische Übungen mit Python zu verwenden. Wir starten in beiden Varianten mit dem typischerweise ersten Programm für Anfänger, dem Hallo-Welt-Programm. Dieses Programm gibt lediglich den digitalen Gruß “Hallo Welt” in dem vorgesehen Ausgabebereich aus.</p>
 <div id="hallo-welt" class="section level2" number="1.1">
 <h2>
 <span class="header-section-number">1.1</span> Hallo Welt<a class="anchor" aria-label="anchor" href="#hallo-welt"><i class="fas fa-link"></i></a>
@@ -75,24 +76,25 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="python---quickstart.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hallo Welt"</span>)</span></code></pre></div>
 <p>Die Ausgabe dieses Programms ist:</p>
 <pre><code>#&gt; Hallo Welt</code></pre>
-<div id="variante-1-colab-notebooks" class="section level3 unnumbered">
-<h3>Variante 1: Colab-Notebooks<a class="anchor" aria-label="anchor" href="#variante-1-colab-notebooks"><i class="fas fa-link"></i></a>
-</h3>
-<p>Unter dem Link <a href="https://colab.research.google.com/" class="uri">https://colab.research.google.com/</a> können sie ein sogenanntes Colab-Notebook erstellen. In die Programmzelle können tragen sie die Befehle ein. Ein Klick auf <img src="01-python.assets/image-20220220185350019.png" alt="image-20220220185350019"> führt die Programmzeilen aus und schreibt eventuelle Ausgaben unter die Programmzelle.</p>
+<p>Wichtig: In den meisten Fällen zeigen wir zu Python-Programmen auch die Ausgaben. Sie starten in diesem Skript stets mit der Zeichenfolge <code>#&gt;</code></p>
+<div id="variante-1-colab-notebooks" class="section level4 unnumbered">
+<h4>Variante 1: Colab-Notebooks<a class="anchor" aria-label="anchor" href="#variante-1-colab-notebooks"><i class="fas fa-link"></i></a>
+</h4>
+<p>Unter dem Link <a href="https://colab.research.google.com/" class="uri">https://colab.research.google.com/</a> können sie ein sogenanntes Colab-Notebook erstellen. In die Programmzelle können tragen sie die Befehle ein. Ein Klick auf <img src="assets/01-python.assets/image-20220220185350019.png" alt="image-20220220185350019"> führt die Programmzeilen aus und schreibt eventuelle Ausgaben unter die Programmzelle.</p>
 <div class="figure">
 <img src="assets/01-python.assets/image-20220220185808467.png" style="width:100.0%" alt=""><p class="caption">Colab-Notebook mit Programmzelle</p>
 </div>
-<p>Versuchen sie es! Mit <code>File-&gt;Save</code> können sie das Notebook abspeichern. Weitere Hinweise zum Umgang mit Colab-Notebook finden sie unter <a href="https://research.google.com/colaboratory/faq.html" class="uri">https://research.google.com/colaboratory/faq.html</a>. Besonders smart ist die Funktion von Textzellen. Sie erlauben das Hinzufügen eigener Texte vor oder nach den Programmzellen; so können sie ein eigenes Skript erstellen.</p>
+<p>Versuchen sie es! Mit <code>File-&gt;Save</code> können sie das Notebook abspeichern. Weitere Hinweise zum Umgang mit Colab-Notebook finden sie unter <a href="https://research.google.com/colaboratory/faq.html" class="uri">https://research.google.com/colaboratory/faq.html</a>. Besonders smart ist die Funktion von Textzellen. Sie erlauben das Hinzufügen eigener Texte vor oder nach den Programmzellen; so lässt sich ein eigenes Skript erstellen.</p>
 <div class="figure">
-<img src="01-python.assets/image-20220220190605212.png" style="width:100.0%" alt=""><p class="caption">Textzelle über der Programmzelle</p>
+<img src="assets/01-python.assets/image-20220220190605212.png" style="width:100.0%" alt=""><p class="caption">Textzelle über der Programmzelle</p>
 </div>
 </div>
-<div id="variante-2-installation-von-python" class="section level3 unnumbered">
-<h3>Variante 2: Installation von Python<a class="anchor" aria-label="anchor" href="#variante-2-installation-von-python"><i class="fas fa-link"></i></a>
-</h3>
+<div id="variante-2-installation-von-python" class="section level4 unnumbered">
+<h4>Variante 2: Installation von Python<a class="anchor" aria-label="anchor" href="#variante-2-installation-von-python"><i class="fas fa-link"></i></a>
+</h4>
 <p>Alternativ können sie Python auch auf ihrem Rechner installieren. Die Installationsanleitung finden sie auf <a href="https://www.python.org/" class="uri">https://www.python.org/</a>. Um die Installation zu prüfen verwenden sie den Befehl</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="python---quickstart.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">--version</span>    </span></code></pre></div>
-<p>Als Ausgabe erhalten sie die installierte Version von Python, zum Beispiel <code>Python 3.9.6</code>. Sie können nun mit einem einfache Texteditor. z.B. Notepad++, die Programmbefehle in eine Datei schreiben. Wenn sie die Zeile <code>print("Hallo Welt")</code> in die Datei <em>HalloWelt.py</em> schreiben, so können sie das Programm mit folgendem Befehl ausführen.</p>
+<p>Als Ausgabe erhalten sie die installierte Version von Python, zum Beispiel <code>Python 3.9.6</code>. Sie können nun mit einem einfachen Texteditor, z.B. Notepad++, die Programmbefehle in eine Datei schreiben. Wenn sie die Zeile <code>print("Hallo Welt")</code> in die Datei <em>HalloWelt.py</em> schreiben, so können sie das Programm mit folgendem Befehl ausführen.</p>
 <pre><code>python HalloWelt.py</code></pre>
 <p>Sie sollten nun die Ausgabe <code>Hallo Welt</code> sehen.</p>
 <blockquote>
@@ -104,38 +106,31 @@
 <h2>
 <span class="header-section-number">1.2</span> Programme und Fehler<a class="anchor" aria-label="anchor" href="#programme-und-fehler"><i class="fas fa-link"></i></a>
 </h2>
-<p>Sie werden eventuell Syntax-Fehler in ihren Programmen haben. Syntax-Fehler entstehen, wenn Python ihr Programm nicht versteht. Oft geht es dabei um “Rechtschreibfehler”. Schreiben sie also fälschlicherweise <code>prin("Hallo Welt")</code>, so erhalten sie bei der Programmausführung ein Fehlermeldung:</p>
+<p>Sie werden eventuell Syntax-Fehler in ihren Programmen haben. Syntax-Fehler entstehen, wenn Python ihr Programm nicht versteht. Oft geht es dabei um “Rechtschreibfehler”: schreiben sie fälschlicherweise <code>prin("Hallo Welt")</code>, so erhalten sie bei der Programmausführung eine Fehlermeldung:</p>
 <pre><code>line 1, in &lt;module&gt;
     prin("Hallo Welt")
 NameError: name 'prin' is not defined </code></pre>
 <p>Häufig lässt sich diese Meldung leicht verstehen, und sie können den Fehler korrigieren.</p>
 <blockquote>
-<p>Läuft ein Programm ohne Fehlermeldung ab, so kann man daraus natürlich nicht auf die Korrektheit des Programms schließen! Ihr Programm kann also auch noch logisch falsch sein.</p>
+<p>Läuft ein Programm ohne Fehlermeldung ab, so kann man daraus natürlich nicht auf die Korrektheit des Programms schließen! Ihr Programm kann auch logisch falsch sein, also nicht die gewünschte Funktion oder Berechnung ausführen.</p>
 </blockquote>
 </div>
 <div id="python-lernen" class="section level2" number="1.3">
 <h2>
 <span class="header-section-number">1.3</span> Python lernen<a class="anchor" aria-label="anchor" href="#python-lernen"><i class="fas fa-link"></i></a>
 </h2>
-<p>Es geht uns nicht in erster Linie darum gute Python-Programmierer zu werden. Unsere Kenntnisse müssen aber für die Lösung oder Analyse unserer Problemstellungen ausreichen. Das legt auch den Umfang an Python Know-How fest. Es gibt hierfür zahlreiche gute Bücher und Internetquellen. Eine ausgewählter Link, auf den ich regelmäßig verweisen werden ist</p>
-<p><a href="https://www.w3schools.com/python/" class="uri">https://www.w3schools.com/python/</a></p>
-<p>Suchen sie doch unter <em>Python Intro</em> nach dem Hallo-Welt-Beispiel. Sie finden dort unter <em>Try it Yourself</em> eine weitere Möglichkeit Python-Programme auszuführen!</p>
+<p>Es geht uns nicht in erster Linie darum gute Python-Programmierer zu werden. Unsere Kenntnisse müssen aber für Bearbeitung unserer Problemstellungen ausreichen. Das legt auch den Umfang an Python Know-How fest, den sie in dieser Unterlage finden. Es gibt hierfür zahlreiche gute Bücher und Internetquellen. Eine gutes Online-Angebot, auf das ich regelmäßig verweisen werde ist <a href="https://www.w3schools.com/python/" class="uri">https://www.w3schools.com/python/</a>. Suchen sie doch unter <em>Python Intro</em> nach dem Hallo-Welt-Beispiel. Sie finden dort unter <em>Try it Yourself</em> eine weitere Möglichkeit Python-Programme auszuführen!</p>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="index.html">Willkommen</a></div>
+<div class="prev"><a href="index.html">Einführung</a></div>
 <div class="next"><a href="daten.html"><span class="header-section-number">2</span> Daten</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#python---quickstart"><span class="header-section-number">1</span> Python - Quickstart</a></li>
-<li>
-<a class="nav-link" href="#hallo-welt"><span class="header-section-number">1.1</span> Hallo Welt</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#variante-1-colab-notebooks">Variante 1: Colab-Notebooks</a></li>
-<li><a class="nav-link" href="#variante-2-installation-von-python">Variante 2: Installation von Python</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#hallo-welt"><span class="header-section-number">1.1</span> Hallo Welt</a></li>
 <li><a class="nav-link" href="#programme-und-fehler"><span class="header-section-number">1.2</span> Programme und Fehler</a></li>
 <li><a class="nav-link" href="#python-lernen"><span class="header-section-number">1.3</span> Python lernen</a></li>
 </ul>
@@ -154,7 +149,7 @@ NameError: name 'prin' is not defined </code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-03-10.</p>
+    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-03-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

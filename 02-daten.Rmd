@@ -1,15 +1,78 @@
 # Daten
 
-Daten^[sing. Datum] sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, also aufgeschrieben sind.  Häufig sprechen sprechen wir auch von *Werten*, statt von Daten. Wir können zum Beispiel Lilienblüten untersuchen und pro [Blüte ](https://de.wikipedia.org/wiki/Bl%C3%BCte)in cm&#x20; messen:
+Daten^[sing. Datum] sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, sind.  Häufig sprechen sprechen wir auch von *Werten*, statt von Daten. Wenn wir viele gleichartige Daten erfassen, aufbereiten und Zusammengänge  analysieren, so lassen sich daraus möglicherweise mittels Algorithmen komplexe Aufgabenstellungen lösen.  Wir erläutern diese Idee anhand des Iris-Datensatzes^[siehe z.B. https://en.wikipedia.org/wiki/Iris_flower_data_set] (engl. *Iris flower data set*).
+
+## Iris-Datensatz
+
+Der Iris-Datensatz ist einer der bekanntesten Datensätze für Maschinelles Lernen und entstand 1936. Gegenstand der Messung waren 150 Lilien der Arten *Iris setosa*, *Iris versicolor*, und *Iris virginica*. Gemessen wurden für je eine Blüte jeweils (in cm):
 
 * die Länge und Breite des Kronblattes (Petalum, petal) sowie
 * die Länge und Breite des Kelchblattes (Sepalum, sepal)
 
-![Lilienblüte^[Quelle: https://medium.com/greyatom/using-clustering-for-feature-engineering-on-the-iris-dataset-f438366d0b4b] ](assets/02-daten.assets/image_messung-16426070933692.png)
+Pro Messung entstehen also 4 Werte und die Spezies der untersuchten Lilie. 
+
+![Lilienarten](assets/02-daten.assets/Download.png){width=100%}
+
+  
+
+
+
+![Messung von Länge und Breite^[Quelle: https://medium.com/greyatom/using-clustering-for-feature-engineering-on-the-iris-dataset-f438366d0b4b] ](assets/02-daten.assets/image_messung-16426070933692.png)
+
+
+
+Nachfolgende Tabellen zeigen die Aufzeichnungen der ersten 5 Messungen gefolgt und der letzten 5 Messungen. Der Datensatz enthält jeweils 50 Lilien jeder Sorte. Die Spezies wird in der letzten Spalte unter `class` angegeben
+
+Die ersten 5 Datensätze (#0 - #4):
+
+```{r setup, include=FALSE}
+library(reticulate)
+use_python('C:\\Python39\\python.exe')
+#knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{python, echo=FALSE}
+import pandas as pd 
+from sklearn import datasets
+ 
+iris = datasets.load_iris()
+iris_df = pd.DataFrame(iris.data)
+iris_df['class']=iris.target_names[iris.target ]
+iris_df.columns=['sepal_len', 'sepal_wid', 'petal_len', 'petal_wid', 'class']
+print( iris_df.head(5) )
+#print( "...")
+#print( iris_df.tail(5) ) 
+```
+
+Die letzten 5 Datensätze (#145 - #149):
+
+```{python, echo=FALSE}
+import pandas as pd 
+from sklearn import datasets
+
+iris = datasets.load_iris()
+iris_df = pd.DataFrame(iris.data)
+iris_df['class']=iris.target_names[iris.target ]
+iris_df.columns=['sepal_len', 'sepal_wid', 'petal_len', 'petal_wid', 'class']
+#print( iris_df.head(5) )
+#print( "...")
+print( iris_df.tail(5) ) 
+```
+
+Wir greifen zwar etwas vor, aber an diesem Beispiel lässt sich eine typische Aufgabenstellung von Machine Learning recht einfach erklären: Ein Bobachter erhebt für eine Lilie die Messwerte `sepal_len, sepal_wid, petal_len, petal_wid` einer Blüte und will daraus die Art dieser Lilie bestimmen.
+
+Nehmen wir nun an, dass der Beobachter die Messwerte $(5.1, 3.5, 1.4, 0.2)$ liefert. Wir erkennen, dass genau diese Werte als Datenzeile $0$ in unserem Datensatz vorliegen und vor einer Setosa erhoben wurden (Spalte `class`). Wir werden natürlich "Setosa" als  Art dieser Blüte angeben. Dieser Fall wir wohl eher selten auftreten.  Schwieriger ist die Antwort für die Messwerte  $(6.1, 3.2, 5.3, 2.1)$, die nicht als Zeile in unserem Datensatz auftreten. Mit etwas Recherche finden wir heraus, dass Datensatz 148 für die recht ähnlichen Werte $(6.2, 3.4, 5.4, 2.3)$ für eine Virginica enthält.  Wir könnten also mit der Art "Virginica" antworten.^[Dabei ist noch zu konkretisieren, wie wir die Ähnlichkeit der Werte messen]
+
+Um Datensätze für *Machine Learning* zu verwenden, müssen wir wir sie vorher auf Tauglichkeit untersuchen, eventuell korrigieren, filtern und so weiter.  
+
+   
+
+
+
 
 ## **Variablen**
 
-Eine Beobachtung oder Messung eines einzelnen Wertes formulieren wir  in obigem Beispiel in der Form "*Sepal Länge: 5,1cm*".  Der Begriff Länge wird bei verschiedenen Messungen verschiedene Werte annehmen.   Zum Umgang mit diesen Werte, verwenden wie Variablen. Variablen sind Platzhalter oder Speicher für Werte, wir sprechen also vom _Wert einer Variable_.  Im nachfolgendem Beispiel wird der Variable mit dem Namen `sepal_laenge` der Wert $5.1$ zugewiesen. Variablen haben immer einen Namen. Einen Wert erhalten sie erst  durch eine sog. Zuweisung (wie in Zeile 1). In Zeile 2 drucken wir den Wert aus. Führen Sie also folgende Phython-Befehle aus:
+Eine Beobachtung oder Messung eines einzelnen Wertes formulieren wir  in obigem Beispiel in der Form "*Sepal-Länge: 5,1cm*".  Die Beobachtung *Sepal-Länge* wird bei verschiedenen Blüten verschiedene Werte annehmen.   Zum Umgang mit diesen Werten verwenden wie Variablen. Variablen sind Platzhalter oder Speicher für Werte, wir sprechen also vom _Wert einer Variable_.  Im nachfolgendem Beispiel wird der Variable mit dem Namen `sepal_laenge` der Wert $5.1$ zugewiesen. Variablen haben immer einen Namen. Einen Wert erhalten sie erst  durch eine sog. Zuweisung (wie in Zeile 1). In Zeile 2 drucken wir den Wert aus. Führen Sie also folgende Phython-Befehle aus:
 
 ```{python, results="hide"}
 sepal_laenge = 5.1
@@ -30,15 +93,15 @@ Wichtig:
 
 ## Datentypen 
 
-Ein Wert einer Messung kann neben einer Zahl $5.1$ auch ein Begriff (z.B. die Note "*sehr gut*").  Offensichtlich gehören beide Werte zu verschiedene Typen von Werten, den sogenannten Datentypen.  Wir beschäftigen uns mit den Datentypen 
+Ein Wert einer Messung kann neben einer Zahl $5.1$ auch ein Text (zum Beispiel "*sehr gut*") sein.  Offensichtlich gehören beide Werte zu verschiedene Typen von Werten, den sogenannten Datentypen.  Zudem brauchen wir logischen Datentypen, um zu bewerten, ob Sachverhalte *wahr* (`True`) oder *falsch* (`False`) sind. Wir beschäftigen uns also mit den Datentypen 
 
-- *Zahlen*, 
+- *Zahlen* 
 - *Strings* (Text, Worte) und
 - *Boolean* (logische Werte).
 
 ### **Zahlen**
 
-Werte dieses Datentyps sind z.B. $1$, $-1$, $1.7$  oder $1/3$. Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen (und noch ein paar mehr, die aber vorerst nicht gebraucht werden. Wir verwenden die üblichen Symbole $\mathbb{N}$ für die natürlichen Zahlen und $\mathbb{R}$ für die reellen Zahlen.
+Werte dieses Datentyps sind z.B. $1$, $-1$, $1.7$  oder $1/3$. Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen ^[Es gibt natürlich noch ein paar mehr Arten von Zahlen, die wir aber hier nicht brauchen]. Zur Notation diese Zahlenmengen verwenden wir die üblichen Symbole $\mathbb{N}$ für die natürlichen Zahlen und $\mathbb{R}$ für die reellen Zahlen.
 
 Wir notieren Zahlen wie üblich und verwenden in der Dezimalnotation den Punkt als Trennsymbol.
 
@@ -235,66 +298,7 @@ Bemerkungen:
 
 Ergänzend: [Die fünf Skalenniveaus: Einfach und verständlich erklärt (statistikpsychologie.de)](https://www.statistikpsychologie.de/skalenniveaus/) 
 
-## Iris-Datensatz
 
-
-
-Der Iris-Datensatz enthält Messungen von jeweils 50 Blüten zu drei verschiedenen Lilien-Arten (setosa, versicolor, virginica)
-
-![Download](assets/02-daten.assets/Download.png){width=100%}
-
-
-
-### Datensatz
-
-Folgender - in der Community wohlbekannter - Datensatz liegt uns vor (Sie finden die Daten [hier](https://syncandshare.lrz.de/getlink/fi89kxTJ5yLRaW5mnpyrofVK/Iris_p.xlsx)).
-
-
-xx Die ersten 5..
-
-```{r setup, include=FALSE}
-library(reticulate)
-use_python('C:\\Python39\\python.exe')
-#knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{python, echo=FALSE}
-import pandas as pd 
-from sklearn import datasets
- 
-iris = datasets.load_iris()
-iris_df = pd.DataFrame(iris.data)
-iris_df['class']=iris.target_names[iris.target ]
-iris_df.columns=['sepal_len', 'sepal_wid', 'petal_len', 'petal_wid', 'class']
-print( iris_df.head(5) )
-#print( "...")
-#print( iris_df.tail(5) ) 
-```
-
-xxx Hier die letzten 5   
-
-```{python, echo=FALSE}
-import pandas as pd 
-from sklearn import datasets
-
-iris = datasets.load_iris()
-iris_df = pd.DataFrame(iris.data)
-iris_df['class']=iris.target_names[iris.target ]
-iris_df.columns=['sepal_len', 'sepal_wid', 'petal_len', 'petal_wid', 'class']
-#print( iris_df.head(5) )
-#print( "...")
-print( iris_df.tail(5) ) 
-```
-
-Wir greifen zwar etwas vor, aber an diesem Beispiel lässt sich eine typische Aufgabenstellung von Machine Learning recht einfach erklären: Ein Bobachter erhebt für eine Lilie die Messwerte `sepal_len, sepal_wid, petal_len, petal_wid` einer Blüte und will daraus die Art der Lilie, für die diese Messwerte erhoben wurden bestimmen.
-
-Nehmen wir nun an, dass der Beobachter die Messwerte $(5.1, 3.5, 1.4, 0.2)$ liefert. Wir erkennen, dass diese Werte als Datenzeile $0$ in unserem Datensatz vorliegen und vor einer Setosa erhoben wurden (Spalte `class`). Wir werden natürlich "Setosa" als  Art dieser Blüte angeben. 
-
-Etwas schwieriger ist die Antwort für die Messwerte  $(6.1, 3.2, 5.3, 2.1)$, die nicht als Zeile in unserem Datensatz auftreten. Mit etwas Recherche finden wir heraus, dass Datensatz 148 für die recht ähnlichen Werte $(6.2, 3.4, 5.4, 2.3)$ für eine Virginica enthält.  Wir könnten also mit der Art "Virginica" antworten.^[Dabei ist noch zu konkretisieren, wie wir die Ähnlichkeit der Werte messen]
-
-Um Datensätze für *Machine Learning* zu verwenden, müssen wir wir sie vorher auf Tauglichkeit untersuchen, eventuell korrigieren, filtern und so weiter.  
-
-   
 
 ### Übung
 

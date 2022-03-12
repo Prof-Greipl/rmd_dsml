@@ -1,15 +1,7 @@
 # Numpy (Arrays)
 ## Wofür brauchen wir Numpy?
 
-Numpy ist eine Sammlung von Funktionen für effiziente Erzeugung, Berechnung und Bearbeitung von Zahlenstrukturen, zum Beispiel Vektoren oder Matrizen. &#x20;Wir werden Numpy-Arrays nutzen, um die Datensätze für maschinelles Lernen zu bearbeiten.
-
-###### Links für diesen Abschnitt
-
-| Link                                                                                                                                     | Beschreibung                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [https://www.w3schools.com/python/numpy/default.asp](https://www.w3schools.com/python/numpy/default.asp)                                 | Eine umfangreiche, langsame Einführung. Wir brauchen davon aber nur, was in in diesem Script behandelt wird.  |
-| [https://www.w3schools.com/python/numpy/numpy\_creating\_arrays.asp](https://www.w3schools.com/python/numpy/numpy\_creating\_arrays.asp) | arange                                                                                                        |
-|                                                                                                                                          |                                                                                                               |
+Numpy ist eine Sammlung von Funktionen für effiziente Erzeugung, Berechnung und Bearbeitung von Zahlenstrukturen, zum Beispiel Vektoren oder Matrizen. &#x20;Wir werden Numpy nutzen, um die Datensätze für maschinelles Lernen zu bearbeiten. Eine umfangreiche, langsame Einführung finden sie unter [https://www.w3schools.com/python/numpy/](https://www.w3schools.com/python/numpy/). Wir besprechen in diesem Abschnitt nur die für unseren Inhalte relevanten Teile.
 
 **Wichtig:** Beginnen Sie jeden Programmblock, in dem sie numpy-Funktionen brauchen, mit der Zeile
 

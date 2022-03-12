@@ -1,6 +1,8 @@
+# (PART) **Grundlagen** {-}
+
 # Python - Quickstart
 
-Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Algorithmen zielführend ist. Hierfür verwenden wir die Programmiersprache Python. Ich empfehle dringend ein der folgenden Varianten zur Nutzung von Python zu verwenden. Wir starten in beiden Varianten mit dem typischerweise ersten Programm für Anfänger, dem Hallo-Welt-Programm. Dieses Programm gibt lediglich den digitalen Gruß "Hallo Welt" in dem vorgesehen Ausgabe Bereich aus. 
+Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines Computers und speziellen Programmiersprachen zielführend ist. Wir verwenden hierfür die Programmiersprache Python. Ich empfehle dringend, eine der folgenden Varianten für praktische Übungen mit Python zu verwenden. Wir starten in beiden Varianten mit dem typischerweise ersten Programm für Anfänger, dem Hallo-Welt-Programm. Dieses Programm gibt lediglich den digitalen Gruß "Hallo Welt" in dem vorgesehen Ausgabebereich aus. 
 
 ## Hallo Welt
 
@@ -15,19 +17,21 @@ Die Ausgabe dieses Programms ist:
 print("Hallo Welt")
 ```
 
-### Variante 1: Colab-Notebooks {-}
+Wichtig: In den meisten Fällen zeigen wir zu Python-Programmen auch die Ausgaben. Sie starten in diesem Skript stets mit der Zeichenfolge `#>`  
+
+#### Variante 1: Colab-Notebooks {-}
 
 Unter dem Link https://colab.research.google.com/ können sie ein sogenanntes Colab-Notebook erstellen. In die Programmzelle können tragen sie die Befehle ein. Ein Klick auf ![image-20220220185350019](assets/01-python.assets/image-20220220185350019.png) führt die Programmzeilen aus und schreibt eventuelle Ausgaben unter die Programmzelle.
 
 ![Colab-Notebook mit Programmzelle](assets/01-python.assets/image-20220220185808467.png){width=100%}
 
-Versuchen sie es! Mit `File->Save ` können sie das Notebook abspeichern.  Weitere Hinweise zum Umgang mit Colab-Notebook finden sie unter https://research.google.com/colaboratory/faq.html. Besonders smart ist die Funktion von Textzellen. Sie erlauben das Hinzufügen eigener Texte vor oder nach den Programmzellen; so können sie ein eigenes Skript erstellen.
+Versuchen sie es! Mit `File->Save ` können sie das Notebook abspeichern.  Weitere Hinweise zum Umgang mit Colab-Notebook finden sie unter https://research.google.com/colaboratory/faq.html. Besonders smart ist die Funktion von Textzellen. Sie erlauben das Hinzufügen eigener Texte vor oder nach den Programmzellen; so lässt sich ein eigenes Skript erstellen.
 
 ![Textzelle über der Programmzelle](assets/01-python.assets/image-20220220190605212.png){width=100%}
 
 
 
-### Variante 2: Installation von Python{-}
+#### Variante 2: Installation von Python{-}
 
 Alternativ können sie Python auch auf ihrem Rechner installieren. Die Installationsanleitung finden sie auf https://www.python.org/. Um die Installation zu prüfen verwenden sie den Befehl
 
@@ -35,7 +39,7 @@ Alternativ können sie Python auch auf ihrem Rechner installieren. Die Installat
 python --version	
 ```
 
-Als Ausgabe erhalten sie die installierte Version von Python, zum Beispiel `Python 3.9.6`. Sie können nun mit einem einfache Texteditor. z.B. Notepad++, die Programmbefehle in eine Datei schreiben. Wenn sie die Zeile `print("Hallo Welt")` in die Datei *HalloWelt.py* schreiben, so können sie das Programm mit folgendem Befehl ausführen.  
+Als Ausgabe erhalten sie die installierte Version von Python, zum Beispiel `Python 3.9.6`. Sie können nun mit einem einfachen Texteditor, z.B. Notepad++, die Programmbefehle in eine Datei schreiben. Wenn sie die Zeile `print("Hallo Welt")` in die Datei *HalloWelt.py* schreiben, so können sie das Programm mit folgendem Befehl ausführen.  
 
 ```
 python HalloWelt.py
@@ -49,7 +53,7 @@ Sie sollten nun die Ausgabe `Hallo Welt` sehen.
 
 ## Programme und Fehler
 
-Sie werden eventuell Syntax-Fehler in ihren Programmen haben. Syntax-Fehler entstehen, wenn Python ihr Programm nicht versteht. Oft geht es dabei um "Rechtschreibfehler". Schreiben sie also fälschlicherweise `prin("Hallo Welt")`, so erhalten sie bei der Programmausführung ein Fehlermeldung:
+Sie werden eventuell Syntax-Fehler in ihren Programmen haben. Syntax-Fehler entstehen, wenn Python ihr Programm nicht versteht. Oft geht es dabei um "Rechtschreibfehler": schreiben sie fälschlicherweise `prin("Hallo Welt")`, so erhalten sie bei der Programmausführung eine Fehlermeldung:
 
 ```
 line 1, in <module>
@@ -59,15 +63,11 @@ NameError: name 'prin' is not defined
 
 Häufig lässt sich diese Meldung leicht verstehen, und sie können den Fehler korrigieren. 
 
-> Läuft ein Programm ohne Fehlermeldung ab, so kann man daraus natürlich nicht auf die Korrektheit des Programms schließen!  Ihr Programm kann also auch noch logisch falsch sein.
+> Läuft ein Programm ohne Fehlermeldung ab, so kann man daraus natürlich nicht auf die Korrektheit des Programms schließen!  Ihr Programm kann  auch logisch falsch sein, also nicht die gewünschte Funktion oder Berechnung ausführen.
 
 
 
 ## Python lernen
 
-Es geht uns nicht in erster Linie darum gute Python-Programmierer zu werden. Unsere Kenntnisse müssen aber für die Lösung oder Analyse unserer Problemstellungen ausreichen. Das legt auch den Umfang an Python Know-How fest. Es gibt hierfür zahlreiche gute Bücher und Internetquellen. Eine ausgewählter Link, auf den ich regelmäßig verweisen werden ist
-
-https://www.w3schools.com/python/
-
-Suchen sie doch unter *Python Intro* nach dem Hallo-Welt-Beispiel. Sie finden dort unter *Try it Yourself* eine weitere Möglichkeit Python-Programme auszuführen!
+Es geht uns nicht in erster Linie darum gute Python-Programmierer zu werden. Unsere Kenntnisse müssen aber für Bearbeitung unserer Problemstellungen ausreichen. Das legt auch den Umfang an Python Know-How fest, den sie in dieser Unterlage finden. Es gibt hierfür zahlreiche gute Bücher und Internetquellen. Eine gutes Online-Angebot, auf das ich regelmäßig verweisen werde ist https://www.w3schools.com/python/. Suchen sie doch unter *Python Intro* nach dem Hallo-Welt-Beispiel. Sie finden dort unter *Try it Yourself* eine weitere Möglichkeit Python-Programme auszuführen!
 
