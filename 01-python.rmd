@@ -1,4 +1,4 @@
-# (PART) **Grundlagen** {-}
+# (PART) Teil A: Grundlagen {-}
 
 # Python - Quickstart
 

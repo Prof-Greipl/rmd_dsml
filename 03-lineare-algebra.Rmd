@@ -4,15 +4,13 @@ In diesem Abschnitt wiederholen wir ein paar ausgewählte Begriffe aus der Linea
 
 ## Skalar
 
-Die meisten Objekte der Linearen Algebra sind Strukturen von Zahlen, zum Beispiel Vektoren oder Matrizen. Skalare dagegen sind ganz einfach nur Zahlen, in unserem Fall reelle Zahlen 
+Die meisten Objekte der Linearen Algebra sind Strukturen von Zahlen, zum Beispiel Vektoren oder Matrizen. Skalare dagegen sind ganz einfach nur Zahlen, in unserem Fall reelle Zahlen. Wir bezeichnen Skalare mit kleinen kursiven Buchstaben. Wir schreiben zum Beispiel $s \in \mathbb{R}.$
 
-[^Wir betrachten nur reelle Vektorräume]: 
-
-. Wir bezeichnen Skalare mit kleinen kursiven Buchstaben. Wir schreiben zum Beispiel $s \in \mathbb{R}.$
+> Wir betrachten nur reelle Vektorräume! 
 
 ## Vektor und Dimension
 
-Ein Vektor ist ein Tupel reeller Zahlen, die in einer bestimmten Weise angeordnet sind. Jede reelle Zahl aus dem Tupel ist über einen Index genau bestimmt. Wir notieren einen Vektor mit einem kleinen und fett gedruckten Buchstaben, also z.B. $\bf{x}$ . Die einzelnen Zahlen des Vektors werden kursiv gedruckt und mit ihrem Index notiert, also die erste Zahl mit $x_1$, die zweite Zahl mit $x_2$ und so weiter. Enthält der Vektor $n$ reelle Zahlen so ist der Vektor ein Element des n-fachen kartesischen Produktes der reellen Zahlen $\mathbb{R}$, kurz $\mathbb{R}^{n}$. Um die Elemente eines Vektors explizit anzugeben, notieren wir sie als **Spalte** in eckigen Klammern
+Ein Vektor ist ein Tupel reeller Zahlen, die in einer bestimmten Weise angeordnet sind. Jede reelle Zahl aus dem Tupel ist über einen Index genau bestimmt. Wir notieren einen Vektor mit einem kleinen und fett gedruckten Buchstaben, also z.B. $\bf{x}$ . Die einzelnen Zahlen des Vektors werden kursiv gedruckt und mit ihrem Index notiert, also die erste Zahl mit $x_1$, die zweite Zahl mit $x_2$ und so weiter. Enthält der Vektor $n$ reelle Zahlen so ist der Vektor ein Element des n-fachen kartesischen Produktes der reellen Zahlen $\mathbb{R}$, kurz $\mathbb{R}^{n}$. Um die Elemente eines Vektors explizit anzugeben, wird sie in der Regel als **Spalte** in eckigen Klammern notiert, also
 
 $$
 \bf{x} = \begin{bmatrix}
@@ -24,9 +22,7 @@ x_n \\
 \in \mathbb{R}^n
 $$
 
-Häufig werden wir auch die Notation in Form einer **Zeile** wählen also  $\bf{x} = (x_1, \ldots, x_n)$.
-
-Die Zahl n heißt **Dimension des Vektors.**
+Häufig werden wir auch die Notation in Form einer **Zeile** wählen also  $\mathbf{x} = (x_1, \ldots, x_n)$. Die Zahl n heißt **Dimension des Vektors.**
 
 
 
@@ -56,7 +52,7 @@ $$
 
 ###  Skalarprodukt
 
-Man kann aus zwei Vektoren $x, y \in \mathbb{R}^{n}$ gleicher Dimension ein spezielles _Produkt_ bilden, das wir mit $\langle\bf{x},\bf{y}\rangle$ notieren. (Zur Unterscheidung haben wir oben die Bezeichnung _Multiplikation mit einem Skalar_ gewählt). Es ist definiert als das Produkt aus den jeweils zugeordneten Matrizen und es folgt:
+Man kann für zwei Vektoren $x, y \in \mathbb{R}^{n}$ gleicher Dimension ein spezielles _Produkt_ bilden, das wir mit $\langle\bf{x},\bf{y}\rangle$ notieren. (Zur Unterscheidung haben wir oben die Bezeichnung _Multiplikation mit einem Skalar_ gewählt). Das Skalarprodukt ist definiert durch:
 
 $$
 \langle\bf{x},\bf{y}\rangle =  \sum_{i=1}^{n} x_i \cdot y_i
@@ -133,7 +129,18 @@ $$
 
 ### Vektoren als Matrix
 
-Da wir Vektoren grafisch in einer Spalte notiert haben, nennen wir sie auch _Spaltenvektoren_. Ein Spaltenvektor lässt sich offensichtlich als eine Matrix interpretieren, die nur aus einer Spalte besteht. Wenn wir diese Matrix, wie oben dargestellt, transponieren, entsteht eine Matrix , die nur aus einer Zeile besteht. Diese Matrix bezeichnen wir als *Zeilenvektor*. Die Analogie führt uns zum Konzept eines transponierten Vektors:
+Da wir Vektoren grafisch in einer Spalte notiert haben, nennen wir sie auch _Spaltenvektoren_. Ein Spaltenvektor lässt sich offensichtlich als eine Matrix interpretieren, die nur aus einer Spalte besteht. 
+$$
+\bf{x} = 
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n \\
+\end{bmatrix}
+\in \mathbb{R}^{n \times 1}
+$$
+Wenn wir diese Matrix, wie oben dargestellt, transponieren, entsteht eine Matrix , die nur aus einer Zeile besteht. Diese Matrix bezeichnen wir als *Zeilenvektor*. Die Analogie führt uns zum Konzept eines transponierten Vektors:
 
 $$
 \bf{x} = 
@@ -154,19 +161,14 @@ $$
 
 In der Regel identifizieren wir $\mathbb{R}^{n \times 1}$ und $\mathbb{R}^{1 \times n}$, aber grundsätzlich besteht doch ein Unterschied.
 
-
-
-### Skalarprodukt
-
-Man kann aus zwei Vektoren $x, y \in \mathbb{R}^{n}$ gleicher Dimension ein spezielles _Produkt_ bilden, das wir mit $\bf{x}^T\bf{y}$ notieren.(Zur Unterscheidung haben wir oben die Bezeichnung _Multiplikation mit einem Skalar_ gewählt). Es ist definiert als das Produkt aus den jeweils zugeordneten Matrizen und es folgt:
-
+Betrachten wir $x,y$ als $n \times 1$-Matrix, so ist
 $$
-\bf{x}^T\bf{y} =  \sum_{i=1}^{n} x_i \cdot y_i
+\langle\bf{x},\bf{y}\rangle = x^T y
 $$
 
-Bitte überlegen Sie kurz, dass obige Gleichheit keine Definition ist, sondern aus der Definition des [Matrixproduktes ](skalare-vektoren-und-matrizen.md#matrixprodukt-und-skalarprodukt)folgt!
+Machen sie sich klar, dass obige Gleichheit keine Definition ist, sondern aus der Definition des [Matrixproduktes ](skalare-vektoren-und-matrizen.md#matrixprodukt-und-skalarprodukt)folgt!
 
-## Übungen
+## Übungen {#matrix-uebung}
 
 ### Skalarprodukt
 
@@ -226,3 +228,9 @@ C = \begin{bmatrix}
 4 & -1 
 \end{bmatrix}
 $$
+
+### Symmetriebetrachtung
+Zur Vertiefung:
+1. Gilt für zwei Matrizen $\mathbf{A,B}\in\mathbb{R}^{n\times n }$ die Gleichheit $\bf{AB} = \bf{BA}$
+
+2. Gilt für zwei Vektoren  $x,y \in \mathbb{R}^n$ die Gleichheit: $\mathbf{x}^T \mathbf{y} = \mathbf{y}^T\mathbf{x}$?

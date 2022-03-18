@@ -21,7 +21,7 @@ Pro Messung entstehen also 4 Werte und die Spezies der untersuchten Lilie.
 
 
 
-Nachfolgende Tabellen zeigen die Aufzeichnungen der ersten 5 Messungen gefolgt und der letzten 5 Messungen. Der Datensatz enthält jeweils 50 Lilien jeder Sorte.
+Nachfolgende Tabellen zeigen die Aufzeichnungen der ersten 5 Messungen gefolgt und der letzten 5 Messungen. Der Datensatz enthält jeweils 50 Lilien jeder Sorte. Die Spezies wird in der letzten Spalte unter `class` angegeben
 
 Die ersten 5 Datensätze (#0 - #4):
 
@@ -49,13 +49,13 @@ Die letzten 5 Datensätze (#145 - #149):
 #> 149        5.9        3.0        5.1        1.8  virginica
 ```
 
-Wir greifen zwar etwas vor, aber an diesem Beispiel lässt sich eine typische Aufgabenstellung von Machine Learning recht einfach erklären: Ein Bobachter erhebt für eine Lilie die Messwerte `sepal_len, sepal_wid, petal_len, petal_wid` einer Blüte und will daraus die Art dieser Lilie bestimmen.
+Wir greifen zwar etwas vor, aber an diesem Beispiel lässt sich eine typische Aufgabenstellung von Machine Learning recht einfach erklären: Ein Bobachter erhebt für die Blüte einer Lilie die Messwerte `sepal_len, sepal_wid, petal_len, petal_wid` und will daraus die Art dieser Lilie bestimmen.
 
-Nehmen wir nun an, dass der Beobachter die Messwerte $(5.1, 3.5, 1.4, 0.2)$ liefert. Wir erkennen, dass genau diese Werte als Datenzeile $0$ in unserem Datensatz vorliegen und vor einer Setosa erhoben wurden (Spalte `class`). Wir werden natürlich "Setosa" als  Art dieser Blüte angeben. Dieser Fall wir wohl eher selten auftreten.  Schwieriger ist die Antwort für die Messwerte  $(6.1, 3.2, 5.3, 2.1)$, die nicht als Zeile in unserem Datensatz auftreten. Mit etwas Recherche finden wir heraus, dass Datensatz 148 für die recht ähnlichen Werte $(6.2, 3.4, 5.4, 2.3)$ für eine Virginica enthält.  Wir könnten also mit der Art "Virginica" antworten.^[Dabei ist noch zu konkretisieren, wie wir die Ähnlichkeit der Werte messen]
+Nehmen wir nun an, dass der Beobachter die Werte $(5.1, 3.5, 1.4, 0.2)$ misst. Wir erkennen, dass genau diese Werte als Datenzeile $0$ in unserem Datensatz vorliegen und bereits von einer *Setosa* erhoben wurden (Spalte `class`). Wir werden natürlich *Setosa* als  Art dieser Blüte angeben. Dieser Fall wir wohl eher selten auftreten.  Schwieriger ist die Antwort zum Beispiel für die Messwerte  $(6.1, 3.2, 5.3, 2.1)$, die nicht als Zeile in unserem Datensatz auftreten. Mit etwas Recherche finden wir heraus, dass Datensatz 148 für die recht ähnlichen Werte $(6.2, 3.4, 5.4, 2.3)$ für eine Virginica enthält.  Wir könnten also mit der Art "Virginica" antworten.^[Dabei ist noch zu konkretisieren, wie wir die Ähnlichkeit der Werte messen]
 
 Um Datensätze für *Machine Learning* zu verwenden, müssen wir wir sie vorher auf Tauglichkeit untersuchen, eventuell korrigieren, filtern und so weiter.  
 
-   
+  
 
 
 
@@ -66,8 +66,8 @@ Eine Beobachtung oder Messung eines einzelnen Wertes formulieren wir  in obigem 
 
 
 ```python
-sepal_laenge = 5.1
-print(sepal_laenge)
+sepal_len = 5.1
+print(sepal_len)
 ```
 Ausgabe:
 
@@ -89,6 +89,8 @@ Ein Wert einer Messung kann neben einer Zahl $5.1$ auch ein Text (zum Beispiel "
 - *Zahlen* 
 - *Strings* (Text, Worte) und
 - *Boolean* (logische Werte).
+
+Werte mit diesen Datentypen lassen sich zu Listen und Tupel zusammenfassen. Wir behandeln sie am Ende des Abschnittes.
 
 ### **Zahlen**
 
@@ -212,17 +214,112 @@ Der Datentyp Boolean (logischer Datentyp) umfasst nur zwei Werte, die sogenannte
 b = True;
 print(b)
 print( type(b) )
+b = False;
+print(b)
+print( type(b) )
 ```
 Ausgabe:
 
 ```
 #> True
 #> <class 'bool'>
+#> False
+#> <class 'bool'>
 ```
+
+### Listen und Tupel {#listen}
+
+Listen und Tupel sind eine geordnete Zusammenstellung von Werten. 
+
+#### **Listen** {#listen}
+
+Folgendes Beispiel illustriert den Datentype `list`
+
+
+```python
+l = ["apple", "banana", "cherry"]
+print( l )
+print( type(l))
+```
+Ausgabe:
+
+```
+#> ['apple', 'banana', 'cherry']
+#> <class 'list'>
+```
+
+Auf Element einer Liste wird durch Angabe der gewünschten Position zugegriffen
+
+
+```python
+l = ["apple", "banana", "cherry"]
+print( l[0] )
+print( l[2] )
+```
+Ausgabe:
+
+```
+#> apple
+#> cherry
+```
+
+Damit lassen sich auch Einträge der Liste ändern:
+
+
+```python
+l = ["apple", "banana", "cherry"]
+l[1] = "orange"
+print( l )
+```
+
+Ausgabe:
+
+
+```
+#> ['apple', 'orange', 'cherry']
+```
+
+
+
+Die Länge einer Liste lässt sich über die eingebaute Funktion  `len` abfragen:
+
+
+```python
+l = ["apple", "banana", "cherry"]
+print( len(l) )
+```
+Ausgabe:
+
+```
+#> 3
+```
+
+#### **Tupel** {-}
+
+Tupel sind sehr ähnlich zu  Listen, die **Einträge sind jedoch nicht änderbar**. Zur Unterscheidung gegenüber Listen werden runde Klammern verwendet:
+
+
+```python
+t = ("Erde",-1,"Mond")
+print(t)
+print( t[2] )
+print( len(t) )
+print( type(t) )
+```
+Ausgabe:
+
+```
+#> ('Erde', -1, 'Mond')
+#> Mond
+#> 3
+#> <class 'tuple'>
+```
+
+Beachten sie, dass der Versuch einer Änderung durch `t[0] = 1` zu einem Fehler führt (Test als Übung!). 
 
 ### Zusammenfassung
 
-Wir nennen diese Datentypen "elementar", weil wir andere Datentypen, z.B. das Kalenderdatum ("03.07.2022") oder mathematische Vektoren aus diesen Datentypen zusammenstellen können. Der Begriff "elementar" ist nicht ganz korrekt, weil z.B. die Zahl $123$ ja eine Folge von Ziffern und die Zeichenkette "Baum" eine Folge von Buchstaben ist. Elementar wäre also eher der Datentyp *Ziffer* oder *Buchstabe*, als der Datentyp *Zahl* oder *String*. Auch über diese begriffliche Ruppigkeit sehen wir zu Beginn hinweg. 
+Die Datentypen `int`, `float`, `bool`, `list` und `tupel` sind in Python eingebaut. Wir werden später weitere,  kompliziertere Datentypen kennenlernen, die über Erweiterung von Python verfügbar sind. Eine komplette Aufzählung aller Datentypen finden sie unter https://www.w3schools.com/python/python_datatypes.asp. Wie sie sehen, haben wir nicht alle Varianten behandelt.
 
 ::: {.rmdnote}
 
@@ -230,7 +327,9 @@ Stellen sie sich jeden Datentyp als Menge vor. Die Elemente der Menge sind die z
 
 :::
 
-### **Übungen** 
+
+
+### Übungen 
 
 1. Geben sie die Ergebnisse der Rechnungen $3-1.1$ und $12 / 5$ aus.
 
@@ -252,12 +351,12 @@ Stellen sie sich jeden Datentyp als Menge vor. Die Elemente der Menge sind die z
 
 ## Skalenniveaus
 
-| Scale    | Operations    | Description                                                  | Statistics                     | Example                                     |
-| -------- | ------------- | ------------------------------------------------------------ | ------------------------------ | ------------------------------------------- |
-| Nominal  | $$=, \neq$$   | Werte haben keine natürliche Ordnung; sie beschreiben Kategorien oder Klassen | Modus (Mode)                   | München, Hamburg, Essen                     |
-| Ordinal  | $$<, >$$      | Werte haben eine definierte Ordnung; arithmetische Operation (z.B. Summe, Differenz, Multiplikation, Division) sind nicht definiert Definition. | Median                         | Schulnoten, Tabellenplatz in der Bundesliga |
-| Interval | $$+,-$$       | Differenzen von Werten haben identische Bedeutung, die Addition ist sinnvoll definierbar. Es gibt keinen global oder eindeutig definierten Nullpunkt | Mittelwert                     | Temperatur                                  |
-| Ratio    | $$\cdot , /$$ | Der Nullpunkt ist eindeutig definiert.                       | (Verallgemeinerter) Mittelwert | Alter                                       |
+| Niveau    | Operationen   | Beschreibung                                                 | Statistik/Operation                                          | Beispiel                                    |
+| --------- | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------- |
+| Nominal   | $$=, \neq$$   | Werte haben keine natürliche Ordnung; sie beschreiben Kategorien oder Klassen | Modus (Mode)                                                 | München, Hamburg, Essen                     |
+| Ordinal   | $$<, >$$      | Werte haben eine definierte Ordnung; arithmetische Operation (z.B. Summe, Differenz, Multiplikation, Division) sind nicht definiert Definition. | Median                                                       | Schulnoten, Tabellenplatz in der Bundesliga |
+| Intervall | $$+,-$$       | Differenzen von Werten haben identische Bedeutung, die Addition ist sinnvoll definierbar. Es gibt keinen global oder eindeutig definierten Nullpunkt | Mittelwert                                                   | Temperatur                                  |
+| Ratio     | $$\cdot , /$$ | Der Nullpunkt ist eindeutig definiert.                       | (Verallgemeinerter) Mittelwert^[ $(\frac{1}{n} \sum x_i^p)^\frac{1}{p}$] | Alter                                       |
 
 Bemerkungen:
 
@@ -276,13 +375,7 @@ Ergänzend: [Die fünf Skalenniveaus: Einfach und verständlich erklärt (statis
 
 
 
-### Übung
-
-Welches Skalenniveau haben die einzelnen Spalten im Iris-Datensatz?
-
-
-
-##### Von Nominal zu Ordinal [xx verschieben]
+#### Beispiel: Von Nominal zu Ordinal {-}
 
 Wir werden später folgende eindeutige Zuordnung  treffen:
 
@@ -292,3 +385,9 @@ Wir werden später folgende eindeutige Zuordnung  treffen:
 |   versicolor   |       1        |
 |   virginica    |       2        |
 
+Diese einfache Zuordnung weist auf einen wichtigen Arbeitsschritt hin: dem Auf- und Vorbereiten der Daten für die weitere Bearbeitung.
+
+### Übungen
+
+1. Welches Skalenniveau haben die einzelnen Spalten im Iris-Datensatz?
+2. Diskutieren sie die Zulässigkeit einer Durchschnittsnote für Prüfungen.
