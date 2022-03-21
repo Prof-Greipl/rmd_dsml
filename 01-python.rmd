@@ -6,9 +6,10 @@ Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines C
 
 ## Hallo Welt
 
-Unser kleines Begrüßungsprogramm besteht nur aus einer Zeile
+Unser kleines Begrüßungsprogramm besteht nur aus einer Befehlszeile:
 
 ```{python, results="hide"}
+# Hier kommt meine erste Programmzeile
 print("Hallo Welt")
 ```
 
@@ -17,7 +18,10 @@ Die Ausgabe dieses Programms ist:
 print("Hallo Welt")
 ```
 
-Wichtig: In den meisten Fällen zeigen wir zu Python-Programmen auch die Ausgaben. Sie starten in diesem Skript stets mit der Zeichenfolge `#>`  
+Wichtig: 
+
+- Sie können in ihre Programme Kommentare einfügen, die von Python ignoriert werden. Ein dokumentiertes Programm hilft dem besseren Verständnis. Kommentarzeilen beginnen immer mit `#`.
+- In den meisten Fällen zeigen wir zu Python-Programmen auch die Ausgaben. Sie starten in diesem Skript stets mit der Zeichenfolge `#>`  
 
 #### Variante 1: Colab-Notebooks {-}
 

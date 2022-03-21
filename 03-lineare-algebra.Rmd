@@ -57,7 +57,7 @@ Man kann für zwei Vektoren $x, y \in \mathbb{R}^{n}$ gleicher Dimension ein spe
 $$
 \langle\bf{x},\bf{y}\rangle =  \sum_{i=1}^{n} x_i \cdot y_i
 $$
-Das Skalarprodukt ist für uns deshalb wichtig weil für n=3 der Ausdruck $\sqrt{\langle\bf{x},\bf{y}\rangle}$ die Länge eines Vektors (oder den Abstand vom Nullpunkt) im euklidischen Raum angibt (Veranschaulichen Sie sich das als Übung. 
+Das Skalarprodukt ist für uns deshalb wichtig weil für n=3 der Ausdruck $\sqrt{\langle\bf{x},\bf{x}\rangle}$ die Länge eines Vektors (oder den Abstand vom Nullpunkt) im euklidischen Raum angibt (Veranschaulichen Sie sich das als Übung. 
 
 ## Matrix
 

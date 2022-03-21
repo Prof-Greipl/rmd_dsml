@@ -22,9 +22,17 @@ cover-image: assets/x.png
 
 Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das Thema **Data Science & Machine Learning**. Die Inhalte richten sich Einsteiger und Studierende, insbesondere der Fachrichtungen Betriebswirtschaftslehre, die Schritte auf das KI-Spielfeld wagen und das Potential  von datengetriebenen Lösungsverfahren verstehen wollen.
 
+#### Breite statt Tiefe {-}
+
+Die Spannweite des Inhalts erfordert an vielen Stellen den Verzicht auf Tiefe. Insofern beschränken sich die Inhalte auf die für das Verständnis des Stoffes nötigen Elemente. Das schmerzt den Autor etwas, ist aber im Interesse der Leser. Es bleibt also vielfältige Möglichkeiten für eigenständige Tiefbohrungen, zum Beispiel in den Abschnitten zu Visualisierung oder zu Dataframes. Das Prinzip von *Breite statt Tiefe* gilt auch für die folgenden Themen.
+
+#### Mathematik und Statistik {-}
+
 Übliche Vorkenntnisse im Bereich Mathematik und Statistik werden erwartet, teilweise knapp wiederholt.  Vorkenntnisse im Bereich der Programmierung sind nicht nötig, aber natürlich hilfreich.
 
+#### Programmieren {-}
 
+Data Science und Machine Learning ist ohne praktisches Üben nicht zielführend - und langweilig. Zum Üben braucht es eine Programmiersprache. Wir verwenden dazu Python. Vorkenntnisse werden nicht vorausgesetzt. 
 
-  
+   
 

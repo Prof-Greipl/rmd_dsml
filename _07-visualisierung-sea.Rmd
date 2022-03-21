@@ -9,6 +9,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
+sns.set_theme()
+sns.set_context("paper")
+plt.tight_layout()
+fig, ax = plt.subplots( figsize=(7,6))
+ax.set_title("Swarmplot")
+
 data = np.random.uniform(1,100, size=500)
 sns.swarmplot(x = data)
 ```
@@ -19,6 +25,8 @@ sns.swarmplot(x = data)
 ```{python, results="hide"}
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+sns.set_theme()
 
 x_werte =  [1, 2, 2, 3,3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -141,7 +149,7 @@ sns.relplot(x=x_data, y=y_data, hue=type)
 
 ## Übungen
 
-
+<!--
 
 # Steinbruch:
 

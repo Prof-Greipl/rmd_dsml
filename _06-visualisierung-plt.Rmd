@@ -1,17 +1,23 @@
 # (PART) Teil B: Visualisierung {-} 
-# Visualisierung mit matplotlib
+# Visualisierung mit Matplotlib
 
-Mathplotlib ([https://matplotlib.org/](https://matplotlib.org)) ist eine Sammlung von Funktionen (Bibliothek) zum Visualisieren von Daten.  Es gibt eine Fülle von Visualisierungsvarianten, unter denen wir einige wesentliche auswählen.
+Mathplotlib ([https://matplotlib.org/](https://matplotlib.org)) ist eine Sammlung von Funktionen (Bibliothek) zum Visualisieren von Daten.  Es gibt eine Fülle von Visualisierungsvarianten, unter denen wir einige wesentliche auswählen. Eine Dokumentation der Funktionen finden sie unter https://matplotlib.org/3.5.1/api/_as_gen/matplotlib.pyplot.html
+
+Wichtig: Zur Verwendung von `matplotlib` muss das Paket importiert werden
+
+```
+import matplotlib.pyplot as plt
+```
 
 ## Balken, Punkte und Linien
 
-Wichtig: Sie müssen die folgenden beiden Zeilen stets am Beginn des Programms stehen haben.
 
-![TODO: Neu zeichne](assets/06-visualisierung.assets/image-20220317122533433.png)
+
+
 
 ### Liniendiagramm
 
-```{python}
+```{python, results="hide"}
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -22,34 +28,48 @@ y = [0,1,0,1,0,1,0,1,0,1,0]
 # Style auswählen
 plt.style.use('seaborn')
 
-# Leeren Graph erzeugen
-# figsize: Figure dimension (width, height) in inches.
-fig, ax = plt.subplots(figsize=(7, 3))
+# Erzeuge eine figure (= "Leeres Blatt") und ax (= eine leere Grafik)
+# Mit figsize lässt sich die Größe der figure ändern {(width, height) in inches].
+# In unserem Fall ist auf dem Blatt nur eine Grafik.
+figure, ax = plt.subplots(figsize=(7, 3))
 
 #Achsen definieren
-ax.set_title("Title") 
-ax.set_xlabel("x-axis")
-ax.set_ylabel("y-axis")
+ax.set_title("Mein Titel") 
+ax.set_xlabel("X-Achse")
+ax.set_ylabel("Y-Achse")
 ax.set_aspect('equal')
-
-ax.set(xlim=(0, 10), xticks=np.arange(0, 11),
-       ylim=(-1, 2), yticks=np.arange(0, 2))
+ax.set_xlim(0,10)
+ax.set_ylim(-1,2)
+ax.set_xticks( np.arange(0,11) )
+ax.set_yticks( np.arange(0,2 ) )
 
 #Plotten
-z = ax.plot(x, y, linewidth=2.0)
+ax.plot(x, y, linewidth=2.0)
 
 #Anzeigen
 plt.show()
 ```
 
-Wichtig:
+Nachfolgende Grafik zeigt die einzelnen Elemente einer plt-Figur.
+![TODO: Neu zeichne](assets/06-visualisierung.assets/image-20220317122533433.png){width=100%}
 
-- Wenn sie `xticks` und `yticks` weglassen, entscheidet `plt` selbst über die Ticks.
-- Mit `ax.set_aspect('equal')` sorgen Sie für eine identische Skalierung beider Achsen.
-- Mit `figsize=(9, 12)` legen sie die Größe der Grafik fest (Breite und Höhe in Inch).
+Wichtig für das gesamte "Blatt":
+
+- Mit `figsize=(..,..)` legen sie die Größe des Blattes (Breite und Höhe in Inch).
+
 - Mit `plt.style.use('seaborn')` wird ein Diagramm-Stil^[Mögliche Werte sind: `_classic_test_patch, bmh, classic, dark_background, fast, fivethirtyeight, ggplot, grayscale, seaborn, seaborn-bright, seaborn-colorblind, seaborn-dark, seaborn-dark-palette, seaborn-darkgrid, seaborn-deep, seaborn-muted, seaborn-notebook, seaborn-paper, seaborn-pastel, seaborn-poster, seaborn-talk, seaborn-ticks, seaborn-white, seaborn-whitegrid, tableau-colorblind10`] ausgewählt. Sie finden Styles hier: https://matplotlib.org/3.5.1/gallery/style_sheets/style_sheets_reference.html.
 
-### Plots (Graphen)
+Wichtig für die einzelne Grafik (plot):
+
+- Die Aufrufe `ax.set()` definieren die Eigenschaften eines Plots
+
+- Wenn sie `xticks` und `yticks` nicht setzen, entscheidet `plot` selbst über die Ticks.
+
+- Mit `ax.set_aspect('equal')` sorgen Sie für eine identische Skalierung beider Achsen.
+
+- Ein Liste aller möglichen Settings finden sie unter https://matplotlib.org/3.5.1/api/_as_gen/matplotlib.axes.Axes.set.html 
+
+#### Beispiel: Funktionsgraph {-}
 
 ```{python, results="hide"}
 import matplotlib.pyplot as plt
@@ -63,13 +83,14 @@ fig, ax = plt.subplots( figsize=(7,4))
 ax.plot(x, y, linewidth=2.0)
 
 ax.set_aspect('equal')
-ax.set(xlim=(0, 8), 
-       ylim=(0, 5.1))
+ax.set_xlim(0, 8)
+ax.set_ylim(0, 5.1)
 
 plt.show()
 ```
 
 ### Scatterplot
+<!-- todo check -->
 
 ```{python, results="hide"}
 import matplotlib.pyplot as plt
@@ -80,10 +101,10 @@ x = np.random.rand(N)
 y = np.random.rand(N)
 fig, ax = plt.subplots(figsize=(7, 3))
 ax.scatter(x, y )
-plt.show()
+plt.show() 
 ```
 
-### Scatterplot (Farbe und Bubbles)
+#### Scatterplot mit Farbe und Bubbles {-}
 
 ```{python, results="hide"}
 import matplotlib.pyplot as plt
@@ -95,6 +116,31 @@ colors = np.random.rand(N)
 area = (30 * np.random.rand(N))**2  # 0 to 15 point radii
 plt.scatter(x, y, s=area, c=colors, alpha=0.5)
 plt.show()
+```
+### Balkendiagramm (Barplot)
+
+```{python, results="hide"}
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Daten erzeugen
+years = ["1950", "1960", "1970", "1980", "1990", "2000", "2010"]
+gdp = [33.2, 543.3, 1075.9, 2862.5, 5979.6, 10289.7, 14958.3]
+
+# Style auswählen
+plt.style.use('seaborn')
+
+# Leeren Graph erzeugen
+# figsize: Figure dimension (width, height) in inches.
+fig, ax = plt.subplots(figsize=(7, 3))
+
+#Achsen definieren
+ax.set_title("GDP Development") 
+ax.set_xlabel("Years")
+ax.set_ylabel("GDP (in billion USD)")
+
+
+plt.bar(years, gdp)
 ```
 
 ## Bilder
@@ -225,25 +271,6 @@ plt.imshow( img  )
 
 ###  
 
-## Statistik
-
-### Boxplots
-
-
-
-## Steinbruch
-
-## ##Liniendiagramme
-
-Hier ein erstes Beispiel:
-
-```python
-#Line
-sns.scatterplot(x=years, y=gdp, color="red", label="My Label")
-```
-
-
-
 ## Barplot
 
 ```
@@ -272,45 +299,12 @@ sns.histplot(x = x_werte,
 
 
 
-## Boxplots
-
-Link: [https://seaborn.pydata.org/generated/seaborn.boxplot.html](https://seaborn.pydata.org/generated/seaborn.boxplot.html)&#x20;
-
-Link: https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51 
-
-
-
-
-
-Vertiefung:
-
-[Outliers, Inliers, and Other Surprises that Fly from your Data | Rocket-Powered Data Science (rocketdatascience.org)](http://rocketdatascience.org/?p=473)
-
-
-
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-x = np.arange(1,101)
-x = np.concatenate( (x, [152] ))
-
-percentiles = np.percentile( x, [0,25,50,75,100])
-IQR = (percentiles[3] -  percentiles[1])
-print( "Pericentile         : ", percentiles)
-print( "IQR                 : ", IQR)
-print( "Upper Outlier Limit : ", percentiles[3] + 1.5*IQR)
-sns.boxplot(x = x)
-```
-
-
-
 
 ## Übungen
 
 
 
-## Visualisierungsübung 1
+### Visualisierungsübung 1
 
 Versuchen sie folgende Kurve zu zeichnen:
 
@@ -318,7 +312,7 @@ Versuchen sie folgende Kurve zu zeichnen:
 
 (Die Lösung finden sie am Ende des Dokumentes)
 
-## Visualisierungsübung 2
+### Visualisierungsübung 2
 
 
 1. Sie können mit numpy  eine Liste mit 50 gleichverteilen Zufallszahlen erstellen. Erzeugen Sie zwei dieser Listen (x und y) und zeigen sie die 50 Paare Paare (x\[i], y\[i]) in einem Scatterplot an.  So ähnlich (!) sollte die Ausgabe aussehen:

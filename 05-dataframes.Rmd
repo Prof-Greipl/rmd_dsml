@@ -8,7 +8,7 @@ Wir können damit einzelne Werten, Spalten oder Zeilen direkt über den Namen an
 
 ### Beispiel
 
-```{python, results="Hide"}
+```{python, results="hide"}
 import pandas as pd
 df = pd.DataFrame({
    "Name": ["Braund, Mr. Owen Harris",
@@ -18,9 +18,7 @@ df = pd.DataFrame({
     "Age": [22, 62, 58, 26],
    "Gender": ["male", "male", "female", "female"]}
   )
-
-# Dataframe ausgeben
-print( df )
+print( df ) # Dataframe ausgeben
 ```
 Ausgabe:
 ```{python, echo=FALSE}
@@ -40,6 +38,11 @@ print( df )
 
 ### Überblick verschaffen
 
+Um sich einen weiteren  Überlick über die Daten zu verschaffen sind folgende Funktionen hilfreich
+
+- `.info()`
+- `.describe()`
+
 ```{python, results="hide"}
 import pandas as pd
 df = pd.DataFrame({
@@ -50,15 +53,36 @@ df = pd.DataFrame({
     "Age": [22, 62, 58, 26],
    "Gender": ["male", "male", "female", "female"]}
   )
+df.info()
+```
+Ausgabe:
+```{python, echo=FALSE}
+import pandas as pd
+df = pd.DataFrame({
+   "Name": ["Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+          "Bonnell, Miss. Elizabeth",
+          "Petty, Tom"],
+    "Age": [22, 62, 58, 26],
+   "Gender": ["male", "male", "female", "female"]}
+  )
+df.info()
+```
 
-print( "\n Head:")
-print( df.head(2) )
+Einfache Statistik
 
-print( "\n Tail:")
-print( df.tail(1) )
+Mit `df.describe()` erhalten wir eine einfache Statistische Auswertung aller Spalten **mit numerischem Datentyp**. 
 
-print( "Anzahl der Zeilen : ", len(df))
-print( "Shape             : ", df.shape)
+```{python, results="hide"}
+import pandas as pd
+df = pd.DataFrame({
+   "Name": ["Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+          "Bonnell, Miss. Elizabeth",
+          "Petty, Tom"],
+    "Age": [22, 62, 58, 26],
+   "Gender": ["male", "male", "female", "female"]}
+  )
 df.describe()
 ```
 Ausgabe:
@@ -72,17 +96,9 @@ df = pd.DataFrame({
     "Age": [22, 62, 58, 26],
    "Gender": ["male", "male", "female", "female"]}
   )
-
-print( "\n Head:")
-print( df.head(2) )
-
-print( "\n Tail:")
-print( df.tail(1) )
-
-print( "Anzahl der Zeilen : ", len(df))
-print( "Shape             : ", df.shape)
 df.describe()
 ```
+
 
 ### Spalten auswählen
 
@@ -171,3 +187,42 @@ A = np.array([[1, 2], [3.1, -4.2]])
 df2 = pd.DataFrame(data=A, index=["Zeile 1", "Zeile 2"], columns=["Spalte 1","Spalte 2"])
 print( df2 )
 ```
+### Spaltennamen ändern
+Wir werden an wenigen Stelen die Spaltennamen eines Dataframes ändern müssen. Dies ist zwar ein Detailopertation, aber der Vollständigkeit halber führen wir sie hier auf. Entscheinden ist die mit <-- markierte Zeile.
+
+```{python, results="hide"}
+import pandas as pd
+df = pd.DataFrame({
+   "Name": ["Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+          "Bonnell, Miss. Elizabeth",
+          "Petty, Tom"],
+    "Age": [22, 62, 58, 26],
+   "Gender": ["male", "male", "female", "female"]}
+  )
+
+print( df.head(3) )
+
+df.columns=["Nachname", "Alter", "Geschlecht"] # <-- Änderung
+print(" \nNach Änderung : ")
+print( df.head(3) )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import pandas as pd
+df = pd.DataFrame({
+   "Name": ["Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+          "Bonnell, Miss. Elizabeth",
+          "Petty, Tom"],
+    "Age": [22, 62, 58, 26],
+   "Gender": ["male", "male", "female", "female"]}
+  )
+
+print( df.head(3) )
+
+df.columns=["Nachname", "Alter", "Geschlecht"]
+print(" \nNach Änderung : ")
+print( df.head(3) )
+```
+

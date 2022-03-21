@@ -227,7 +227,7 @@ Ausgabe:
 #> <class 'bool'>
 ```
 
-### Listen und Tupel {#listen}
+### Listen und Tupel
 
 Listen und Tupel sind eine geordnete Zusammenstellung von Werten. 
 
