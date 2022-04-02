@@ -53,6 +53,10 @@
 <li><a class="" href="lineare-algebra.html"><span class="header-section-number">3</span> Lineare Algebra</a></li>
 <li><a class="" href="numpy-arrays.html"><span class="header-section-number">4</span> Numpy-Arrays</a></li>
 <li><a class="" href="dataframes.html"><span class="header-section-number">5</span> Dataframes</a></li>
+<li class="book-part">Teil B: Visualisierung</li>
+<li><a class="" href="visualisierung-mit-matplotlib.html"><span class="header-section-number">6</span> Visualisierung mit Matplotlib</a></li>
+<li><a class="" href="visualisierung-mit-seaborn.html"><span class="header-section-number">7</span> Visualisierung mit Seaborn</a></li>
+<li><a class="" href="visualisierung-zu-iris.html"><span class="header-section-number">8</span> Visualisierung zu IRIS</a></li>
 </ul>
 
         <div class="book-extra">
@@ -64,7 +68,7 @@
 <h1>
 <span class="header-section-number">2</span> Daten<a class="anchor" aria-label="anchor" href="#daten"><i class="fas fa-link"></i></a>
 </h1>
-<p>Daten<a href="dataframes.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, sind. Häufig sprechen sprechen wir auch von <em>Werten</em>, statt von Daten. Wenn wir viele gleichartige Daten erfassen, aufbereiten und Zusammengänge analysieren, so lassen sich daraus möglicherweise mittels Algorithmen komplexe Aufgabenstellungen lösen. Wir erläutern diese Idee anhand des Iris-Datensatzes<a href="dataframes.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> (engl. <em>Iris flower data set</em>).</p>
+<p>Daten<a href="visualisierung-zu-iris.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> sind Ergebnisse von Beobachtungen, Messungen oder Berechnungen, die in einer bestimmten Form notiert, sind. Häufig sprechen sprechen wir auch von <em>Werten</em>, statt von Daten. Wenn wir viele gleichartige Daten erfassen, aufbereiten und Zusammengänge analysieren, so lassen sich daraus möglicherweise mittels Algorithmen komplexe Aufgabenstellungen lösen. Wir erläutern diese Idee anhand des Iris-Datensatzes<a href="visualisierung-zu-iris.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> (engl. <em>Iris flower data set</em>).</p>
 <div id="iris-datensatz" class="section level2" number="2.1">
 <h2>
 <span class="header-section-number">2.1</span> Iris-Datensatz<a class="anchor" aria-label="anchor" href="#iris-datensatz"><i class="fas fa-link"></i></a>
@@ -79,7 +83,7 @@
 <img src="assets/02-daten.assets/Download.png" style="width:100.0%" alt=""><p class="caption">Lilienarten</p>
 </div>
 <div class="figure">
-<img src="assets/02-daten.assets/image_messung-16426070933692.png" alt=""><p class="caption">Messung von Länge und Breite<a href="dataframes.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<img src="assets/02-daten.assets/image_messung-16426070933692.png" alt=""><p class="caption">Messung von Länge und Breite<a href="visualisierung-zu-iris.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 </div>
 <p>Nachfolgende Tabellen zeigen die Aufzeichnungen der ersten 5 Messungen gefolgt und der letzten 5 Messungen. Der Datensatz enthält jeweils 50 Lilien jeder Sorte. Die Spezies wird in der letzten Spalte unter <code>class</code> angegeben</p>
 <p>Die ersten 5 Datensätze (#0 - #4):</p>
@@ -97,7 +101,7 @@
 #&gt; 148        6.2        3.4        5.4        2.3  virginica
 #&gt; 149        5.9        3.0        5.1        1.8  virginica</code></pre>
 <p>Wir greifen zwar etwas vor, aber an diesem Beispiel lässt sich eine typische Aufgabenstellung von Machine Learning recht einfach erklären: Ein Bobachter erhebt für die Blüte einer Lilie die Messwerte <code>sepal_len, sepal_wid, petal_len, petal_wid</code> und will daraus die Art dieser Lilie bestimmen.</p>
-<p>Nehmen wir nun an, dass der Beobachter die Werte <span class="math inline">\((5.1, 3.5, 1.4, 0.2)\)</span> misst. Wir erkennen, dass genau diese Werte als Datenzeile <span class="math inline">\(0\)</span> in unserem Datensatz vorliegen und bereits von einer <em>Setosa</em> erhoben wurden (Spalte <code>class</code>). Wir werden natürlich <em>Setosa</em> als Art dieser Blüte angeben. Dieser Fall wir wohl eher selten auftreten. Schwieriger ist die Antwort zum Beispiel für die Messwerte <span class="math inline">\((6.1, 3.2, 5.3, 2.1)\)</span>, die nicht als Zeile in unserem Datensatz auftreten. Mit etwas Recherche finden wir heraus, dass Datensatz 148 für die recht ähnlichen Werte <span class="math inline">\((6.2, 3.4, 5.4, 2.3)\)</span> für eine Virginica enthält. Wir könnten also mit der Art “Virginica” antworten.<a href="dataframes.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>Nehmen wir nun an, dass der Beobachter die Werte <span class="math inline">\((5.1, 3.5, 1.4, 0.2)\)</span> misst. Wir erkennen, dass genau diese Werte als Datenzeile <span class="math inline">\(0\)</span> in unserem Datensatz vorliegen und bereits von einer <em>Setosa</em> erhoben wurden (Spalte <code>class</code>). Wir werden natürlich <em>Setosa</em> als Art dieser Blüte angeben. Dieser Fall wir wohl eher selten auftreten. Schwieriger ist die Antwort zum Beispiel für die Messwerte <span class="math inline">\((6.1, 3.2, 5.3, 2.1)\)</span>, die nicht als Zeile in unserem Datensatz auftreten. Mit etwas Recherche finden wir heraus, dass Datensatz 148 für die recht ähnlichen Werte <span class="math inline">\((6.2, 3.4, 5.4, 2.3)\)</span> für eine Virginica enthält. Wir könnten also mit der Art “Virginica” antworten.<a href="visualisierung-zu-iris.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <p>Um Datensätze für <em>Machine Learning</em> zu verwenden, müssen wir wir sie vorher auf Tauglichkeit untersuchen, eventuell korrigieren, filtern und so weiter.</p>
 </div>
 <div id="variablen" class="section level2" number="2.2">
@@ -135,7 +139,7 @@
 <h3>
 <span class="header-section-number">2.3.1</span> <strong>Zahlen</strong><a class="anchor" aria-label="anchor" href="#zahlen"><i class="fas fa-link"></i></a>
 </h3>
-<p>Werte dieses Datentyps sind z.B. <span class="math inline">\(1\)</span>, <span class="math inline">\(-1\)</span>, <span class="math inline">\(1.7\)</span> oder <span class="math inline">\(1/3\)</span>. Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen <a href="dataframes.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. Zur Notation diese Zahlenmengen verwenden wir die üblichen Symbole <span class="math inline">\(\mathbb{N}\)</span> für die natürlichen Zahlen und <span class="math inline">\(\mathbb{R}\)</span> für die reellen Zahlen.</p>
+<p>Werte dieses Datentyps sind z.B. <span class="math inline">\(1\)</span>, <span class="math inline">\(-1\)</span>, <span class="math inline">\(1.7\)</span> oder <span class="math inline">\(1/3\)</span>. Wie sie wissen, lässt sich die Menge der Zahlen noch weiter einteilen in natürliche Zahlen und reelle Zahlen <a href="visualisierung-zu-iris.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. Zur Notation diese Zahlenmengen verwenden wir die üblichen Symbole <span class="math inline">\(\mathbb{N}\)</span> für die natürlichen Zahlen und <span class="math inline">\(\mathbb{R}\)</span> für die reellen Zahlen.</p>
 <p>Wir notieren Zahlen wie üblich und verwenden in der Dezimalnotation den Punkt als Trennsymbol.</p>
 <p>Nachfolgendes Beispiel zeigt anhand einfacher Programmzeilen die Darstellung von Zahlen und zugleich schon die Verwendung der üblichen Operatoren für Addition und Multiplikation.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="daten.html#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
@@ -170,15 +174,14 @@
 <p>Zahlen lassen sich verknüpfen mit den üblichen Symbolen verknüpfen.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="daten.html#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">9</span><span class="op">;</span> </span>
 <span id="cb14-2"><a href="daten.html#cb14-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="op">-</span><span class="dv">4</span></span>
-<span id="cb14-3"><a href="daten.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="daten.html#cb14-4" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> x<span class="op">+</span>y</span>
-<span id="cb14-5"><a href="daten.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e)</span>
-<span id="cb14-6"><a href="daten.html#cb14-6" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> x<span class="op">-</span>y</span>
-<span id="cb14-7"><a href="daten.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e)</span>
-<span id="cb14-8"><a href="daten.html#cb14-8" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> x<span class="op">*</span>y</span>
-<span id="cb14-9"><a href="daten.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e)</span>
-<span id="cb14-10"><a href="daten.html#cb14-10" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> x<span class="op">/</span>y</span>
-<span id="cb14-11"><a href="daten.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e)</span></code></pre></div>
+<span id="cb14-3"><a href="daten.html#cb14-3" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> x<span class="op">+</span>y</span>
+<span id="cb14-4"><a href="daten.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e)</span>
+<span id="cb14-5"><a href="daten.html#cb14-5" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> x<span class="op">-</span>y</span>
+<span id="cb14-6"><a href="daten.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e)</span>
+<span id="cb14-7"><a href="daten.html#cb14-7" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> x<span class="op">*</span>y</span>
+<span id="cb14-8"><a href="daten.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e)</span>
+<span id="cb14-9"><a href="daten.html#cb14-9" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> x<span class="op">/</span>y</span>
+<span id="cb14-10"><a href="daten.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(e)</span></code></pre></div>
 <p>Die Ausgabe dieses Programms ist:</p>
 <pre><code>#&gt; 5
 #&gt; 13
@@ -230,7 +233,7 @@
 <p>Listen und Tupel sind eine geordnete Zusammenstellung von Werten.</p>
 <div id="listen" class="section level4" number="2.3.4.1">
 <h4>
-<span class="header-section-number">2.3.4.1</span> <strong>Listen</strong><a class="anchor" aria-label="anchor" href="#listen"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3.4.1</span> <strong>Listen</strong> {-}<a class="anchor" aria-label="anchor" href="#listen"><i class="fas fa-link"></i></a>
 </h4>
 <p>Folgendes Beispiel illustriert den Datentype <code>list</code></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="daten.html#cb22-1" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]</span>
@@ -337,7 +340,7 @@
 <tr class="odd">
 <td>Intervall</td>
 <td><span class="math display">\[+,-\]</span></td>
-<td>Differenzen von Werten haben identische Bedeutung, die Addition ist sinnvoll definierbar. Es gibt keinen global oder eindeutig definierten Nullpunkt</td>
+<td>Gleiche Differenzen von Werten haben auch gleiche Bedeutung, die Addition ist sinnvoll definierbar. Es gibt keinen global oder eindeutig definierten Nullpunkt</td>
 <td>Mittelwert</td>
 <td>Temperatur</td>
 </tr>
@@ -345,7 +348,7 @@
 <td>Ratio</td>
 <td><span class="math display">\[\cdot , /\]</span></td>
 <td>Der Nullpunkt ist eindeutig definiert.</td>
-<td>(Verallgemeinerter) Mittelwert<a href="dataframes.html#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
+<td>(Verallgemeinerter) Mittelwert<a href="visualisierung-zu-iris.html#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
 </td>
 <td>Alter</td>
 </tr>
@@ -392,7 +395,7 @@
 </h3>
 <ol style="list-style-type: decimal">
 <li>Welches Skalenniveau haben die einzelnen Spalten im Iris-Datensatz?</li>
-<li>Diskutieren sie die Zulässigkeit einer Durchschnittsnote für Prüfungen.</li>
+<li>Diskutieren sie die Zulässigkeit einer Durchschnittsnote für Prüfungsnoten.</li>
 </ol>
 </div>
 </div>
@@ -436,7 +439,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-03-21.</p>
+    <p>"<strong>Data Science &amp; Machine Learning</strong>" was written by Dieter Greipl. It was last built on 2022-04-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

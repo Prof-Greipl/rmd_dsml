@@ -229,8 +229,9 @@ C = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-### Symmetriebetrachtung
+### Matrixprodukt 4
 Zur Vertiefung:
-1. Gilt für zwei Matrizen $\mathbf{A,B}\in\mathbb{R}^{n\times n }$ die Gleichheit $\bf{AB} = \bf{BA}$
+
+1. Gilt für zwei Matrizen $\mathbf{A,B}\in\mathbb{R}^{n\times n }$ die Gleichheit $\bf{AB} = \bf{BA}$?
 
 2. Gilt für zwei Vektoren  $x,y \in \mathbb{R}^n$ die Gleichheit: $\mathbf{x}^T \mathbf{y} = \mathbf{y}^T\mathbf{x}$?

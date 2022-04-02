@@ -148,7 +148,6 @@ Zahlen lassen sich verknüpfen mit den üblichen Symbolen verknüpfen.
 ```python
 x = 9; 
 y = -4
-
 e = x+y
 print(e)
 e = x-y
@@ -231,7 +230,7 @@ Ausgabe:
 
 Listen und Tupel sind eine geordnete Zusammenstellung von Werten. 
 
-#### **Listen** {#listen}
+#### **Listen** {-}{#listen}
 
 Folgendes Beispiel illustriert den Datentype `list`
 
@@ -355,7 +354,7 @@ Stellen sie sich jeden Datentyp als Menge vor. Die Elemente der Menge sind die z
 | --------- | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------- |
 | Nominal   | $$=, \neq$$   | Werte haben keine natürliche Ordnung; sie beschreiben Kategorien oder Klassen | Modus (Mode)                                                 | München, Hamburg, Essen                     |
 | Ordinal   | $$<, >$$      | Werte haben eine definierte Ordnung; arithmetische Operation (z.B. Summe, Differenz, Multiplikation, Division) sind nicht definiert Definition. | Median                                                       | Schulnoten, Tabellenplatz in der Bundesliga |
-| Intervall | $$+,-$$       | Differenzen von Werten haben identische Bedeutung, die Addition ist sinnvoll definierbar. Es gibt keinen global oder eindeutig definierten Nullpunkt | Mittelwert                                                   | Temperatur                                  |
+| Intervall | $$+,-$$       | Gleiche Differenzen von Werten haben auch gleiche Bedeutung, die Addition ist sinnvoll definierbar. Es gibt keinen global oder eindeutig definierten Nullpunkt | Mittelwert                                                   | Temperatur                                  |
 | Ratio     | $$\cdot , /$$ | Der Nullpunkt ist eindeutig definiert.                       | (Verallgemeinerter) Mittelwert^[ $(\frac{1}{n} \sum x_i^p)^\frac{1}{p}$] | Alter                                       |
 
 Bemerkungen:
@@ -390,4 +389,4 @@ Diese einfache Zuordnung weist auf einen wichtigen Arbeitsschritt hin: dem Auf- 
 ### Übungen
 
 1. Welches Skalenniveau haben die einzelnen Spalten im Iris-Datensatz?
-2. Diskutieren sie die Zulässigkeit einer Durchschnittsnote für Prüfungen.
+2. Diskutieren sie die Zulässigkeit einer Durchschnittsnote für Prüfungsnoten.

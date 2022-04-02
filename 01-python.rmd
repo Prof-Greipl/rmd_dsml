@@ -6,7 +6,7 @@ Es wird sie nicht überraschen, dass Data-Science nur mit Unterstützung eines C
 
 ## Hallo Welt
 
-Unser kleines Begrüßungsprogramm besteht nur aus einer Befehlszeile:
+Unser kleines Begrüßungsprogramm besteht aus einer Kommentarzeile und aus einer Befehlszeile:
 
 ```{python, results="hide"}
 # Hier kommt meine erste Programmzeile

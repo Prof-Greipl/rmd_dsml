@@ -1,7 +1,7 @@
 ---
 title: "Data Science & Machine Learning"
 author: "Dieter Greipl"
-date: "2022-03-21"
+date: "2022-04-02"
 site: bookdown::bookdown_site 
 
 # See here for changing latex parameters:  https://bookdown.org/yihui/rmarkdown-cookbook/latex-variables.html 
@@ -24,7 +24,7 @@ Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das
 
 #### Breite statt Tiefe {-}
 
-Die Spannweite des Inhalts erfordert an vielen Stellen den Verzicht auf Tiefe. Insofern beschränken sich die Inhalte auf die für das Verständnis des Stoffes nötigen Elemente. Das schmerzt den Autor etwas, ist aber im Interesse der Leser. Es bleibt also vielfältige Möglichkeiten für eigenständige Tiefbohrungen, zum Beispiel in den Abschnitten zu Visualisierung oder zu Dataframes. Das Prinzip von *Breite statt Tiefe* gilt auch für die folgenden Themen.
+Die Spannweite des Inhalts erfordert an vielen Stellen den Verzicht auf Tiefe. Insofern beschränken sich die Inhalte auf die für das Verständnis des Stoffes nötigen Elemente. Das schmerzt den Autor etwas, ist aber im Interesse der Leser. Es bleiben also vielfältige Möglichkeiten für eigenständige Tiefenbohrungen, zum Beispiel in den Abschnitten zu Visualisierung oder zu Dataframes. 
 
 #### Mathematik und Statistik {-}
 
