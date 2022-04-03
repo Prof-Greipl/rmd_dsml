@@ -230,7 +230,7 @@ Ausgabe:
 
 Listen und Tupel sind eine geordnete Zusammenstellung von Werten. 
 
-#### **Listen** {-}{#listen}
+#### **Listen** {-}(#listen)
 
 Folgendes Beispiel illustriert den Datentype `list`
 
