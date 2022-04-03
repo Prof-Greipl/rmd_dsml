@@ -176,7 +176,7 @@ Versuchen sie folgende Kurve zu zeichnen:
    
 3. Wiederholen sie Aufgabe 1 mit der Normalverteilung (Erwartungswert 0, Standardabweichung 1) statt der Gleichverteilung. Verwenden sie 2000 Punkte. Überlegen sie  bitte vorher: welche grafischen Ausgabe erwarten sie?
    
-4. Erzeugen Sie ein Histogramm für die Erzeugung von 10000 gleichverteilten (normalverteilten) Zufallszahlen. So ähnlich sollte das Ergebnis aussehen:
+4. Erzeugen Sie ein Histogramm für die Erzeugung von 10000 gleichverteilten (normalverteilten) Zufallszahlen. So ähnlich sollte das Ergebnis aussehen: 
 
 
 

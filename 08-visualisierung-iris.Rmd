@@ -49,5 +49,127 @@ Ausgabe:
 ```{python, echo=FALSE}
 iris_df.describe()
 ```
+## Single Numerical Feature
+
+### Swarmplot
+
+```{python,results="hide"}
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set_theme()
+
+fig, ax = plt.subplots( figsize=(7,5))
+ax.set_title("Iris Swarmplot - petal-width")
+sns.swarmplot(data = iris_df,  x = "petal_wid")
+```
 
 
+
+
+### Histogramm (petal_wid)
+
+```{python,results="hide"}
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set_theme()
+
+fig, ax = plt.subplots( figsize=(7,5))
+ax.set_title("Iris Histogram (petal_wid)")
+sns.histplot( iris_df, 
+             x ="petal_wid", 
+             bins=10,  # try bins="auto" und bins=10
+             kde = False)
+```
+
+### Violinplot
+
+```{python,results="hide"}
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set_theme()
+
+fig, ax = plt.subplots( figsize=(7,5))
+ax.set_title("Iris Swarmplot - petal-width")
+sns.violinplot(data = iris_df,  x = "petal_wid", inner="quartiles")
+```
+
+### Boxplot
+```{python,results="hide"}
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set_theme()
+
+fig, ax = plt.subplots( figsize=(7,5))
+ax.set_title("Iris Swarmplot - petal-width")
+sns.boxplot(data = iris_df,  x = "petal_wid")
+```
+
+##  Single Feature & Category
+
+###  Swarm
+
+```{python,results="hide"}
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set_theme()
+
+fig, ax = plt.subplots( figsize=(7,5))
+ax.set_title("Iris Swarmplot for petal_wid")
+sns.swarmplot(data = iris_df,  x = "petal_wid", y="class")
+```
+
+###  Violin
+
+```{python,results="hide"}
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set_theme()
+
+fig, ax = plt.subplots( figsize=(7,5))
+ax.set_title("Iris Violinplot for petal_wid")
+sns.violinplot(data = iris_df,  x = "petal_wid", y = "class", inner="quartiles")
+```
+
+## Relationplots
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set_theme()
+
+fig, ax = plt.subplots( figsize=(7,5))
+ax.set_title("Iris Relationplot for petal_wid/petal_len")
+sns.relplot(data=iris_df, x="petal_wid", y="petal_len", hue = "class", height=11) # try style="class"
+```
+
+
+## Pairplots
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set_theme()
+
+fig, ax = plt.subplots( figsize=(7,5) )
+ax.set_title("Iris Pairplots")
+sns.pairplot(iris_df[['sepal_len', 'sepal_wid', 'petal_len', 'petal_wid', 'class']],
+             hue="class", diag_kind="kde", height=3)
+```
+
+
+#### Helpers (xx)
+
+```{python, results="hide"}
+
+```
+Ausgabe:
+```{python, echo=FALSE}
+
+```
