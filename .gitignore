@@ -1,0 +1,7 @@
+.Rproj.user/
+/_bookdown_files/**
+.Rhistory
+.RData
+.Ruserdata
+_book
+.*.rds

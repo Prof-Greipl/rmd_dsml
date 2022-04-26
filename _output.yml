@@ -1,0 +1,28 @@
+#bookdown::gitbook:
+#  css: style.css
+bookdown::bs4_book:
+  css: bs4_style.css
+  split_bib: yes
+  theme:
+    primary: "#096B72"
+#    primary: "#000000"
+#    base_font:
+#    google: Sen
+  repo: https://github.com/rstudio/bookdown-demo
+  includes:
+    before_body: frontpage.html
+    in_header: [css.html]
+
+
+bookdown::pdf_book:
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+  template: null
+  pandoc_args: [--top-level-division=chapter, --wrap=none]
+  includes:
+    in_header: [preamble.tex]
+    before_body: frontpage.tex
+
+
+#bookdown::epub_book: default

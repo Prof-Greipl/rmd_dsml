@@ -1,0 +1,619 @@
+# Numpy-Arrays
+## Wofür brauchen wir Numpy?
+
+Numpy ist eine Python-Library^[Eine Python-Library umfasst vorgefertigte Programmen, die von Programmieren genutzt werden, um Programme schneller und sicherer zu erstellen. ] (Bibliothek von Funktionen) für die effiziente Erzeugung, Berechnung und Bearbeitung von Daten, insbesondere numerischen Daten. Wir nutzen Numpy für den Umgang mit Vektoren, Matrizen oder Tensoren.^[Numpy kann auch für nicht-numerische Datentypen genutzt werden, aber das ist für uns nicht von Belang.] 
+
+Eine umfangreiche und behutsame Einführung finden sie unter [https://www.w3schools.com/python/numpy/](https://www.w3schools.com/python/numpy/). Wir besprechen in diesem Abschnitt nur die für unsere Inhalte relevanten Teile.
+
+::: {.rmdnote}
+**Wichtig:** Beginnen Sie jeden Programmblock, in dem sie numpy-Funktionen brauchen, mit der Zeile `import numpy as np`
+:::
+
+## Numpy-Arrays
+
+## Vektor mit Numpy
+
+Die folgenden Befehle zeigen, wie der erste Datensatz $(5.1, 3.5, 1.4, 0.2) \in \mathbb{R}^4$ aus dem Iris-Dataset als Vektor
+$$
+\mathbf{x} = (5.1, 3.5, 1.4, 0.2) \in \mathbb{R}^4
+$$
+in einer Variable mit dem Namen `x` erzeugt wird^[Genaugenommen nur die ersten vier Spalten. Wir lassen die Spalte `class` weg.]. 
+
+```{python, results="hide"}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x )
+print( type(x) )
+```
+Ausgabe: Wir sehen die Darstellung des Vektors, strukturiert über eckige Klammern und den neuen Datentyp `numpy.ndarray`.
+```{python, echo=FALSE}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x)
+print( type(x))
+```
+Wir werden sehen, dass wir den aus der Mathematik gewohnten Umgang  mit Vektoren (und Matrizen) einfach in  Numpy übertragen können.
+
+
+### Shape und Dimension
+
+Das Attribut `shape` liefert die Dimension eines Arrays.
+
+```{python, results="hide"}
+import numpy as np
+x0 = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x0.shape )
+```
+Die Ausgabe `(4,)` bedeutet, dass das Array aus 4 Zahlen entlang *einer* Dimension besteht. (Das wird im nachfolgenden Abschnitt spannender.)
+```{python, echo=FALSE}
+import numpy as np
+f0 = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( f0.shape )
+```
+### Zugriff auf Elemente
+Für einen Vektor $\bf{x} \in \mathbb{R}^n$ nehmen wir auf die einzelnen Werte  mittels $x = (x_1, ..., x_n)$ durch Verwendung eines tiefgestellten Index  Bezug. Für  $\mathbf{x} = (5.1, 3.5, 1.4, 0.2) \in \mathbb{R}^4$ ist also $x_1 = 5.1$. In Numpy machen wir das analog, **starten die Nummerierung jedoch bei Null**, wie folgendes Beispiel zeigt. Beachten sie die Analogie zu Listen in Abschnitt \label{listen} .
+
+```{python, results="hide"}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x[0] )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x[0] )
+```
+
+ **Übung: **Geben sie das letzte Element mit dem Wert 0.2 aus. 
+
+Übrigens: Negative Indizes zählen vom Ende her:
+
+```{python, results="hide"}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x[-1] )
+print( x[-3] )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+print( x[-1] )
+print( x[-3] )
+```
+
+
+### Werte verändern
+
+Mit der Verwendung des Index können wir einzelne Einträge auch verändern. Wir behandeln dazu den Ausdruck x[0] einfach als Variable und verwenden eine Wertzuweisung.
+
+```{python, results="hide"}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+x[0] = -3
+print(x)
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array( [5.1, 3.5, 1.4, 0.2]) 
+x[0] = -3
+print(x)
+```
+### Skalare Multiplikation und Addition
+
+```{python, results="hide"}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+print(x*0.5)
+print(x+y)
+print(x-y)
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+print(x*0.5)
+print(x+y)
+print(x-y)
+```
+### Neue Rechenarten
+
+Die folgenden Operationen auf Arrays sind nützlich, jedoch auf die in der Mathematik gewohnte Rechnung mit Vektoren nicht ohne weiteres übertragbar.
+
+```{python, results="hide"}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+
+print(x+1)
+print(x*y)
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+
+print(x+1)
+print(x*y)
+```
+
+
+
+## Matrix mit Numpy
+
+Matrizen werden in Numpy als eine Ansammlung von Zeilenvektoren aufgebaut!
+
+### Beispiel
+
+```{python, results="hide"}
+import numpy as np
+
+A = np.array([[1,2],[3,4], [5,6], [7,8]])
+print( A )
+print( A[0,0] )
+print( A[0,1] )
+```
+Ausgabe: 
+```{python, echo=FALSE}
+import numpy as np
+A = np.array([[1,2],[3,4], [5,6], [7,8]])
+print( A )
+print( A[0,0] )
+print( A[0,1] )
+```
+Die Indizierung der Element funktioniert erwartungsgemäß, allerdings wird mit der Zählung bei Null begonnen!
+
+
+### Shape (Dimension)
+
+Eine Matrix hat eine Anzahl von Zeilen und Spalten. Wir verwenden wie bei Vektoren `shape`, um die Dimension zu erfahren 
+
+```python
+import numpy as np
+
+A = np.array([[1,2],[3,4], [5,6], [7,8]])
+print( A.shape )
+```
+
+
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+
+A = np.array([[1,2],[3,4], [5,6], [7,8]])
+print( A.shape )  # Ausgabe: (4,2)
+```
+
+Die Ausgabe (4,2) besagt, dass die Matrix vier Zeilen und zwei Spalten besitzt. Es werden 4 Werte entlang der ersten Dimension und 2 Werte entlang der zweiten Dimension angeordnet.
+
+
+
+### Skalare Multiplikation und Addition
+
+```{python, results="hide"}
+import numpy as np
+
+A = np.array([[1,2],[3,4], [5,6], [7,8]])
+B = np.array([[10,20],[30,40], [50,60], [70,80]])
+s = 2;
+print (2*A)     # Mulitplikation mit einem Skalar
+print (A+B)
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+
+A = np.array([[1,2],[3,4], [5,6], [7,8]])
+B = np.array([[10,20],[30,40], [50,60], [70,80]])
+s = 2;
+print (2*A)     # Mulitplikation mit einem Skalar
+print (A+B)
+```
+
+
+
+### Matrixmultiplikation
+
+Die Matrixmultiplikation erfolgt über den Befehl `np.dot`. Wir berechnen als Beispiel folgendes Produkt (Immer auf die passenden shapes achten!):
+
+$$
+\mathbf{A}= \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \quad\quad\quad
+\mathbf{B}= \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}  \quad\quad\quad
+\mathbf{A} \mathbf{B}= \begin{bmatrix} 1 & 4 \\ 3 & 8 \\ 5 & 12 \end{bmatrix} \quad\quad\quad
+$$
+Mit Numpy: `np.dot()`
+
+```{python, results="hide"}
+import numpy as np
+
+A = np.array([[1,2],[3,4], [5,6] ])
+B = np.array([[1,0],[0,2]])
+AB = np.dot(A, B) 
+print( AB )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+
+A = np.array([[1,2],[3,4], [5,6] ])
+B = np.array([[1,0],[0,2]])
+AB = np.dot(A, B) 
+print( AB )
+```
+
+### Übungen
+
+Lösen sie die Aufgaben aus Abschnitt \@ref(matrix-uebung) mit geeigneten Python-Programmen.
+
+
+
+## Allgemeine Numpy-Arrays
+
+Vektoren und Matrizen über reellen Zahlen lassen sich mit Numpy bequem darstellen. 
+
+#### 1D-Array {-}
+
+Ein Vektor ist eine Struktur mit einer Achse. (Wir vermeiden den Begriff Dimension, weil er für Vektoren bereits belegt ist.) Entsprechend brauchen wir für einen Vektor *einen* Index um einen Wert zu erreichen. Diese Struktur wird in Numpy 1D-Array genannt. Der Shape ist ein Tupel der Länge 1. Der Eintrag sagt uns, wie viele Werte in Achse 0 enthalten sind.
+
+#### 2D-Array {-}
+
+Eine Matrix ist eine Struktur mit zwei Achsen. Entsprechend brauchen wir für eine Matrix *zwei*  Indizes, um einen Wert zu erreichen und für eine Matrix *zwei* Indizes um einen Wert zu erreichen.  Der Shape ist nun ein Tupel der Länge 2. Die Einträge sagen uns, wie viele Werte in Achse 0 und in Achse 1 enthalten sind.
+
+#### 3D-Array {-}
+
+Eine Matrix ist eine Struktur mit drei Achsen. Entsprechend brauchen wir für ein 3D-Array *drei*  Indizes, um einen Wert zu erreichen.  Der Shape ist hier ein Tupel der Länge 3. Die Einträge sagen uns, wie viele Werte in den Achsen 0, 1 und 2 enthalten sind. 
+
+Für uns sind 3D-Arrays relevant, zum Beispiel bei der Verarbeitung von Bildern. Wir werden darauf später noch zurückkommen. 
+
+
+
+![Quelle: https://medium.com/@vyasvivekj/numrical-computing-with-numpy-part-i-399adda460d8](assets/04-numpy.assets/image-20220313164402044.png){width=90%}
+
+Arrays mit mehr Achsen funktionieren analog. Beachten sie, dass die Regeln für skalare Multiplikation gelten, sofern die Shapes indentisch sind!
+
+
+
+
+## Arrays erzeugen 
+
+Bisher mussten wir Array-Werte eintippen. In diesem Abschnitt lernen wir Funktionen kennen, um Arrays mit beliebigem Shape zu erzeugen
+
+### `np.ones() und np.zeros()`
+
+```{python, results="hide"}
+import numpy as np
+v = np.ones( (2,3) )
+print( v )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+v = np.ones( (2,3) )
+print( v )
+```
+
+### `np.arange`()
+
+Mit `np.arange` erzeugen wir automatisch Vektoren, die wir häufiger brauchen. Beschäftigen Sie sich mit der Ausgabe und experimentieren sie etwas, dann wird die jeweilige Funktion recht schnell klar.
+
+```{python, results="hide"}
+import numpy as np
+x = np.arange(10,20)
+print( x )
+print( x[2] )
+print( len(x) )
+print ( type(x) )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.arange(10,20)
+print( x )
+print( x[2] )
+print( len(x) )
+print ( type(x) )
+```
+
+
+###  `np.linspace`()
+Auch hier ist die Funktionsweise recht offensichtlich. Sie ist allerdings mit etwas Vorsicht zu genießen...
+
+```{python, results="hide"}
+import numpy as np
+x = np.linspace(0,1,4);
+print(x)
+print( x.shape )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+
+x = np.linspace(0,1,4);
+print(x)
+print( x.shape )
+```
+
+## Reshaping 
+
+![Reshaping: Daten bleiben, Shape ändert sich](assets/04-numpy.assets/image-20220403143033085.png){width=100%}
+
+Code Beispiel:
+```{python, results="hide"}
+x = np.arange(10,30).reshape(4,5)
+print( x )
+```
+
+## Slicing
+
+Um mehrere Werte aus einem Array auszuwählen gibt es die sogeannnte `start:end`- Notation. Von einem Array werden dann die Elemente beginnend mit dem Index `start` und endend mit dem Index `end-1` ausgewählt.
+
+![Beispiel: Slicing eines Arrays](assets/04-numpy.assets/image-20220403140843136.png){width=100%}
+
+Betrachten sie hierzu folgende Programmzeilen.
+
+```{python, results="hide"}
+import numpy as np
+
+x = np.arange(10,20)
+print( x )
+print( x[1:5]) # Elements x[1] up to x[5] (excluded)
+print( x[:4])  # all Elements  up to x[4] (excluded)
+print( x[7:])  # all Elements following x[7] (included)
+print( x[-4:-2]) 
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+
+x = np.arange(10,20)
+print( x )
+print( x[1:5]) # Elements x[1] up to x[5] (excluded)
+print( x[:4])  # all Elements  up to x[4] (excluded)
+print( x[7:])  # all Elements following x[7] (included)
+print( x[-4:-2]) 
+```
+
+Ein fehlender Wert vor dem Doppelpunkt wird also stets durch den Wert 0 ersetzt, eine fehlender Wert nach dem Doppeltpunkt durch die Anzahl der Elemente (Länge).
+
+
+
+#### Slicing in 2-Dimensionen{-}(#Slicing)
+
+In diesem Beispiel wollen wir aus der nachfolgenden 4x5-Matrix die grünen Zeilen herauslösen und eine 2x5 Matrix erzeugen:
+
+![Slicing in 2-Dimensionen](assets/04-numpy.assets/image-20220403141817655.png){width=50%}
+
+
+
+```{python, results="hide"}
+x = np.arange(10,30).reshape(4,5)
+print( x )
+print("Nach Slicing:")
+print(x[1:3,:])
+```
+Ausgabe:
+```{python, echo=FALSE}
+x = np.arange(10,30).reshape(4,5)
+print( x )
+print("Nach Slicing:")
+print(x[1:3,:])
+```
+
+
+## Operationen auf Arrays
+
+### Aggregierende Operationen
+```{python, results="hide"}
+import numpy as np
+x=np.array([1,2,3,4])
+print( x.min() )
+print( x.max() )
+print( x.mean() )
+print( x.sum() )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x=np.array([1,2,3,4])
+print( x.min() )
+print( x.max() )
+print( x.mean() )
+print( x.sum() )
+```
+
+### Elementweise Operationen
+
+ Nachfolgendes Beispiel zeigt ausgewählte Operationen. Beachten Sie diese Operationen so im Mathe-Unterricht nicht gelernt haben. Sie sind jedoch recht hilfreich!
+
+```{python, results="hide"}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+
+print (x+1)
+print(x*y)
+print (np.sqrt(x))
+print (np.sin(x))
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.array([1, 4, 9, 0])
+y = np.array([1, 0, 1, 0])
+
+print (x+1)
+print(x*y)
+print (np.sqrt(x))
+print (np.sin(x))
+```
+
+## Perzentile, Quartile und Median
+
+Perzentile erlauben uns eine Aussage über die Verteilung von Zahlen in einer Zahlenfolge^[Beachten sie, dass wir von einer *Zahlenfolge* (oder einem Vektor) sprechen und nicht von einer *Zahlenmenge*. Einzelne Werte können demnach mehrfach auftreten.]. Das 50%-Perzentil einer Folge ist eine Zahl $p_{50}$ mit der Eigenschaft,  dass 50% der Zahlen kleiner als $p_{50}$ und die restlichen Zahlen größer als $p_{50}$ sind. 
+
+Folgendes Programm zeigt die Funktion zur simultanen Berechnung  $p_{0}$,  $p_{20}$, $p_{50}$, $p_{75}$ und $p_{100}$. Diese Perzentile heissen auch *Quartile*. Offensichtlich ist $p_{50}$ der *Median*.
+
+```{python, results="hide"}
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = np.arange(1,101)
+percentile = np.percentile( data, [0,25,50,75,100])
+print( "Percentile  : ", percentile)
+```
+Ausgabe: 
+```{python, echo=FALSE}
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = np.arange(1,101)
+percentiles = np.percentile( data, [0,25,50,75,100])
+print( "Percentile  : ", percentile)
+```
+
+Nähere Informationen finden sie unter https://numpy.org/doc/stable/reference/generated/numpy.percentile.html.
+
+Übung: Ist die Festlegung von Perzentilen eindeutig? (Begründung!)
+
+## Zufallszahlen
+
+### Gleichverteilung
+Nachfolgende Beispiele erzeugen Gleichverteilte Zufallszahlen zwischen 3 und 4.
+
+```{python, results="hide"}
+import numpy as np
+x = np.random.uniform(3,4)
+print(x)
+
+x = np.random.uniform(3,4, size=(5))
+print(x)
+
+x = np.random.uniform(3,4, size=(5,2))
+print(x)
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.random.uniform(3,4)
+print(x)
+
+x = np.random.uniform(3,4, size=(5))
+print(x)
+
+x = np.random.uniform(3,4, size=(5,2))
+print(x)
+```
+
+### Normalverteilung
+
+Die Kenntnis der Standardnormalverteilung wird vorausgesetzt. 
+
+```{python, results="hide"}
+import numpy as np
+x = np.random.normal()
+print(x)
+
+mu = 5
+sigma = 1
+x = np.random.normal(mu, sigma, size=(5))
+print(x)
+
+x = np.random.normal(mu, sigma, size=(5,2))
+print(x)
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+x = np.random.normal()
+print(x)
+
+mu = 5
+sigma = 1
+x = np.random.uniform(mu, sigma, size=(5))
+print(x)
+
+x = np.random.uniform(mu, sigma, size=(5,2))
+print(x)
+```
+
+
+
+## Konstanten
+
+Wir brauchen für wenige Übungen die Zahl $\pi$
+
+```{python, results="hide"}
+import numpy as np
+pi_wert = np.pi
+print( pi_wert )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import numpy as np
+pi_wert = np.pi
+print( pi_wert )
+```
+
+## Übungen
+
+#### 3D-Array {-}
+
+Was gibt folgendes Programm aus?
+
+```{python, results="hide"}
+import numpy as np
+arr = np.array([[ [1, 2, 3], [4, 5, 6] ],[ [7, 8, 9], [10, 11, 12]]])
+print(arr[0, 1, 2])
+```
+
+Etwas einfacher sollte es sein, wenn sie die Erzeugung von arr etwas anders schreiben:
+
+```
+arr = np.array([
+         [ [1, 2, 3], [4, 5, 6] ], 
+         [ [7, 8, 9], [10, 11, 12]]
+         ])
+```
+
+#### Matrix- und Skalarpodukt{-}
+
+Lösen sie die Aufgaben aus Abschnitt \@ref(matrix-uebung) mit geeigneten Python-Programmen.
+
+#### Reshape und Slicing{-}
+
+Was gibt folgendes Programm aus? Lösung sie die Aufgabe zuerst ohne Nutzung des Programms.
+
+```{python, results="hide"}
+x = np.arange(0,10).reshape(2,5)
+print( x )
+print( x[1,3] )
+print(x[:,1:3])
+```
+
+#### Slicing{-}
+
+Mit welchem Befehlen erhalten sie die rot markierten Spalten durch Slicing aus dem blauen Array, das mit `x = np.arange(10,30).reshape(4,5)` erzeugt wurde? (Hinweis: siehe Abschnitt \@ref(slicing) ). 
+
+![image-20220403151400814](assets/04-numpy.assets/image-20220403151400814.png)
+
+#### np.arange{-}
+
+Der Befehl np.arange() ist auch mit drei Parametern nutzbar. Erläutern sie die Funktion anhand es Beispiels:
+
+```
+x = np.arange(0, 5, 0.5)
+```
+
+#### Gleichverteilte Zufallszahlen{-}
+
+Erzeugen sie 100.000 gleichverteilte Zufallszahlen im Intervall 10-20  und berechnen Sie deren Durchschnittswert. (Welchen Wert erwarten Sie? Weshalb?) 
+
+#### Normalverteilte Zufallszahlen{-}
+
+Erzeugen sie 100.000 standard-normalverteilte Zufallszahlen berechnen Sie deren Summe. (In welchem Bereich erwarten Sie die Werte erwarten Sie? Weshalb? Achtung: Anspruchsvoll!) 
+

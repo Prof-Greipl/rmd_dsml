@@ -1,0 +1,38 @@
+---
+title: "Data Science & Machine Learning"
+author: "Dieter Greipl"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site 
+
+# See here for changing latex parameters:  https://bookdown.org/yihui/rmarkdown-cookbook/latex-variables.html 
+#documentclass: krantz
+documentclass: book 
+font-size: 12pt
+classoption: oneside
+
+bibliography: [book.bib, packages.bib]
+
+biblio-style: apalike
+csl: chicago-fullnote-bibliography.csl 
+cover-image: assets/x.png
+---
+
+
+# Einführung {-}
+
+Dieses Skript entstand (und entsteht) aus meinen Lehrveranstaltungen rund um das Thema **Data Science & Machine Learning**. Die Inhalte richten sich Einsteiger und Studierende, insbesondere der Fachrichtungen Betriebswirtschaftslehre, die Schritte auf das KI-Spielfeld wagen und das Potential  von datengetriebenen Lösungsverfahren verstehen wollen.
+
+#### Breite statt Tiefe {-}
+
+Die Spannweite des Inhalts erfordert an vielen Stellen den Verzicht auf Tiefe. Insofern beschränken sich die Inhalte auf die für das Verständnis des Stoffes nötigen Elemente. Das schmerzt den Autor etwas, ist aber im Interesse der Leser. Es bleiben also vielfältige Möglichkeiten für eigenständige Tiefenbohrungen, zum Beispiel in den Abschnitten zu Visualisierung oder zu Dataframes. 
+
+#### Mathematik und Statistik {-}
+
+Übliche Vorkenntnisse im Bereich Mathematik und Statistik werden erwartet, teilweise knapp wiederholt.  Vorkenntnisse im Bereich der Programmierung sind nicht nötig, aber natürlich hilfreich.
+
+#### Programmieren {-}
+
+Data Science und Machine Learning ist ohne praktisches Üben nicht zielführend - und langweilig. Zum Üben braucht es eine Programmiersprache. Wir verwenden dazu Python. Vorkenntnisse werden nicht vorausgesetzt. 
+
+   
+

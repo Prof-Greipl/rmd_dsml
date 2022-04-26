@@ -1,0 +1,85 @@
+\contentsline {chapter}{Einführung}{3}{chapter*.2}%
+\contentsline {subsubsection}{Breite statt Tiefe}{3}{chapter*.2}%
+\contentsline {subsubsection}{Mathematik und Statistik}{3}{chapter*.2}%
+\contentsline {subsubsection}{Programmieren}{3}{chapter*.2}%
+\contentsline {part}{I\hspace {1em}Teil A: Grundlagen}{4}{part.1}%
+\contentsline {chapter}{\numberline {1}Python - Quickstart}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Hallo Welt}{5}{section.1.1}%
+\contentsline {subsubsection}{Variante 1: Colab-Notebooks}{5}{section.1.1}%
+\contentsline {subsubsection}{Variante 2: Installation von Python}{7}{figure.1.2}%
+\contentsline {section}{\numberline {1.2}Programme und Fehler}{7}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Python lernen}{7}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Daten}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Iris-Datensatz}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}\textbf {Variablen}}{10}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Datentypen}{11}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}\textbf {Zahlen}}{11}{subsection.2.3.1}%
+\contentsline {subsubsection}{\textbf {Operationen}}{12}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}\textbf {Strings}}{12}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}\textbf {Boolean}}{13}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Listen und Tupel}{13}{subsection.2.3.4}%
+\contentsline {subsubsection}{\textbf {Listen} \{-\}}{13}{subsection.2.3.4}%
+\contentsline {subsubsection}{\textbf {Tupel}}{14}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Zusammenfassung}{14}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Übungen}{14}{subsection.2.3.6}%
+\contentsline {section}{\numberline {2.4}Skalenniveaus}{15}{section.2.4}%
+\contentsline {subsubsection}{Beispiel: Von Nominal zu Ordinal}{15}{Item.7}%
+\contentsline {subsection}{\numberline {2.4.1}Übungen}{16}{subsection.2.4.1}%
+\contentsline {chapter}{\numberline {3}Lineare Algebra}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Skalar}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Vektor und Dimension}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Multiplikation mit Skalar und elementweise Addition}{17}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Skalarprodukt}{18}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Matrix}{18}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Elementweise Addition}{18}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Multiplikation mit Skalar und Addition}{18}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Transponieren}{18}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Matrixprodukt}{19}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Vektoren als Matrix}{19}{subsection.3.3.5}%
+\contentsline {section}{\numberline {3.4}Übungen}{19}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Skalarprodukt}{19}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Matrixprodukt 1}{20}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Matrixprodukt 2}{20}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Matrixprodukt 3}{20}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Matrixprodukt 4}{20}{subsection.3.4.5}%
+\contentsline {chapter}{\numberline {4}Numpy-Arrays}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Wofür brauchen wir Numpy?}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Numpy-Arrays}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Vektor mit Numpy}{21}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Beispiel}{21}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Shape (Dimension)}{22}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Zugriff auf Elemente}{22}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Werte verändern}{22}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Skalare Multiplikation und Addition}{22}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Neue Rechenarten}{23}{subsection.4.3.6}%
+\contentsline {section}{\numberline {4.4}Matrix mit Numpy}{23}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Beispiel}{23}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Shape (Dimension)}{24}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Skalare Multiplikation und Addition}{24}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Matrixmultiplikation}{24}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}Übungen}{25}{subsection.4.4.5}%
+\contentsline {section}{\numberline {4.5}Allgemeine Numpy-Arrays}{25}{section.4.5}%
+\contentsline {subsubsection}{1D-Array}{25}{section.4.5}%
+\contentsline {subsubsection}{2D-Array}{25}{section.4.5}%
+\contentsline {subsubsection}{3D-Array}{25}{section.4.5}%
+\contentsline {subsubsection}{Beispiel}{26}{figure.4.1}%
+\contentsline {section}{\numberline {4.6}Arrays erzeugen}{26}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}\texttt {np.ones()\ und\ np.zeros()}}{26}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}\texttt {np.arange}()}{26}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}\texttt {np.linspace}()}{27}{subsection.4.6.3}%
+\contentsline {section}{\numberline {4.7}Operationen auf Arrays}{27}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Aggregierende Operationen}{27}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Elementweise Operationen}{27}{subsection.4.7.2}%
+\contentsline {section}{\numberline {4.8}Zufallszahlen}{28}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Gleichverteilung}{28}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Normalverteilung}{28}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}Konstanten}{28}{subsection.4.8.3}%
+\contentsline {section}{\numberline {4.9}Einfache Funktionen}{29}{section.4.9}%
+\contentsline {chapter}{\numberline {5}Dataframes}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Grundlagen}{30}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Beispiel}{30}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Überblick verschaffen}{30}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Spalten auswählen}{31}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Numpy-Array aus Dataframe erzeugen}{32}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Dataframe aus Numpy-Array erzeugen}{32}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Spaltennamen ändern}{33}{subsection.5.1.6}%

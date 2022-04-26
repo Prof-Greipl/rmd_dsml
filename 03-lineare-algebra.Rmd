@@ -1,0 +1,239 @@
+# Lineare Algebra
+
+In diesem Abschnitt wiederholen wir ausgewählte Begriffe aus der Linearen Algebra, die jedoch bekannt sein sollten.  
+
+## Skalar
+
+Die meisten Objekte der Linearen Algebra sind Strukturen von Zahlen, zum Beispiel Vektoren oder Matrizen. Skalare dagegen sind ganz einfach nur Zahlen, in unserem Fall reelle Zahlen. Wir bezeichnen Skalare mit kleinen kursiven Buchstaben. Wir schreiben zum Beispiel $s \in \mathbb{R}.$
+
+> Wir betrachten nur reelle Vektorräume! 
+
+## Vektor und Dimension
+
+Ein Vektor ist ein Tupel reeller Zahlen, die in einer bestimmten Weise angeordnet sind. Jede reelle Zahl aus dem Tupel ist über einen Index genau bestimmt. Wir notieren einen Vektor mit einem kleinen und fett gedruckten Buchstaben, also z.B. $\bf{x}$ . Die einzelnen Zahlen des Vektors werden kursiv gedruckt und mit ihrem Index notiert, also die erste Zahl mit $x_1$, die zweite Zahl mit $x_2$ und so weiter. Enthält der Vektor $n$ reelle Zahlen so ist der Vektor ein Element des n-fachen kartesischen Produktes der reellen Zahlen $\mathbb{R}$, kurz $\mathbb{R}^{n}$. Die Zahl n heißt **Dimension des Vektors.** Um die Elemente eines Vektors explizit anzugeben, werden sie in der Regel als **Spalte** in eckigen Klammern notiert, also
+
+$$
+\bf{x} = \begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n \\
+\end{bmatrix}
+\in \mathbb{R}^n
+$$
+
+Häufig werden wir auch die Notation in Form einer **Zeile** wählen, also  $\mathbf{x} = (x_1, \ldots, x_n)$. 
+
+
+
+### Multiplikation mit Skalar und elementweise Addition
+
+Für zwei Vektoren  $\bf{x},\bf{y} \in \mathbb{R}^{n}$ ist die Multiplikation mit einem Skalar und die Addition definiert durch:
+
+$$
+s \cdot\bf{ x} = 
+\begin{bmatrix}
+s\cdot x_1 \\
+s\cdot x_2 \\
+\vdots \\
+s\cdot x_n \\
+\end{bmatrix}
+\quad \text{und}\quad
+\bf{x} + \bf{y}= 
+\begin{bmatrix}
+x_1 + y_1 \\
+x_2 + y_2 \\
+\vdots \\
+x_n + y_n \\
+\end{bmatrix}
+$$
+
+
+
+###  Skalarprodukt
+
+Man kann für zwei Vektoren $x, y \in \mathbb{R}^{n}$ (also mit gleicher Dimension) ein spezielles _Produkt_ bilden, das wir mit $\langle\bf{x},\bf{y}\rangle$ notieren. (Zur Unterscheidung haben wir oben die Bezeichnung _Multiplikation mit einem Skalar_ gewählt). Das Skalarprodukt ist definiert durch:
+
+$$
+\langle\bf{x},\bf{y}\rangle =  \sum_{i=1}^{n} x_i \cdot y_i
+$$
+Das Skalarprodukt ist für uns deshalb wichtig, weil für n=3 der Ausdruck $\sqrt{\langle\bf{x},\bf{x}\rangle}$ die Länge eines Vektors (oder den Abstand des Punktes $\bold{x}$ vom Nullpunkt) im euklidischen Raum angibt (Veranschaulichen Sie sich das als Übung). 
+
+## Matrix
+
+Eine (reell-wertige) Matrix ist eine zweidimensionale, in Zeilen und Spalten angeordnete Struktur von reellen Zahlen. Jedes Element einer Matrix $\bf{A}$ wird über zwei Indizes bestimmt. Wir notieren eine Matrix mit einem fett gedruckten Großbuchstaben und die Elemente der Matrix mit dem Buchstaben der Matrix, aber nun nicht-fett und kursiv gedruckt und mit zwei Indizes versehen. Besteht eine Matrix aus n Zeilen und m Spalten, so notieren wir das durch $\bf{A}\in\mathbb{R}^{n\times m }$ und nennen $\bf{A}$ eine Matrix mit der "_Dimension n kreuz m_" (als mit n Zeilen und m Spalten)
+
+$$
+\bf{A}= 
+\begin{bmatrix}
+A_{1,1} & A_{1,2} & \cdots & A_{1,m}  \\
+A_{2,1} & A_{2,2} & \cdots & A_{2,m}  \\
+\vdots & \vdots & \ddots & \vdots \\
+A_{n,1} & A_{n,2} & \cdots & A_{n,m}  \\
+\end{bmatrix}
+$$
+
+Es bezeichnet also $A_{i,j}$ den Wert in Zeile $i$ und Spalte $j$.
+
+### Elementweise Addition
+
+Ist $\bf{B} \in\mathbb{R}^{n\times m }$, also eine Matrix der gleichen Dimension, wie $\bf{A}$, so lässt sich die Summe $\bf{A+B}$ bilden durch:
+
+$$
+(A+B)_{i,j} = A_{i,j} + B_{i,j}
+$$
+
+Wir addieren also einfach die Elemente auf den jeweiligen Positionen.
+
+### Multiplikation mit Skalar und Addition
+
+Die Matrix $\bf{A}$ lässt sich mit einer reellen Zahl $s$ (also einem _Skalar_) multiplizieren und die entstehende Matrix $\bf{sA}$ ist wie erwartet definiert durch
+
+$$
+(sA)_{i,j} = s \cdot A_{i,j}
+$$
+
+Wir multiplizieren also jedes Element der Matrix mit dem Skalar $s$.
+
+### Transponieren
+
+Durch **Transponieren** wird aus einer Matrix $\bf{A}\in\mathbb{R}^{n\times m }$ eine neue Matrix $\bf{A^T} \in\mathbb{R}^{m\times n }$ erzeugt. Dabei gilt
+
+$$
+(A^T)_{j,i} = A_{i,j}  \quad \text{für } \quad i \in {1,...,n}  
+\quad \text{und} \quad 
+j \in {1,...,m}
+$$
+
+Transponieren lässt sich durch eine Art _spiegeln von_ $\bf{A}$ an deren "Hauptdiagonale" verstehen. Die Hauptdiagonale ist die gedachte Linie, die vom Element $A_{0,0}$ im Winkel von 45 Grad nach rechts unten verläuft. Zum Beispiel:
+
+$$
+\bf{A} = \begin{bmatrix}
+1 & 2  \\
+3 & 4  \\
+5 & 6  \\
+\end{bmatrix}  \in \mathbb{R}^{3\times 2 }
+\quad\Rightarrow\quad
+\bf{A^T} = \begin{bmatrix} 
+1 & 3 & 5  \\
+2 & 4  & 6 \\
+\end{bmatrix}
+\in \mathbb{R}^{2\times 3 }
+$$
+
+### Matrixprodukt
+
+Wir können zwei Matrizen $\bf{A}$ und $\bf{B}$ multiplizieren, wenn die Anzahl der Zeilen in B der Anzahl der Spaten in A entspricht. Für $\bf A \in\mathbb{R}^{n\times m }$ und $\bf B \in\mathbb{R}^{m\times p }$ gilt für das Produkt $\bf{C}= \bf{ A} \bf B \in\mathbb{R}^{n\times p }$
+
+$$
+C_{i,j} = \sum_{l=1}^m  A_{i,l} B_{l,j}
+$$
+
+### Vektoren als Matrix
+
+Da wir Vektoren grafisch in einer Spalte notiert haben, nennen wir sie auch _Spaltenvektoren_. Ein Spaltenvektor lässt sich offensichtlich als eine Matrix interpretieren, die nur aus einer Spalte besteht. 
+$$
+\bf{x} = 
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n \\
+\end{bmatrix}
+\in \mathbb{R}^{n \times 1}
+$$
+Wenn wir diese Matrix, wie oben dargestellt, transponieren, entsteht eine Matrix , die nur aus einer Zeile besteht. Diese Matrix bezeichnen wir als *Zeilenvektor*. Die Analogie führt uns zum Konzept eines transponierten Vektors:
+
+$$
+\bf{x} = 
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n \\
+\end{bmatrix}
+\in \mathbb{R}^{n \times 1}
+\quad\Rightarrow\quad
+\bf{x^T} =  
+\begin{bmatrix}
+x_1,  x_2 , \dots, x_n \\
+\end{bmatrix}
+\in\mathbb{R}^{1 \times n}
+$$
+
+In der Regel identifizieren wir $\mathbb{R}^{n \times 1}$ und $\mathbb{R}^{1 \times n}$, aber grundsätzlich besteht doch ein Unterschied.
+
+Betrachten wir $\bold{x}, \bold{y}$ als $n \times 1$-Matrix, so ist
+$$
+\langle\bf{x},\bf{y}\rangle = x^T y
+$$
+
+Machen sie sich klar, dass obige Gleichheit keine Definition ist, sondern aus der Definition des [Matrixproduktes ](skalare-vektoren-und-matrizen.md#matrixprodukt-und-skalarprodukt)folgt!
+
+## Übungen {#matrix-uebung}
+
+### Skalarprodukt
+
+Berechnen Sie $\bf{v}^T \bf{w}$, $\bf{v}+\bf{w}$ und $2 \cdot \bf{v}$ für
+
+$$
+\bf{v}    =   \begin{bmatrix}
+1 \\
+-3 \\
+2\\
+\end{bmatrix}
+\quad \text{and} \quad 
+\bf{w}    =   \begin{bmatrix}
+1 \\
+0 \\
+13\\
+\end{bmatrix}
+$$
+
+### Matrixprodukt 1
+
+Berechnen sie $A\bf{v}$ für
+
+$$
+A = \begin{bmatrix} 
+1 & 2 & 3 \\ 
+7 & -1 & 2 \\ 
+0 & 4 & -1
+\end{bmatrix} 
+\quad \text{and} \quad 
+\bf{v} = \begin{bmatrix}
+ 1 \\-3 \\ 2 
+\end{bmatrix}
+$$
+
+
+
+### Matrixprodukt 2 
+
+Berechnen Sie $\bf{v}\bf{w}^T$ für die beiden oben angegebenen Vektoren (Vorsicht!).
+
+
+
+### Matrixprodukt 3
+
+Berechnen sie $\bf{A}\bf{C}$ für 
+
+$$
+A = \begin{bmatrix} 
+2 & -1 \\ 
+4 & 0 \\ 
+9 & 3
+\end{bmatrix}
+\quad\text{und} \quad
+C = \begin{bmatrix} 
+1 & 0 \\ 
+4 & -1 
+\end{bmatrix}
+$$
+
+### Matrixprodukt 4
+Zur Vertiefung:
+
+1. Gilt für zwei Matrizen $\mathbf{A,B}\in\mathbb{R}^{n\times n }$ die Gleichheit $\bf{AB} = \bf{BA}$?
+
+2. Gilt für zwei Vektoren  $x,y \in \mathbb{R}^n$ die Gleichheit: $\mathbf{x}^T \mathbf{y} = \mathbf{y}^T\mathbf{x}$?
