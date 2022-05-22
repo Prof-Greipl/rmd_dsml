@@ -1,0 +1,90 @@
+# Übung "Trinkgeld (Tips)" 
+
+<!--
+
+https://towardsdatascience.com/analyze-the-data-through-data-visualization-using-seaborn-255e1cd3948e
+
+-->
+
+## Laden des Datensatzes
+
+Mit folgendem Programm laden wird die  einen  Dataframe mit dem Namen `tips`. Er enthält Daten zu Trinkgeldern in einem Restaurant. Sie laden den Datensatz mit folgender Routine:
+
+```{python, results="hide"}
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+tips_df = sns.load_dataset("tips")
+tips_df["sex"]=tips_df["sex"].astype("object")
+tips_df["smoker"]=tips_df["smoker"].astype("object")
+tips_df["day"]=tips_df["day"].astype("object")
+tips_df["time"]=tips_df["time"].astype("object")
+```
+
+Ein Datensatz beschreibt folgende Situation: Eine Gast zahlt für sich oder eine Gruppe die gesamte Rechnung und gibt dazu Trinkgeld. Die Spalten habe folgende Bedeutung:
+
+| Spalte       | Bedeutung                         |
+| ------------ | --------------------------------- |
+| `total_bill` | Gesamtwert der Rechnung           |
+| `tip`        | Trinkgeld                         |
+| `sex`        | Geschlecht des zahlenden Gastes   |
+| `smoker`     | Ein Mitglied der Gruppe raucht    |
+| `day`        | Tag der Bewertung                 |
+| `time`       | Tageszeit der Bewirtung           |
+| `size`       | Anzahl der Personen in der Gruppe |
+
+Beantworten sie zum dem Datensatz folgende Fragen mit den bisher  bekannte Mitteln. Am besten erzeugen sie dafür ein eigenes Notebook. Sie können gerne auch kreativ sein!
+
+
+
+## Allgemeines
+
+1. Wie viele Datensätze gibt es? Gibt es *missing values*?
+
+## Kategoriale Features
+
+2. Welche Features sind *kategorial*, welche sind *metrisch*?
+
+3. Wie viele verschiedene Werte treten pro Spalte auf? (Hinweis: `tips_df.describe(include=['object'])`gibt einen Überlick über alle Spalten mit dem Datentyp `object`)
+
+4. Wie häufig beglichen weibliche Gäste die Rechnung?
+
+5. Für welchen Wochentag sind die meisten Datensätze vorhanden?
+
+## Metrische Features
+
+6. Verschaffen sie sich einen allgemeinen Überblick über die metrischen Features.
+
+
+## Visualisierungen
+7. Visualisieren sie folgende Zusammenhänge <u>nach Wochentagen</u>:
+
+   a) Anzahl der Abrechnungen 
+   b) Anzahl der bewirteten Gruppen nach Größe der Gruppe
+   c) Anzahl der weiblichen und männlichen Mitglieder der Gruppen  
+   d) Anzahl der Abrechnungen für Gruppen mit rauchenden Mitgliedern
+
+8. Visualisieren sie die Werte von `total_bill` und von `tip` in einer geeigneten Grafik.
+9. Enthalten die Daten von  `total_bill` und von `tip` Ausreißer? (Begründung mit Grafik! Versuchen sie auch Boxplots nach Wochentagen) 
+
+## Neue Features
+
+Mit folgender Progammzeile erweitern sie den Dataframe um eine Spalte, die das Trinkgeld im Verhältnis zum Rechnungsbetrag anzeigt.
+
+`tips_df['tip_%']=tips_df['tip']/tips_df['total_bill']*100`
+
+10. Führen sie nach obigem Muster folgende weiteren Spalten hinzu und prüfen sie abschließend ihr Ergebnis auf Korrektheit.
+
+| Spaltenname   | Interpretation                                             |
+| ------------- | ---------------------------------------------------------- |
+| `bill_pp`     | Durchschnittlicher Rechnungsbetrag pro Mitglied der Gruppe |
+| `tip_pp`      | Durchschnittliches Trinkgeld pro Mitglied der Gruppe       |
+| `total_spent` | Summe aus Rechnungsbetrag und Trinkgeld                    |
+
+11. Verschaffen sie sich einen visuellen Überblick über die durchschnittlich Rechnung pro Mitglied  und über die prozentual vergebenen Trinkgelder.
+    
+12. Erstellen sie Pairplots zur Visualisierung der Zusammenhänge von `total_bill`, `tip` und `size` nach dem Geschlecht der zahlenden Person. 
+    
+13. Visualisieren sie `bill_pp` und `tip_pp` in Histogrammen.
+

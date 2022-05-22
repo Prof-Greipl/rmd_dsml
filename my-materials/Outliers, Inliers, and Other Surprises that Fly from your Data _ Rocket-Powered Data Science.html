@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://rocketdatascience.org/?p=473 -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>Outliers, Inliers, and Other Surprises that Fly from your Data | Rocket-Powered Data Science</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://rocketdatascience.org/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://rocketdatascience.org/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Rocket-Powered Data Science » Feed" href="http://rocketdatascience.org/?feed=rss2">
+<link rel="alternate" type="application/rss+xml" title="Rocket-Powered Data Science » Comments Feed" href="http://rocketdatascience.org/?feed=comments-rss2">
+<link rel="alternate" type="application/rss+xml" title="Rocket-Powered Data Science » Outliers, Inliers, and Other Surprises that Fly from your Data Comments Feed" href="http://rocketdatascience.org/?feed=rss2&amp;p=473">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/rocketdatascience.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.4"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/wp-emoji-release.min.js.Download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-fonts-css" href="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-style-css" href="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/style.css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='http://rocketdatascience.org/wp-content/themes/twentytwelve/css/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+<script type="text/javascript" src="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/jquery.min.js.Download" id="jquery-core-js"></script>
+<script type="text/javascript" src="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/jquery-migrate.min.js.Download" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="http://rocketdatascience.org/index.php?rest_route=/"><link rel="alternate" type="application/json" href="http://rocketdatascience.org/index.php?rest_route=/wp/v2/posts/473"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://rocketdatascience.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://rocketdatascience.org/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.8.4">
+<link rel="canonical" href="http://rocketdatascience.org/?p=473">
+<link rel="shortlink" href="http://rocketdatascience.org/?p=473">
+<link rel="alternate" type="application/json+oembed" href="http://rocketdatascience.org/index.php?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Frocketdatascience.org%2F%3Fp%3D473">
+<link rel="alternate" type="text/xml+oembed" href="http://rocketdatascience.org/index.php?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Frocketdatascience.org%2F%3Fp%3D473&amp;format=xml">
+
+<link rel="stylesheet" href="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/counter.css" type="text/css">
+	<style type="text/css" id="twentytwelve-header-css">
+			.site-header h1 a,
+		.site-header h2 {
+			color: #1c1c1c;
+		}
+		</style>
+	<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #a0a0a0; }
+</style>
+	</head>
+
+<body class="post-template-default single single-post postid-473 single-format-standard custom-background custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="http://rocketdatascience.org/" title="Rocket-Powered Data Science" rel="home">Rocket-Powered Data Science</a></h1>
+			<h2 class="site-description">Data Reflections by Dr. Kirk Borne @KirkDBorne</h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="http://rocketdatascience.org/?p=473#content" title="Skip to content">Skip to content</a>
+			<div class="nav-menu"><ul>
+<li><a href="http://rocketdatascience.org/">Home</a></li><li class="page_item page-item-656"><a href="http://rocketdatascience.org/?page_id=656">Privacy Policy</a></li>
+<li class="page_item page-item-2"><a href="http://rocketdatascience.org/?page_id=2">Welcome to Rocket-Powered Data Science</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+
+				<a href="http://rocketdatascience.org/"><img src="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/cropped-Magnetosphere_rendition2.jpg" class="header-image" width="1600" height="230" alt="Rocket-Powered Data Science"></a>
+			</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">
+
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+			
+				
+	<article id="post-473" class="post-473 post type-post status-publish format-standard hentry category-data-science tag-analytics tag-data-mining tag-statistics">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">Outliers, Inliers, and Other Surprises that Fly from your Data</h1>
+										<div class="comments-link">
+					<a href="http://rocketdatascience.org/?p=473#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><span style="font-size: 10.5pt; font-family: &#39;Helvetica&#39;,sans-serif; color: #444444;">Data can fly beyond the bounds of our models and our expectations in surprising and interesting ways. When data fly in these ways, we often find new insights and new value about the people, products, and processes that our data sources&nbsp;are tracking. Here are 4 simple&nbsp;examples of&nbsp;surprises that can fly from our data:</span></p>
+<p style="margin: 1.71429rem;"><span style="font-size: 10.5pt; font-family: &#39;Helvetica&#39;,sans-serif; color: #444444;">(1) Outliers — when data points are several standard deviations from the mean of your data distribution, these are traditional data outliers. These may signal at least 3 possible causes: (a) a&nbsp;data measurement problem (in the sensor); (b) a data processing problem (in the data pipeline); or (c) an amazing unexpected discovery about your data items. The first two causes are data quality issues that must be addressed and repaired. The latter case (when your data&nbsp;fly outside the bounds of your expectations) is golden and worthy of deeper exploration.</span></p>
+<p style="margin: 1.71429rem;"><span style="font-size: 10.5pt; font-family: &#39;Helvetica&#39;,sans-serif; color: #444444;">(2) Inliers — sometimes your data have constraints (business rules) that are inviolable (e.g., Fraction of customers that are Male + Fraction of customers that are Female = 1). A simple business example would be: Profit&nbsp;=&nbsp;Revenue minus Costs. Suppose an analyst&nbsp;examines these 3 numbers (Profit, Revenue, Costs) for many different entries&nbsp;in his&nbsp;business database, and he&nbsp;finds a data entry&nbsp;that is near the mean of the distribution for&nbsp;each of those 3 numbers. It appears (at first glance) that this entry is perfectly normal (an inlier, not an outlier), but in fact it might violate the above business rule. In that case, there is definitely a problem with these numbers — they&nbsp;have “flown” outside the bounds of the business rule.</span></p>
+<p style="margin: 1.71429rem;"><span style="font-size: 10.5pt; font-family: &#39;Helvetica&#39;,sans-serif; color: #444444;">(3) Nonlinear correlations — fitting a curve y=F(x) through data for the purpose of estimating values of y for new values of x is called regression. This is also an example of Predictive Analytics (we can predict future values based upon a&nbsp;function that was learned from the historical training data).&nbsp;When using higher-order functions for F(x) (especially polynomial functions), we must remember that&nbsp;the curves often diverge (to extreme values) beyond the range of the known data points that were used to learn the function. Such an extrapolation of the regression curve could lead to predictive outcomes that make no sense, because they fly far beyond reasonable values of our data parameters.</span></p>
+<p style="margin: 1.71429rem;"><span style="font-size: 10.5pt; font-family: &#39;Helvetica&#39;,sans-serif; color: #444444;">(4) Uplift — when two events occur together more frequently than you would expect from random chance, then their mutual dependence causes uplift. Statistical lift is simply measured by:&nbsp;P(X,Y)/[P(X)P(Y)]. The numerator P(X,Y) represents&nbsp;the joint frequency of two events X and Y co-occurring simultaneously. The denominator represents the probability that the two events X and Y will co-occur (at the same time) at random. If X and Y are completely independent events, then the numerator will equal the denominator – in that case (mutual&nbsp;independence), the uplift equals 1 (<em><span style="font-family: &#39;Helvetica&#39;,sans-serif;">i.e.,</span></em>&nbsp;no lift). Conversely, if there is a higher than random co-occurrence of X and Y, then the statistical lift&nbsp;flies to values that are&nbsp;greater than 1 — that’s uplift! And <a href="http://syntasa.com/marketing-analytics-grows-up-breaking-the-dependency-on-independence/" target="_blank">that’s interesting</a>. Cases with significant&nbsp;uplift can be marketing gold for your organization: in customer recommendation engines, in fraud detection, in targeted marketing campaigns, in community detection within social networks, or in mining electronic health records&nbsp;for adverse drug interactions and side effects. </span></p>
+<p style="margin: 1.71429rem;"><span style="font-size: 10.5pt; font-family: &#39;Helvetica&#39;,sans-serif; color: #444444;">These and other such instances of high-flying data&nbsp;are increasingly challenging to identify in the era of big data: high&nbsp;volume and high&nbsp;variety produce big computational&nbsp;challenges in searching for data that fly in interesting directions (especially in complex high-dimensional data sets). To achieve&nbsp;efficient and effective&nbsp;discovery in these cases, fast automatic statistical modeling can help. For this purpose, I recommend that you check out the analytics solutions from the&nbsp;<strong><span style="font-family: &#39;Helvetica&#39;,sans-serif;">fast automatic&nbsp;modeling</span></strong>&nbsp;folks at&nbsp;<a style="outline: none;" href="https://www.linkedin.com/company/soft10-inc-" target="_blank"><span style="color: #21759b;">http://soft10ware.com/</span></a>.</span></p>
+<p style="margin: 1.71429rem;"><span style="font-size: 10.5pt; font-family: &#39;Helvetica&#39;,sans-serif; color: #444444;">The Soft10 software package is trained to report automatically the most significant,&nbsp;informative&nbsp;and interesting&nbsp;dependencies in your data, no matter which way the data fly.</span></p>
+<p style="margin: 1.71429rem;"><span style="font-size: 10.5pt; font-family: &#39;Helvetica&#39;,sans-serif; color: #444444;">(Read the full blog, with more details for the 4 cases listed above, at:&nbsp;<a style="outline: none;" href="https://www.linkedin.com/pulse/when-data-fly-kirk-borne" target="_blank"><span style="color: #21759b;">https://www.linkedin.com/pulse/when-data-fly-kirk-borne</span></a>)</span></p>
+<p style="margin: 1.71429rem;"><span style="font-size: 10.5pt; font-family: &#39;Helvetica&#39;,sans-serif; color: #444444;">Follow Kirk Borne on Twitter&nbsp;<a style="outline: none;" href="https://twitter.com/kirkdborne" target="_blank"><span style="color: #21759b;">@KirkDBorne</span></a></span></p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="http://rocketdatascience.org/?cat=2" rel="category">Data Science</a> and tagged <a href="http://rocketdatascience.org/?tag=analytics" rel="tag">Analytics</a>, <a href="http://rocketdatascience.org/?tag=data-mining" rel="tag">Data Mining</a>, <a href="http://rocketdatascience.org/?tag=statistics" rel="tag">Statistics</a> on <a href="http://rocketdatascience.org/?p=473" title="8:10 pm" rel="bookmark"><time class="entry-date" datetime="2015-10-30T20:10:26+00:00">October 30, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="http://rocketdatascience.org/?author=1" title="View all posts by Kirk Borne" rel="author">Kirk Borne</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+				<nav class="nav-single">
+					<h3 class="assistive-text">Post navigation</h3>
+					<span class="nav-previous"><a href="http://rocketdatascience.org/?p=460" rel="prev"><span class="meta-nav">←</span> Reach Analytics Maturity through Fast Automatic Modeling</a></span>
+					<span class="nav-next"><a href="http://rocketdatascience.org/?p=482" rel="next">Definitive Guides to Data Science and Analytics Things <span class="meta-nav">→</span></a></span>
+				</nav><!-- .nav-single -->
+
+				
+<div id="comments" class="comments-area">
+
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://rocketdatascience.org/?p=473#respond" style="display:none;">Cancel reply</a></small></h3><form action="http://rocketdatascience.org/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="473" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e0726e1d75"></p><p style="display: none;"></p><input type="hidden" id="ak_js" name="ak_js" value="1651400074465"></form>	</div><!-- #respond -->
+	<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>
+</div><!-- #comments .comments-area -->
+
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+			<aside id="search-2" class="widget widget_search"><h3 class="widget-title">Search site</h3><form role="search" method="get" id="searchform" class="searchform" action="http://rocketdatascience.org/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></aside>
+		<aside id="recent-posts-2" class="widget widget_recent_entries">
+		<h3 class="widget-title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="http://rocketdatascience.org/?p=1649">Data Insights for Everyone — The Semantic Layer to the Rescue</a>
+											<span class="post-date">September 20, 2021</span>
+									</li>
+											<li>
+					<a href="http://rocketdatascience.org/?p=1628">EX is the New CX</a>
+											<span class="post-date">September 3, 2021</span>
+									</li>
+											<li>
+					<a href="http://rocketdatascience.org/?p=1622">When the Voice of the Customer Actually Talks</a>
+											<span class="post-date">August 22, 2021</span>
+									</li>
+											<li>
+					<a href="http://rocketdatascience.org/?p=1593">Are You Content with Your Organization’s Content Strategy?</a>
+											<span class="post-date">July 6, 2021</span>
+									</li>
+											<li>
+					<a href="http://rocketdatascience.org/?p=1589">Top 10 Data Innovation Trends During 2020</a>
+											<span class="post-date">July 6, 2021</span>
+									</li>
+											<li>
+					<a href="http://rocketdatascience.org/?p=1574">Analytics Insights and Careers at the Speed of Data</a>
+											<span class="post-date">March 19, 2021</span>
+									</li>
+											<li>
+					<a href="http://rocketdatascience.org/?p=1558">RPA and IPA – Their Similarities are Different, but Their Rapid Growth Trajectories are the Same</a>
+											<span class="post-date">February 13, 2021</span>
+									</li>
+					</ul>
+
+		</aside><aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<label class="screen-reader-text" for="archives-dropdown-2">Archives</label>
+		<select id="archives-dropdown-2" name="archive-dropdown">
+			
+			<option value="">Select Month</option>
+				<option value="http://rocketdatascience.org/?m=202109"> September 2021 &nbsp;(2)</option>
+	<option value="http://rocketdatascience.org/?m=202108"> August 2021 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=202107"> July 2021 &nbsp;(2)</option>
+	<option value="http://rocketdatascience.org/?m=202103"> March 2021 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=202102"> February 2021 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=202010"> October 2020 &nbsp;(2)</option>
+	<option value="http://rocketdatascience.org/?m=202005"> May 2020 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=202003"> March 2020 &nbsp;(3)</option>
+	<option value="http://rocketdatascience.org/?m=201907"> July 2019 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=201906"> June 2019 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=201904"> April 2019 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=201903"> March 2019 &nbsp;(3)</option>
+	<option value="http://rocketdatascience.org/?m=201812"> December 2018 &nbsp;(2)</option>
+	<option value="http://rocketdatascience.org/?m=201810"> October 2018 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=201809"> September 2018 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=201808"> August 2018 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=201807"> July 2018 &nbsp;(4)</option>
+	<option value="http://rocketdatascience.org/?m=201609"> September 2016 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=201602"> February 2016 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=201601"> January 2016 &nbsp;(5)</option>
+	<option value="http://rocketdatascience.org/?m=201510"> October 2015 &nbsp;(2)</option>
+	<option value="http://rocketdatascience.org/?m=201508"> August 2015 &nbsp;(5)</option>
+	<option value="http://rocketdatascience.org/?m=201507"> July 2015 &nbsp;(7)</option>
+	<option value="http://rocketdatascience.org/?m=201505"> May 2015 &nbsp;(1)</option>
+	<option value="http://rocketdatascience.org/?m=201504"> April 2015 &nbsp;(2)</option>
+	<option value="http://rocketdatascience.org/?m=201503"> March 2015 &nbsp;(2)</option>
+	<option value="http://rocketdatascience.org/?m=201502"> February 2015 &nbsp;(4)</option>
+	<option value="http://rocketdatascience.org/?m=201501"> January 2015 &nbsp;(6)</option>
+	<option value="http://rocketdatascience.org/?m=201412"> December 2014 &nbsp;(4)</option>
+	<option value="http://rocketdatascience.org/?m=201410"> October 2014 &nbsp;(9)</option>
+
+		</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "archives-dropdown-2" );
+	function onSelectChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value !== '' ) {
+			document.location.href = this.options[ this.selectedIndex ].value;
+		}
+	}
+	dropdown.onchange = onSelectChange;
+})();
+/* ]]> */
+</script>
+			</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-32"><a href="http://rocketdatascience.org/?cat=32">Analytics</a> (6)
+</li>
+	<li class="cat-item cat-item-21"><a href="http://rocketdatascience.org/?cat=21">Artificial Intelligence</a> (19)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://rocketdatascience.org/?cat=3">Big Data</a> (47)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://rocketdatascience.org/?cat=22">Blockchain</a> (1)
+</li>
+	<li class="cat-item cat-item-2"><a href="http://rocketdatascience.org/?cat=2">Data Science</a> (58)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://rocketdatascience.org/?cat=19">Internet of Things</a> (13)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://rocketdatascience.org/?cat=20">Machine Learning</a> (21)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://rocketdatascience.org/?cat=14">Products</a> (17)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://rocketdatascience.org/?cat=29">Strategy</a> (7)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://rocketdatascience.org/?cat=13">Training</a> (7)
+</li>
+			</ul>
+
+			</aside><aside id="meta-2" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+		<ul>
+						<li><a href="http://rocketdatascience.org/wp-login.php">Log in</a></li>
+			<li><a href="http://rocketdatascience.org/?feed=rss2">Entries feed</a></li>
+			<li><a href="http://rocketdatascience.org/?feed=comments-rss2">Comments feed</a></li>
+
+			<li><a href="https://wordpress.org/">WordPress.org</a></li>
+		</ul>
+
+		</aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+						<a class="privacy-policy-link" href="http://rocketdatascience.org/?page_id=656">Privacy Policy</a><span role="separator" aria-hidden="true"></span>			<a href="https://wordpress.org/" class="imprint" title="Semantic Personal Publishing Platform">
+				Proudly powered by WordPress			</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type="text/javascript" src="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/comment-reply.min.js.Download" id="comment-reply-js"></script>
+<script type="text/javascript" src="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/navigation.js.Download" id="twentytwelve-navigation-js"></script>
+<script type="text/javascript" src="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/wp-embed.min.js.Download" id="wp-embed-js"></script>
+<script async="async" type="text/javascript" src="./Outliers, Inliers, and Other Surprises that Fly from your Data _ Rocket-Powered Data Science_files/form.js.Download" id="akismet-form-js"></script>
+
+
+</body></html>

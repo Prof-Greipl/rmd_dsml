@@ -49,6 +49,19 @@ Ausgabe:
 ```{python, echo=FALSE}
 iris_df.describe()
 ```
+## Countplot (Categorical)
+
+```{python, results="hide"}
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set_theme()
+
+fig, ax = plt.subplots( figsize=(7,5))
+ax.set_title("Iris Countplot - Anzahl nach Lilienart")
+sns.countplot(data = iris_df,  x = "class")
+```
+
 ## Single Numerical Feature
 
 ### Swarmplot

@@ -321,3 +321,115 @@ print(" \nNach Änderung : ")
 print( df.head(3) )
 ```
 
+### Dataframes aus Excel erzeugen{#id-load-from-excel}
+
+Folgendes Programmbeispiel zeigt, wie sie Daten aus Excel-Dateien einen Dataframe einlesen können. Damit das Beispiel funktioniert, laden sie eine Datei mit dem Namen *test-datei.xlsx* in das Verzeichnis *Colab Notebooks* auf [drive.google.com](https://drive.google.com/). 
+
+```
+from google.colab import drive
+import pandas as pd
+drive.mount('/content/drive')
+df = pd.read_excel("/content/drive/My Drive/Colab Notebooks/test-datei.xlsx")
+df.info()
+```
+
+## Weitere Funktionen
+
+### Filtern
+
+Sie definieren ein Kriterium und können dann wie nachfolgend angezeigt nach dem Kriterium filtern.
+
+```{python, results="hide"}
+import pandas as pd
+df = pd.DataFrame({
+   "Name": ["Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+          "Bonnell, Miss. Elizabeth",
+          "Petty, Tom"],
+    "Age": [22, 62, 58, 26],
+   "Gender": ["male", "male", "female", "female"]}
+  )
+filter = (df["Gender"] == "female")
+df_female = df[filter]
+print( df_female )
+```
+Ausgabe:
+```{python, echo=FALSE}
+import pandas as pd
+df = pd.DataFrame({
+   "Name": ["Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+          "Bonnell, Miss. Elizabeth",
+          "Petty, Tom"],
+    "Age": [22, 62, 58, 26],
+   "Gender": ["male", "male", "female", "female"]}
+  )
+filter = (df["Gender"] == "female")
+df_female = df[filter]
+print( df_female )
+```
+
+### Gruppieren und Aggregate
+
+Sie können die Datenzeilen nach kategorialen Daten zusammenfassen und dann pro Gruppe auswerten:
+
+```{python, results="hide"}
+import pandas as pd
+df = pd.DataFrame({
+   "Name": ["Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+          "Bonnell, Miss. Elizabeth",
+          "Petty, Tom"],
+    "Age": [22, 62, 58, 26],
+   "Gender": ["male", "male", "female", "female"]}
+  )
+
+print("\n\n Guppierung:")
+grouping = df.groupby(['Gender'])
+
+print("\n\n count:")
+print (grouping.count())
+
+print("\n\n mean:")
+print (grouping.mean())
+
+print("\n\n min:")
+print (grouping.min())
+
+print("\n\n max:")
+print (grouping.max())
+
+print("\n\n median:")
+print (grouping.median())
+```
+Ausgabe:
+```{python, echo=FALSE}
+import pandas as pd
+df = pd.DataFrame({
+   "Name": ["Braund, Mr. Owen Harris",
+            "Allen, Mr. William Henry",
+          "Bonnell, Miss. Elizabeth",
+          "Petty, Tom"],
+    "Age": [22, 62, 58, 26],
+   "Gender": ["male", "male", "female", "female"]}
+  )
+
+print("\n\n Guppierung:")
+grouping = df.groupby(['Gender'])
+
+print("\n\n count:")
+print (grouping.count())
+
+print("\n\n mean:")
+print (grouping.mean())
+
+print("\n\n min:")
+print (grouping.min())
+
+print("\n\n max:")
+print (grouping.max())
+
+print("\n\n median:")
+print (grouping.median())
+```
+
