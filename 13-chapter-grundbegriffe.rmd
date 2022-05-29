@@ -1,4 +1,4 @@
-# (PART) Teil D: Machinelles Lernen {-}
+# (PART) Teil D: Maschinelles Lernen {-}
 
 # Grundbegriffe
 

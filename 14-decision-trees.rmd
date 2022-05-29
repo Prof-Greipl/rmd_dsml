@@ -6,7 +6,7 @@ Wir versuchen als ML-Modell einen Entscheidungsbaum (decison tree) zu konstruier
 
 Der Aufbau eines Entscheidungsbaumes ist recht einfach entlang des folgenden Beispiels zu verstehen.
 
-![image-20211205130427796](assets/13-ml-decision-trees.assets/image-20211205130427796.png){width=100%}
+![Entscheidungsbaum am Beispiel "Iris"](assets/13-ml-decision-trees.assets/image-20211205130427796.png){width=100%}
 
 Nachfolgende Eigenschaften beschreiben einen binären Entscheidungsbaum:
 
@@ -41,7 +41,7 @@ Ein Entscheidungsbaum erlaubt auf folgende Weise eine *Prediction* für einen Fe
 
 
 
-![image-20211205144252174](assets/13-ml-decision-trees.assets/image-20211205144252174.png){width=100%}
+![Einscheidungsbaum der Höhe 2](assets/13-ml-decision-trees.assets/image-20211205144252174.png){width=100%}
 
 
 
@@ -58,7 +58,7 @@ Wir legen die Abfrage in jedem inneren Knoten fest (das ist für die Höhe 1 ein
 Dieser Schritt ist etwas anpruchsvoller: Wir lassen alle Datensätze - wie oben erläutert - durch einen Pfad bis zu einem Blatt laufen. In jedem Knoten auf dem Pfad zählen wir, 
 
 - wie viele Datensätze durch den Knoten gelaufen sind und
-- welche Klasse sie jeweils hatten (damit entsteht in dem Knoten eine *Zerlegung* der Menge; wir brauchen den Begriff weiter unten).
+- welche Klasse (label) sie jeweils hatten (damit entsteht in dem Knoten eine *Zerlegung* der Menge; wir brauchen den Begriff weiter unten).
 
 Schließlich legen wir *für jedes Blatt* die Klasse mit dem höchsten Zählwert als Prediction fest. 
 
@@ -70,7 +70,7 @@ Nachfolgend finden Sie entsprechenden Baum.  Im Wurzelknoten kommen alle 100 Dat
 
 
 
-![image-20211203200915482](assets/13-ml-decision-trees.assets/image-20211203200915482.png){width=100%}
+![Entscheidungsbaum mit erweiterten Knoten](assets/13-ml-decision-trees.assets/image-20211203200915482.png){width=100%}
 
 Sie können die Zahlen aus obigem Entscheidungsbaum mit Excel nachvollziehen oder - schneller - mit folgenden kleinen Programmen berechnen.
 
@@ -78,11 +78,11 @@ Sie können die Zahlen aus obigem Entscheidungsbaum mit Excel nachvollziehen ode
 
 ### Python (Iris mit zwei Arten)
 
-Wir wählten zuerst nur die beiden Klassen *versicolor* und *viriginca* aus. Die letzte Zeile des folgenden Programms ist entscheidend. Der Rest unterscheidet sich nicht vom bereits bekannten Ladevorgang.
+Wir wählen zuerst nur die beiden Klassen *versicolor* und *viriginca* aus. Die letzte Zeile des folgenden Programms ist entscheidend. Der Rest unterscheidet sich nicht vom bereits bekannten Ladevorgang.
 
 ##### Modifiziertes Laden der Daten{-}
 
-```python
+```{python}
 import pandas as pd
 from sklearn import datasets
 
@@ -95,9 +95,9 @@ iris_df = iris_df[50:]
 
 ##### Zählen der Datensätze pro Klasse{-}
 
-Mit folgenden Programmzeilen lassen sich die Zahlen schnell berechnen:
+Mit folgenden Programmzeilen lassen sich die nötigen Werte schnell berechnen:
 
-```python
+```{python, results="hide"}
 filter_crit = (iris_df["petal_len"] <= 4)
 filter_ver  = (iris_df["class"] == "versicolor")
 filter_vir  = (iris_df["class"] == "virginica")
@@ -106,6 +106,17 @@ print( "Total      : ", iris_df[ filter_crit]["class"].count() )
 print( "Versicolor : ", iris_df[ filter_crit & filter_ver]["class"].count() )
 print( "Virginica  : ", iris_df[ filter_crit & filter_vir]["class"].count() )
 ```
+Ausgabe:
+```{python, echo=FALSE}
+filter_crit = (iris_df["petal_len"] <= 4)
+filter_ver  = (iris_df["class"] == "versicolor")
+filter_vir  = (iris_df["class"] == "virginica")
+
+print( "Total      : ", iris_df[ filter_crit]["class"].count() )
+print( "Versicolor : ", iris_df[ filter_crit & filter_ver]["class"].count() )
+print( "Virginica  : ", iris_df[ filter_crit & filter_vir]["class"].count() )
+```
+
 
 
 
@@ -137,9 +148,47 @@ Als Lernverfahren könnten sie nun alle Entscheidungsbäume aus der Modellfamili
 
 ### Optimaler Baum nach Training
 
-Wir berechnen den besten Baum mit Python. Hier das Ergebnis, unten der Code.
+Wir berechnen den besten Baum mit Python. Hier  der Code und danach der Plot des Baumes. (Hinweis: Die mit #> beginnenden Zeilen zeigen die Ausgabe des vorhergehenden print Befehls.)
 
-  ![Iris mit 2 Klassen: Optimaler Baum der Höhe 1](assets/13-ml-decision-trees.assets/image-20211129092942002.png){width=100%}
+```{python}
+import pandas as pd
+
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+from sklearn import datasets
+from sklearn.tree import DecisionTreeClassifier 
+from sklearn import tree
+
+iris = datasets.load_iris()
+iris_df = pd.DataFrame(iris.data)
+iris_df['class']=iris.target_names[iris.target ]
+iris_df.columns=['sepal_len', 'sepal_wid', 'petal_len', 'petal_wid', 'class']
+iris_df = iris_df[50:]
+
+X = iris_df.sample(frac=1).reset_index(drop=True)
+y = X['class']
+X = X.drop(['class'], axis=1)
+
+print(f'\nShape of Feature Matrix : {X.shape}')
+print(f'\nShape of Labels : {X.shape}')
+
+clf = DecisionTreeClassifier(random_state=1234, criterion = 'gini', max_depth=1)
+model = clf.fit(X, y)
+
+fig = plt.figure(figsize=(6,5))
+p = tree.plot_tree(clf
+                   , feature_names=X.columns
+                   , class_names=['versicolor', 'virginica']
+                   , filled=True
+                   )
+plt.show()
+```
+
+
+
+  ![Iris mit 2 Klassen: Optimaler Baum der Höhe 1](assets/13-ml-decision-trees.assets/image-20211129092942002.png){width=60%}
+
 
 
 
@@ -148,44 +197,6 @@ Wir berechnen den besten Baum mit Python. Hier das Ergebnis, unten der Code.
 1. Berechnen sie die Werte in den Knoten mit dem Phython-Programm aus dem vorhergehenden Abschnitt.
 2. Welche *Accuracy* hat dieser Baum?
 
-  
-
-
-### Python (Berechnung des optimalen Baums)
-
-  ```python
-  import pandas as pd
-  
-  from matplotlib import pyplot as plt
-  import seaborn as sns
-  
-  from sklearn import datasets
-  from sklearn.tree import DecisionTreeClassifier 
-  from sklearn import tree
-  
-  iris = datasets.load_iris()
-  iris_df = pd.DataFrame(iris.data)
-  iris_df['class']=iris.target_names[iris.target ]
-  iris_df.columns=['sepal_len', 'sepal_wid', 'petal_len', 'petal_wid', 'class']
-  iris_df = iris_df[50:]
-  
-  X = iris_df.sample(frac=1).reset_index(drop=True)
-  y = X['class']
-  X = X.drop(['class'], axis=1)
-  
-  print(f'\nShape of Feature Matrix : {X.shape}')
-  print(f'\nShape of Labels : {X.shape}')
-  
-  clf = DecisionTreeClassifier(random_state=1234, criterion = 'gini', max_depth=1)
-  model = clf.fit(X, y)
-  
-  fig = plt.figure(figsize=(8,8))
-  p = tree.plot_tree(clf
-                     , feature_names=X.columns
-                     , class_names=['versicolor', 'virginica']
-                     , filled=True
-                     )
-  ```
 
 ### Gute Bäume konstruieren
 
@@ -205,18 +216,18 @@ Wie man an obigem Beispiel sieht, lässt sich jedem Knoten eine Zerlegung derjen
 
 Nehmen Sie an, dass eine Menge S  in Teilmengen $S_1, S_2,...S_k$  zerlegt wird (und damit den Elementen einer Teilmengen jeweils ein Label zugeordnet ist.) Mit  $p_i$  bezeichnen wir jeweils das Verhältnis der Elemente  von $S_i$ im Vergleich zu $S$. Wegen $\sum p_i = 1$ definiert $P = (p_1, p_2, ...,p_n)$ eine (diskrete) Verteilungsfunktion. 
 
-Wir wählen nun aus Menge $S$  zufällig  Elemente aus. Für jedes gewählte Element raten wir, zu welcher Teilmenge es gehört. Beim Raten halten wir die obige Verteilungsfunktion ein. Wie hoch ist die Wahrscheinlichkeit (die wir im folgenden GINI nennen, dass wir falsch raten? Oder anders ausgedrückt: Wie hoch ist die Wahrscheinlichkeit, dass wir ein zufällig gezogenes Sample falsch klassifizieren?
+Wir wählen nun aus Menge $S$  zufällig  Elemente aus. Für jedes gewählte Element raten wir, zu welcher Teilmenge es gehört. Beim Raten halten wir die obige Verteilungsfunktion ein. Wie hoch ist die Wahrscheinlichkeit (die wir im folgenden GINI nennen), *dass wir falsch raten*? Oder anders ausgedrückt: Wie hoch ist die Wahrscheinlichkeit, dass wir ein zufällig gezogenes Sample falsch klassifizieren?
 
 Offensichtlich ist für $k=2$ und $P = (p_1,p_2)$:
 $$
 \begin{align}
 \text{GINI}(p_1, p_2) \quad 
 & = \quad p_1 \cdot (1-p_1) + p_2 \cdot (1-p_2) \\
-& = \quad 2 p_1 p_2\\
+& = \quad p_1 - p_1^2 + p_2 - p_2^2 \\
 & = \quad 1 - p_1^2 - p_2^2
 \end{align}
 $$
-wegen $1 = (p_1 + p_2)^2 = p_1^2 + 2p_1p_2 + p_2^2$.
+wegen $p_1 + p_2 = 1$.
 
 
 
@@ -235,13 +246,13 @@ $$
 
 Versuchen Sie für die Zerlegungen der Knoten in nachfolgendem Entscheidungsbaum die GINI-Werte manuell zu berechnen:
 
-![image-20211202184650173](assets/13-ml-decision-trees.assets/image-20211202184650173.png){width=100%}
+![Entscheidungsbaum mit GINI-Werten](assets/13-ml-decision-trees.assets/image-20211202184650173.png){width=60%}
 
 
 
 ###  GINI-plot für $k=2$
 
-Für $k=2$ und $P = (p_1,p_2)$ ist wegen $p_2 = 1-p_1$  
+Für $k=2$ und $P = (p_1,p_2)$ ist wegen $(p_1 + p_2)^2 = 1$ und $p_2 = 1-p_1$  
 $$
 \text{GINI}(p_1, p_2) = 2p_1 \cdot (1-p_1)
 $$
@@ -251,9 +262,7 @@ $$
 $$
 Folgende Abbildung zeigt den Plot von $p \rightarrow 2p(1-p)$:
 
-![GINI in Abhängigkeit von p](assets/13-ml-decision-trees.assets/image-20211202184126689.png
-
-![GINI-Plot für $k=2$](assets/13-ml-decision-trees.assets/image-20211202184254174.png){width=50%}
+![GINI-Plot für $k=2$](assets/13-ml-decision-trees.assets/image-20211202184254174.png){width=80%}
 
 Je größer der GINI-Wert ist, desto "unreiner" ist die Zerlegung. Man spricht deshalb auch von GINI-*Impurity*.
 
@@ -268,6 +277,7 @@ $$
 \begin{align}\text{GINI}(p_1, \dots, p_k) \quad & = \quad \sum_{i=1}^k p_i \cdot \sum_{j \neq i} p_j \\
 & = \quad \sum_{i=1}^k (p_i \cdot  (1-p_i)) \\
 & = \quad \sum_{i=1}^k (p_i -  p_i^2 ) \\
+& = \quad \sum_{i=1}^k p_i - \sum_{i=1}^k p_i^2  \\
 & = \quad 1 - \sum_{i=1}^k p_i^2
 \end{align}
 $$
@@ -278,15 +288,15 @@ $$
 
 In einem Baum führt  **innerer Knoten** zu einer Aufteilung der Samples dieses Knoten in zwei Teilmengen, die linke Menge $S_L$ und die rechte Menge $S_R$.
 
-![image-20211202185542367](assets/13-ml-decision-trees.assets/image-20211202185542367.png){width=100%} 
+![Beispiel für Knoten-Splits](assets/13-ml-decision-trees.assets/image-20211202185542367.png){width=100%} 
 
 Für beide Mengen lässt sich der GINI-Wert ausrechnen:
 $$
-GINI(S_L) = 0  \quad \text{und} \quad GINI(S_R) = \frac{8}{25} =  0.32
+\text{GINI}(S_L) = 0  \quad \text{und} \quad \text{GINI}(S_R) = \frac{8}{25} =  0.32
 $$
 Der **erwartete** GINI-Wert des Split ist damit:
 $$
-GINI = \frac{1}{2} \cdot GINI(S_L) + \frac{1}{2} \cdot GINI(S_R) = \frac{4}{25} = 0.16
+\text{GINI} = \frac{1}{2} \cdot \text{GINI}(S_L) + \frac{1}{2} \cdot \text{GINI}(S_R) = \frac{4}{25} = 0.16
 $$
 Der Split reduziert also die erwartete GINI-Impurity  von $0.5$ auf $0.16$.  Damit wird die Grundidee des Verfahrens erkennbar: jeder Split soll die erwartete GINI-Impurity möglichst stark reduzieren. 
 
@@ -306,21 +316,25 @@ Wir haben in diesem Abschnitt zwei Bäume der Höhe 1 kennengelernt. Hierzu find
 
 
 
-![image-20211205140552086](assets/13-ml-decision-trees.assets/image-20211205140552086.png){width=100%}
+![Baum zur Übung](assets/13-ml-decision-trees.assets/image-20211205140552086.png){width=100%}
 
 -----
 
 
 
+<!--
+
 ![image-20211205140513312](assets/13-ml-decision-trees.assets/image-20211205140513312.png){width=100%}
+
+-->
 
 Die obige Übung sollte uns auf eine Idee bringen: Wir wählen die Abfrage im Wurzelknoten so, dass der GINI-Wert der Zerlegung möglichst klein wird.
 
 
 
-### Übung 7
+### Übung 7 (Baum der Höhe 2)
 
-Versuchen Sie abschließend eine möglichst guten Entscheidungsbaum der Höhe 2 für **alle drei Arten** zu bauen. Skizzieren sie den Baum (Achtung: Nachfolgende Grafik dient der Orientierung. Ihr Baum darf auch eine etwas andere Form haben!)
+Versuchen Sie abschließend eine möglichst guten Entscheidungsbaum der Höhe 2 für **alle drei Arten** zu bauen. Skizzieren sie den Baum (Achtung: Nachfolgende Grafik dient der Orientierung. Ihr Baum darf auch eine andere Form haben!)
 
-![image-20211205142457813](assets/13-ml-decision-trees.assets/image-20211205142457813.png){width=100%}
+![Vorlage für Baum der Höhe 2](assets/13-ml-decision-trees.assets/image-20211205142457813.png){width=100%}
 
