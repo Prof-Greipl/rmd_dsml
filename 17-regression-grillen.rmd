@@ -1,4 +1,4 @@
-# Regression
+# Regression{#id-regression}
 
 Anhand des Zirpens von Grillen kann man mehr oder weniger verlässlich die Lufttemperatur berechnen. Die Körperfunktionen von Grillen verändert sich wie bei anderen Insekten auch durch veränderte Lufttemperatur.  Wie alle Insekten sind Grillen kaltblütig und nehmen die sie umgebende Temperatur an. Je wärmer, desto häufigeres Zirpen, denn: Ist es wärmer, laufen die Körperfunktionen – wie auch Bewegungen – schneller ab, die Grillen sind aktiver. \[…] Da Grillen also bei erhöhter Temperatur häufiger Zirpen, kann man aus der Häufigkeit des Zirpens die Lufttemperatur ableiten. Die Formel dafür ist sehr simpel. Um die Temperatur in Grad Celsius zu errechnen, zählt man das Zirpen einer einzelnen Grille in einem Intervall von 25 Sekunden. ([Quelle](https://www.heute.at/s/so-verraten-ihnen-grillen-die-aktuelle-temperatur-54218483))
 
@@ -12,9 +12,7 @@ Natürlich wollen wir nun - wie üblich - aus dem Feature-Vektor den Label vorhe
 
 ![Chirps-Featues (x-Achse) und Labels (y-Achse)](assets/16-regression-grillen.assets/image-20211205172941481.png){width=100%}
 
-## 
-
-Hier der Pyhton Code:
+Hier der Python Code:
 
 ```python
 from matplotlib import pyplot as plt
@@ -45,9 +43,9 @@ sns.scatterplot(data = chirps, x = "Count", y="Temp", label="Temp")
 
 
 
-## Modellfamilie
+## Modellfamilie{#id-modellfamilie}
 
-Unsere Modellfamilie sind die linearen Funktionen  $$M_{w,b} : \mathbb{R} \rightarrow   \mathbb{R}$$, definiert durch
+Unsere Modellfamilie sind die linearen Funktionen  $M_{w,b} : \mathbb{R} \rightarrow   \mathbb{R}$, definiert durch
 
 $$
 M_{w,b}(x) = x \cdot w +b
@@ -56,7 +54,7 @@ $$
 Wir suchen also $w$ und $b$  in $\mathbb{R}$, so dass unser dadurch definiertes Modell unseren Datensatz möglichst gut vorhersagt. Offenbar ist $M$ für fest gewähltes  $w$ und $b$ eine lineare Funktion, die wir gut visualisieren können.
 
 
-### Übung
+#### Übung{-}
 
 1. Tragen sie die Funktion (Gerade) $M_{2,5}$ in das Koordinatensystem in diesem [Link](https://hawlandshutde-my.sharepoint.com/:p:/g/personal/dgreipl_az_haw-landshut_de/EVP2qxD2yfhFspTxcEiDBA8BSx3up_SbE0lADod7WLM9EQ?e=e5h7mw) in **die erste Folie** ein. 
 2. Tragen sie die aus Ihrer Sicht beste Gerade für obigen Datensatz in das Koordinatensystem in diesem [Link](https://hawlandshutde-my.sharepoint.com/:p:/g/personal/dgreipl_az_haw-landshut_de/EVP2qxD2yfhFspTxcEiDBA8BSx3up_SbE0lADod7WLM9EQ?e=e5h7mw) **in die zweite Folie** ein. Nennen sie eine Abschätzung für Gewicht $w$ und Bias $b$ dieser Gerade.
@@ -124,19 +122,23 @@ L(w_0+h_0) < L(w_0)
 $$
 Nun setzt man $w_1 = w_0 + h_0$ und fährt weiter fort. 
 
+#### Übung{-}
+
+Führen Sie obige Überlegung für den Fall $L´(w_0) > 0$ durch. Wie seht dann $w_1$ aus?
+
 
 
 ## Optimales Modell mit Python
 
-Wir können die optimalen Paramater einfach berechnen lassen. Das Ergebnis ist: 
+Wir können die optimalen Paramater (relativ) einfach berechnen lassen. Das Ergebnis ist: 
 
-![image-20211205175741435](assets/16-regression-grillen.assets/image-20211205175741435.png){width=50%}
+![Optimale Modellparameter und MSE für "Grillen"](assets/16-regression-grillen.assets/image-20211205175741435.png){width=50%}
 
 Übrigens lässt sich das auch analytisch berechnen. Sie können das unten nachlesen.
 
 
 
-### Python
+#### Python{-}
 
 Wir erzeugen zunächst die recht einfache Feature Matrix $X \in \mathbb{R}^{11 \times 1}$ und den Label-Vektor $y\in \mathbb{R}^{11}$ 
 
@@ -163,9 +165,9 @@ print("              MSE = : ", ((y-y_pred)*(y-y_pred)).sum()/11 )
 
 Folgende Abbildung zeigt das optimale Modell:
 
-![Optmales Modell (d.h. optimale Gerade)](assets/16-regression-grillen.assets/image-20211205180928324.png){width=100%}
+![Optimales Modell (d.h. optimale Gerade)](assets/16-regression-grillen.assets/image-20211205180928324.png){width=100%}
 
-### Python
+#### Python {-}
 
 ```python
 from matplotlib import pyplot as plt

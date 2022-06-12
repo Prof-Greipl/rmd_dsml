@@ -2,8 +2,6 @@
 
 # Grundbegriffe
 
-
-
 ## Feature Matrix
 
 ### Numerisches Feature (Merkmal)
@@ -117,7 +115,7 @@ $$
 
 Der Wert $M(x)$ heißt auch **Vorhersage ** oder **Prediction** des Modells $M$ für den Feature-Vektor $x$. Ein Modell ist also dann "gut", wenn die Vorhersage  $M(x)$ möglichst oft dem erwarteten Ergebnis entspricht oder nahe daran liegt. 
 
-### Klassifikation
+## Klassifikation
 
 Besteht die Ergebnismenge Y aus $k$ Elementen , also z.B.  $Y = \{0, \dots,k-1\}$, ( $k \geq 2)$ . So spricht man von  einem **Klassifikationsproblem**. Die zugehörige Problemstellung heißt Klassifikationsproblem.
 
@@ -132,18 +130,16 @@ Iris ist ein Beispiel für ein Klassifikationsproblem mit $k= 3$.
 Für **Klassifikation** definieren wir die Qualität des Verfahrens durch den Anteil der korrekt klassifizierten Eingaben, also
 
 $$
-A(M, X,y) = \frac{\text{Anzahl der korrekten Vorhersagen}}{\text{Anzahl der Examples}}=\frac{| \{ x_i, \text {mit }M(x_i) = y_i\}|}{n}
+\frac{\text{Anzahl der korrekten Vorhersagen}}{\text{Anzahl der Examples}}=\frac{| \{ x_i, \text {mit }M(x_i) = y_i\}|}{n}
 $$
 
 Beachten Sie, dass wir die Accuracy nicht unbedingt auf der Basis des <u>gesamten</u> Datensatzes $X$ bestimmen werden. Sinnvoller ist  die Berechnung anhand von Examples , die das Verfahren noch nie vorher gesehen hat. Dazu später mehr...
 
 
 
-## Regression
+## Regression {#regr}
 
-Enthält  $Y$ sehr viele mögliche Werte, z.B. $Y = \mathbb{R}$, weil die Labels quantitative Daten sind, so spricht man von einem  **Regressionsproblem**. 
-
-
+Enthält  $Y$ sehr viele mögliche *numerische* Werte, z.B. $Y = \mathbb{R}$, weil die Labels quantitative Daten sind, so spricht man von einem  **Regressionsproblem**. 
 
 
 
